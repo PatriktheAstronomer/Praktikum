@@ -1,0 +1,75 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[czech]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{txfonts}
+\usepackage{eurosym}
+\usepackage[symbol*]{footmisc}
+\usepackage{mathtools}
+\usepackage{enumitem}
+\usepackage{tabularx,ragged2e,booktabs,caption}
+\author{"Patrik Novotný"}
+
+\begin{document}
+\section*{Pracovní postup}
+\begin{enumerate}[label=(\alph*)]
+\item Nejprve jsme si přečetli studijí text...
+\item Abychom později mohli...
+\item Bla bla bla
+\item ...a nakonec jsme dostali 20/20.
+\end{enumerate}
+
+% Poznámky se píšou s pomocí procenta.
+
+\section*{Teorie}
+\par Odvodili jsme následující vztah, kde t značí čas, A albedo, P výkon, respektive solární konstantu.
+\begin{align}
+E =(1-A)*P*3600*(t-t_{rise}) \int_{0}^{\delta_{time}} \sin(x)*dx
+\end{align}
+\section*{Výsledky měření}
+\begin{center}
+    \captionof{table}{Předpověď počasí} \label{tab:title} 
+    \begin{tabular}{ | l | l | l | p{5cm} |}
+    \hline
+    Day [0] & Min Temp [C] & Max Temp [C] & Summary \\ \hline
+    Monday & 11C & 22C & A clear day with lots of sunshine.  
+    However, the strong breeze will bring down the temperatures. \\ \hline
+    Tuesday & 9C & 19C & Cloudy with rain, across many northern regions. Clear spells 
+    across most of Scotland and Northern Ireland, 
+    but rain reaching the far northwest. \\ \hline
+    Wednesday & 10C & 21C & Rain will still linger for the morning. 
+    Conditions will improve by early afternoon and continue 
+    throughout the evening. \\
+    \hline
+    \end{tabular}
+\end{center}
+
+\section*{Diskuse}
+\section*{Závěr}
+\par A nakonec nám došlo, že máme rádi MFF, protože má naprosto cool logo.
+\begin{figure}[!ht]
+\centering
+\caption{LOGO MFF}
+\includegraphics[width=230pt]{matfyz_barevne.png}
+\end{figure}
+
+\renewcommand\refname{Použitá literatura}
+\begin{thebibliography}{}
+\bibitem{latexcompanion} 
+Michel Goossens, Frank Mittelbach, and Alexander Samarin. 
+\textit{The \LaTeX\ Companion}. 
+Addison-Wesley, Reading, Massachusetts, 1993.
+ 
+\bibitem{einstein} 
+Albert Einstein. 
+\textit{Zur Elektrodynamik bewegter K{\"o}rper}. (German) 
+[\textit{On the electrodynamics of moving bodies}]. 
+Annalen der Physik, 322(10):891–921, 1905.
+ 
+\bibitem{knuthwebsite} 
+Knuth: Computers and Typesetting,
+\\\texttt{http://www-cs-faculty.stanford.edu/\~{}uno/abcde.html}
+\end{thebibliography}
+\end{document}
