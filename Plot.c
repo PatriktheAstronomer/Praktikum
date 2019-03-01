@@ -36,8 +36,7 @@ void Plot() {
    gr1->SetLineColor(2);
    gr1->SetLineWidth(1);
    gr1->Draw("AC"); //using ("AC*" use * as a marker)
-   
-   
+	
    c1->Update();
    c1->GetFrame()->SetFillColor(0);
    c1->GetFrame()->SetBorderSize(12);
