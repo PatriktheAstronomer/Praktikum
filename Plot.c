@@ -29,7 +29,7 @@ void Plot() {
    TGraph *gr1 = new TGraph(n,x1,y1);
    gr1->SetTitle("");
    gr1->GetXaxis()->SetTitle("#tau [s]");//using latex features
-   gr1->GetYaxis()->SetTitle("R [Ohm]");
+   gr1->GetYaxis()->SetTitle("R [#Omega]");
    gr1->GetXaxis()->CenterTitle(1);
    gr1->GetYaxis()->CenterTitle(1);
    gr1->SetFillColor(kWhite);
@@ -43,6 +43,4 @@ void Plot() {
    c1->GetFrame()->SetBorderSize(12);
    c1->Modified();
    c1->SaveAs("Plot.png");
-
-
 }
