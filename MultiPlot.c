@@ -33,8 +33,6 @@ void MultiPlot() {
 
    TGraphErrors *gr1 = new TGraphErrors(n,x1,y1,0,ey);
    gr1->SetTitle("");
-   gr1->GetXaxis()->SetTitle("#tau [s]");//using latex features
-   gr1->GetYaxis()->SetTitle("R [#Omega]");
    gr1->GetXaxis()->CenterTitle(1);
    gr1->GetYaxis()->CenterTitle(1);
    gr1->SetFillColor(kWhite);
