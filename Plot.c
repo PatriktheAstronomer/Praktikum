@@ -10,7 +10,7 @@ void Plot() {
    c1->SetGrid();
    c1->SetFillColor(kWhite);
 
-   const Int_t n = 36; //maximum number of lines, starts from second line!
+   const Int_t n = 36; //maximum number of lines
    Double_t x1[n], y1[n];
    for(Int_t i = 0; i < n; i++){ //instead of using EOF
 	x1[i] = 0;
