@@ -30,57 +30,66 @@
 \section*{Teorie}
 \par Naším ukolem je zkalibrovat termočlánek měď-konstantan a platinový odporový teploměr. Závislosti $\epsilon$(t) pro termočlánek (1) a $R(t)$ pro odporový teploměr (2) aproximujeme pomocí Taylorových polynomů, s ohledem na přesnost měření nemá smysl snažit se použít polynomy vyššího řádu než dva.
 \begin{align}
-\epsilon = a + b*(t_{2}-t_{1})+c*(t_{2}-t_{1})^2\:[V]\\
-R = R_{0}*(1+A*t+B*t^2)\:[\Omega]
+\epsilon = a + b\cdot(t_{2}-t_{1})+c\cdot(t_{2}-t_{1})^2\:[V]\\
+R = R_{0}\cdot(1+A\cdot t+B\cdot t^2)\:[\Omega]
 \end{align}
-kde $\epsilon$ je termoelektrické napětí na termočlánku, $R$ odpor odporového teploměru, t teplota v kelvinech a $R_{0}$ odpor odporového teploměru při teplotě $0^{\circ}$C. Musíme tedy určit příslušné konstanty a,b,c pro termočlánek a A, B pro odporový teploměr. Hodí se také poznamenat, že konstanta a by měla být nulové, ač se níže ukáže, že není, naměřenou hodnotu je pak možno považovat za chybu měření termočlánku. Všechny konstanty jsou nezávislé na teplotě. Je nutno tedy naměřit proměnné $\epsilon$ a $R$ ve třech referenčních bodech a určit konstanty pomocí následujících vztahů.
+kde $\epsilon$ je termoelektrické napětí na termočlánku, $R$ odpor odporového teploměru, t teplota v kelvinech a $R_{0}$ odpor odporového teploměru při teplotě $0^{\circ}$ C. Musíme tedy určit příslušné konstanty a,b,c pro termočlánek a A, B pro odporový teploměr. Hodí se také poznamenat, že konstanta a by měla být nulová, ač se níže ukáže, že není, naměřenou hodnotu je pak možno považovat za chybu měření termočlánku. Všechny konstanty jsou nezávislé na teplotě. Je nutno tedy naměřit proměnné $\epsilon$ a $R$ ve třech referenčních bodech a určit konstanty pomocí následujících vztahů.
 \begin{align}
 a=\epsilon(t_{1})\:[V]\\
-b=\frac{a*(t_{2}^{2}-t_{3}^{2})+e(t_{2})*t_{3}^{2}-e(t_{3})*t_{2}^{2}}{t_{2}*t_{3}*(t_{3}-t_{2})}\:[VK^{-1}]\\
-c=\frac{a*(t_{2}+t_{3})+e(t_{3})*t_{2}-e(t_{2})*t_{3}}{t_{2}*t_{3}*(t_{3}-t_{2})}\:[VK^{-2}]\\
+b=\frac{a\cdot(t_{2}^{2}-t_{3}^{2})+e(t_{2})\cdot t_{3}^{2}-e(t_{3})\cdot t_{2}^{2}}{t_{2}\cdot t_{3}\cdot(t_{3}-t_{2})}\:[VK^{-1}]\\
+c=\frac{a\cdot(t_{2}+t_{3})+e(t_{3})\cdot t_{2}-e(t_{2})\cdot t_{3}}{t_{2}\cdot t_{3}\cdot(t_{3}-t_{2})}\:[VK^{-2}]\\
 R_{0} = R(t_{1})\:[\Omega]\\
-A =\frac{t_{2}^{2}*(R_{0}-R_{3})+t_{3}^{2}*(R_{2}-R_{0})}{R_{0}*t_{2}*t_{3}*(t_{3}-t_{2})}\:[K^{-1}]\\
-B =\frac{t_{2}*(R_{3}-R_{0})+t_{3}*(R_{0}-R_{2})}{R_{0}*t_{2}*t_{3}*(t_{3}-t_{2})}\:[K^{-2}]
+A =\frac{t_{2}^{2}\cdot(R_{0}-R_{3})+t_{3}^{2}\cdot(R_{2}-R_{0})}{R_{0}\cdot t_{2}\cdot t_{3}\cdot(t_{3}-t_{2})}\:[K^{-1}]\\
+B =\frac{t_{2}\cdot(R_{3}-R_{0})+t_{3}\cdot(R_{0}-R_{2})}{R_{0}\cdot t_{2}\cdot t_{3}\cdot(t_{3}-t_{2})}\:[K^{-2}]
 \end{align}
-vztahy byly odvozeny ze vztahů (1) a (2) a indexy 1,2,3 značí teploty referečních body. Za referenční bod č.1 jsme volíme směs vody a ledu o teplotě kolem $0^{\circ}$C. Za referenční bod č. 2 teplotu vařící se vody, ta je silně závislá na okolním tlaku a přesně ji určuje následující vztah.
+vztahy byly odvozeny ze vztahů (1) a (2) a indexy 1,2,3 značí teploty referečních body. Za referenční bod č.1 jsme volíme směs vody a ledu o teplotě kolem $0^{\circ}$ C. Za referenční bod č. 2 teplotu vařící se vody, ta je silně závislá na okolním tlaku a přesně ji určuje následující vztah.
 \begin{align}
-t_{var_{H_{2}O}} = 100.0 + 28.0216(\frac{p}{p_{0}}-1)-11.642(\frac{p}{p_{0}}-1)^{2}+7.1(\frac{p}{p_{0}}-1)^{3}\:[C]
+t_{var_{H_{2}O}} = 100.0 + 28.0216\cdot(\frac{p}{p_{0}}-1)-11.642\cdot(\frac{p}{p_{0}}-1)^{2}+7.1\cdot(\frac{p}{p_{0}}-1)^{3}\:[C]
 \end{align}
-kde $p_{0}$ značí normální barometrický tlak, který je roven 1013.25hPa.
-\par Jako poslední referenční bod volíme teplotu tuhnutí cínu, jejíž hodnota je $231.93^{\circ}$C. Tyto hodnoty volíme z důvodů, že při fázové změně je teplota a tedy i $\epsilon$(t) a $R(t)$ velmi stabilní na delším časovém úseku, hodnoty teplot referenčích bodů č.1 a č.3 považujeme za stálé a přesné.
-
-\section*{Výsledky měření}
-\par Laboratorní podmínky v laboratoři v době měření referenčního bodu č.2, jehož hodnota je zavislá na okolních podmínkách, byly teplota t = $(24.6\pm0.4)^{\circ}$C a atmosférický tlak p = (1001$\pm2$)hPa. Tudíž ze vztahu (9) a metody přenosu chyb
+kde $p_{0}$ značí normální barometrický tlak, který je roven 1013.25 hPa.
+\par Jako poslední referenční bod volíme teplotu tuhnutí cínu, jejíž hodnota je $231.93^{\circ}$ C. Tyto hodnoty volíme z důvodů, že při fázové změně je teplota a tedy i $\epsilon$(t) a $R(t)$ velmi stabilní na delším časovém úseku, hodnoty teplot referenčích bodů č.1 a č.3 považujeme za stálé a přesné. 
+\par Dále ze vztahu (9) a metody přenosu chyb dle [1], [3] můžeme určit chybu s níž jsme schopni určit hodnotu bodu varu vody.
 \begin{align}
 \delta_{p} = \frac{\Delta_{p}}{p} \\
-\delta_{t_{var_{H_{2}O}}} = \sqrt{\delta_{p}^{2}+(2*\delta_{p})^{2}+(3*\delta_{p})^{2}}
+\delta_{t_{var_{H_{2}O}}} = \sqrt{\delta_{p}^{2}+(2\cdot \delta_{p})^{2}+(3\cdot \delta_{p})^{2}}
 \end{align}
-teplota varu vody v místnosti byla $t_{var_{H_{2}O}} = (99.66\pm0.21)^{\circ}$C.
-\par Odpor jsme měřili s chybou $0.5\%$, napětí s chybou 35 ppm z rozsahu 0.1V a 90 ppm z hodnoty, obě chyby můžeme vzhledem k naměřeným hodnotám zanedbat.
+\par Nakonec můžeme vyjádřit ze vztahů (1) a (2) následující závislosti času a teploty, jakož i metodou přenosu chyb jejich chyby.
+\begin{align}
+t_{R} = \frac{-A+\sqrt{A^2+4\cdot B\cdot(\frac{R}{R_{0}}-1)}}{2\cdot B} \\
+\Delta{t_{R}} = \frac{\Delta{R}}{A^{2}+4\cdot B\cdot(\frac{R}{R_{0}}-1)}\\
+t_{\epsilon} = \frac{-b+\sqrt{b^2+4\cdot c\cdot(\epsilon-a)}}{2\cdot c}\\
+\Delta{t_{\epsilon}} = \frac{\Delta{\epsilon}}{\sqrt{b^{2}+4\cdot c\cdot(\epsilon-a)}}
+\end{align}
+kde R je odpor v daném čase a $\epsilon$ je napětí v daném čase, ostatní proměnné jsou stejné jako byly zavedeny výše.
+\par Během měření jsme si opsali chyby měřících přístrojů, pokud nebyla dokumentace k dispozici, tak po konzultaci s vyučujícím uvažuje chybu posledního digitu. Celý oddíl teorie vychází z [1] a [2], hodnoty konstant z [4].
+
+\section*{Výsledky měření}
+\par Laboratorní podmínky v laboratoři v době měření referenčního bodu č.2, jehož hodnota je zavislá na okolních podmínkách, byly teplota t = $(24.6\pm0.4)^{\circ}$ C a atmosférický tlak p = (1001$\pm2$) hPa, teplota varu vody v místnosti byla dle (9), (10), (11) určena jako $t_{var_{H_{2}O}} = (99.66\pm0.21)^{\circ}$ C.
+\par Odpor jsme měřili s chybou 0.5 $\%$, napětí s chybou 35 ppm z rozsahu 0.1 V a 90 ppm z hodnoty, obě chyby můžeme vzhledem k naměřeným hodnotám zanedbat.
 \begin{center}
     \captionof{table}{Výsledné hodnoty} \label{tab:title} 
     \begin{tabular}{ | l | l | p{5cm} |}
     \hline
     $t$ [$^{\circ}$C] & $\epsilon$ [mV]   & $R$ [$\Omega$] \\ \hline
-    0 & (3.69$\pm1.92)*10^{-3}$ & 101.6$\pm0.5$  \\ \hline
+    0 & (3.69$\pm1.92)\cdot10^{-3}$ & 101.6$\pm0.5$  \\ \hline
     99.66 & 4.38$\pm0.00$ & 138.6$\pm0.7$  \\ \hline
     231.93 & 11.32$\pm0.02$ & 187.5$\pm0.9$ \\ \hline
     \end{tabular}
 \end{center}
 v tabulce jsou vyneseny hodnoty $t_{i}$, $R_{i}$ a $\epsilon_{i}$, kde i = 1,2,3.
 
-\par Ze vztahů (3) až (8) a metodu přenosu chyb, jejich vzorce jsou velmi dlouhé a proto si dovoluji je vynechat, jsme určili hledané konstanty.
+\par Ze vztahů (3) až (8) a metodou přenosu chyb jsme určili vzorce pro hledané konstanty i jejich chyby. Vzorce pro chyby konstant jsme si dovolili vzhledem k jejich délce vynechat. Stejně jako ve vztazích (11),(13),(15) naše metodika zpracování vychází z [1] a [3].
 \begin{center}
     \captionof{table}{Výsledné hodnoty konstant} \label{tab:title} 
-    \begin{tabular}{ | l | l | p{5cm} |}
+    \begin{tabular}{ | l | p{5cm} |}
     \hline
-    Název & hodnota   & jednotka \\ \hline
-    a & (3.69$\pm1.92)$ & [$\mu$V]  \\ \hline
-    b & (4.03$\pm0.02)*10^{-5}$ & [V$K^{-1}$] \\ \hline
-    c & (3.70$\pm0.11)*10^{-8}$ & [V$K^{-2}$]  \\ \hline
-    $R_{0}$ & (101.6$\pm0.5)$ & [$\Omega$]  \\ \hline
-    A & (3.66$\pm0.07)*10^{-3}$ & [$K^{-1}$] \\ \hline
-    B & (-6.63$\pm9.15)*10^{-8}$ & [$K^{-2}$]\\ \hline
+    Název & hodnota \\ \hline
+    a & (3.69$\pm1.92)$ [$\mu$V]  \\ \hline
+    b & (4.03$\pm0.02)\cdot10^{-5}$ [V$K^{-1}$] \\ \hline
+    c & (3.70$\pm0.11)\cdot10^{-8}$ [V$K^{-2}$]  \\ \hline
+    $R_{0}$ & (101.6$\pm0.5)$ [$\Omega$]  \\ \hline
+    A & (3.66$\pm0.07)\cdot10^{-3}$ [$K^{-1}$] \\ \hline
+    B & (-6.63$\pm9.15)\cdot10^{-8}$ [$K^{-2}$]\\ \hline
     \end{tabular}
 \end{center}
 \par Grafy, kde nejsou značené měřené hodnoty a pouze spojnice obsahují takové množství bodů, že použití markerů by bylo nepraktické. Grafy používají již výše zavedené proměnné mimo $\tau$, které značí čas.
@@ -90,31 +99,31 @@ v tabulce jsou vyneseny hodnoty $t_{i}$, $R_{i}$ a $\epsilon_{i}$, kde i = 1,2,3
 \caption{Kalibrace termočlánku}
 \includegraphics[width=400pt]{kalibrace.png}
 \end{figure}
-\par První graf zobrazuje hodnoty termoelektrické napětí v závislosti na čase při zapojení obou konců do izolované nádoby s ledovou tříští, z hodnot mezi 101. a 921. sekundou určujeme konstanu "a", hodnota (jakož i všechny další) uvedena v tabulce výše.
+\par Graf na obrázku č.1 zobrazuje hodnoty termoelektrické napětí v závislosti na čase při zapojení obou konců do izolované nádoby s ledovou tříští, z hodnot mezi 101. a 921. sekundou určujeme konstanu a, hodnota (jakož i všechny další) uvedena v tabulce výše.
 \begin{figure}[H]
 \centering
 \caption{Termočlánek poblíž bodu varu vody}
 \includegraphics[width=400pt]{voda_termoclanek.png}
 \end{figure}
-\par Druhý graf zobrazuje hodnoty termoelektrické napětí v závislosti na čase při zapojení "teplého" konce do baňky s vařící se vodou, z hodnot mezi 996. a 1106. sekundou určujeme konstanu "b", hodnota uvedena výše v tabulce. Zajímavá se nám může jevit nelinearita před dosažením bodu varu, po konzultaci s dozorem praktika se domníváme, že měření ovlivnila kapka, která zkondenzovala na konci článku.
+\par Graf na obrázku č.2 zobrazuje hodnoty termoelektrické napětí v závislosti na čase při zapojení "teplého" (pro další použití v textu teplým koncem myslíme konec, při jehož zapojení do teplejšího prostředí je hodnota napětí kladná) konce do baňky s vařící se vodou, z hodnot mezi 996. a 1106. sekundou určujeme konstanu b, hodnota uvedena výše v tabulce. Zajímavá se nám může jevit nelinearita před dosažením bodu varu, po konzultaci s dozorem praktika se domníváme, že měření ovlivnila kapka, která zkondenzovala na konci článku.
 \begin{figure}[H]
 \centering
 \caption{Termočlánek během chladnutí tuhnutí cínu}
 \includegraphics[width=400pt]{cin_termoclanek.png}
 \end{figure}
-\par Třetí graf zobrazuje hodnoty termoelektrické napětí v závislosti na čase při zapojení  "teplého" konce do pícky s roztaveným cínem, z hodnot mezi 1674. a 2394. sekundou určujeme konstanu "c", hodnota uvedenavýše v tabulce. Z poklesu napětí před fázovou změnou lze usuzovat, že cín byl velmi čistý.
+\par Graf na obrázku č.3 zobrazuje hodnoty termoelektrické napětí v závislosti na čase při zapojení  "teplého" konce do pícky s roztaveným cínem, z hodnot mezi 1674. a 2394. sekundou určujeme konstanu c, hodnota uvedena výše v tabulce. Z poklesu napětí před fázovou změnou lze usuzovat, že cín byl velmi čistý.
 \begin{figure}[H]
 \centering
 \caption{Odporový teploměr během varu vody}
 \includegraphics[width=400pt]{Odpor_var.png}
 \end{figure}
-\par Čtvrtý graf zobrazuje hodnoty odporu v závislosti na čase v době, kdy byl teploměr vložen do baňky, v níž se ohřívala a později vařila voda. Z hodnot mezi 986. a 1106. sekundou jsme určili konstantu "A", již výše uvedenou.
+\par Graf na obrázku č.4 zobrazuje hodnoty odporu v závislosti na čase v době, kdy byl teploměr vložen do baňky, v níž se ohřívala a později vařila voda. Z hodnot mezi 986. a 1106. sekundou jsme určili konstantu A, již výše uvedenou.
 \begin{figure}[H]
 \centering
 \caption{Odporový teploměr během chladnutí cínu}
 \includegraphics[width=400pt]{Odpor_tuhnuti.png}
 \end{figure}
-\par Pátý graf zobrazuje hodnoty odporu v závislosti na čase v době, kdy byl teploměr vložen do pícky s chladnoucím cínem. Lze si povšimnout poklesu odporu, který je funkcí teploty, přes fázovým přechodem, více je toto diskutováno v sekci Diskuse. Z hodnot mezi 1690. a 2230. sekundou jsme určili konstantu "B", již výše uvedenou.
+\par Graf na obrázku č.5 zobrazuje hodnoty odporu v závislosti na čase v době, kdy byl teploměr vložen do pícky s chladnoucím cínem. Lze si povšimnout poklesu odporu, který je funkcí teploty, přes fázovým přechodem, více je toto diskutováno v sekci Diskuse. Z hodnot mezi 1690. a 2230. sekundou jsme určili konstantu B, již výše uvedenou.
 \par Z uvedených konstant jsme určili následující kalibrační křivky, jak pro termočlánek, tak pro odporový teploměr.
 
 \begin{figure}[H]
@@ -122,65 +131,60 @@ v tabulce jsou vyneseny hodnoty $t_{i}$, $R_{i}$ a $\epsilon_{i}$, kde i = 1,2,3
 \caption{Kalibrační křivka odporového teploměru}
 \includegraphics[width=400pt]{Kalibrace_odpor.png}
 \end{figure}
-\par Šestý graf zobrazuje kalibrační křivku odporového teploměru.
+\par Graf na obrázku č.6 zobrazuje kalibrační křivku odporového teploměru.
 
 \begin{figure}[H]
 \centering
 \caption{Kalibrační křivka termočlánku}
 \includegraphics[width=400pt]{Kalibrace_clanek.png}
 \end{figure}
-\par Sedmý graf zobrazuje kalibrační křivku termočlánku. U obou grafů si lze všimnout, že se jedná skoro o lineární funkce, zde u termočlánku si lze všimnout nepatrné "prohnutosti" přímky, která ukazuje na nelinearitu a samozřejmě jiné směrnice i hodnoty v počátku.
-
-\par Vyjádřením ze vztahů (1) a (2) lze určit následující závislosti času a teploty, jakož i metodou přenosu chyb jejich chyby.
-\begin{align}
-t_{R} = \frac{-A+\sqrt{A^2+4*B*(\frac{R}{R_{0}}-1)}}{2*B} \\
-\Delta{t_{R}} = \frac{\Delta{R}}{A^{2}+4*B*(\frac{R}{R_{0}}-1)}\\
-t_{\epsilon} = \frac{-b+\sqrt{b^2+4*c*(\epsilon-a)}}{2*c}
-\end{align}
-kde R je odpor v daném čase a $\epsilon$ je napětí v daném čase, ostatní proměnné jsou stejné jako byly zavedeny výše. Absolutní chyba pro epsilon je analogická, proto neuvádíme.
+\par Graf na obrázku č.7 zobrazuje kalibrační křivku termočlánku. U obou grafů si lze všimnout, že se jedná skoro o lineární funkce, zde u termočlánku si lze výraznější nelinearity. Grafy se samozřejmě liší i směrnicemi a hodnotami v počátku.
 
 \begin{figure}[H]
 \centering
 \caption{Teplota při ohřevu a varu vody jako funkce času}
 \includegraphics[width=400pt]{voda.png}
 \end{figure}
-\par Osmý graf zobrazuje teplotu zjištěnou měřením napětí na termočlánku jako spojitou funkci, naopak měření teploty pomocí odporu je vyjádřeno diskrétně i s errorbary, které značí odhad rozsah chyby, vypočteno výše. Toto platí pro Obrázek 9. Lze si povšimnout, že v oblasti nižších teplot neprochází spojitá funkce oblastí vymezenou errorbary a tudíž jsme museli nějakou chybu při měření nebo vyhodnocení špatně vyhodnotit. Domníváme se, že se jedná o systematickou chybu, více rozebráno v diskusi.
+\par Osmý graf zobrazuje teplotu zjištěnou měřením napětí na termočlánku yjištěnou dle vztahu (14) jako spojitou funkci, naopak měření teploty pomocí odporu je vyjádřeno diskrétně i s errorbary, které značí odhad rozsah chyby, vypočteno pomocí vztahů (12) a (13). Toto platí pro obrázek 9. Lze si povšimnout, že v oblasti nižších teplot neprochází spojitá funkce oblastí vymezenou errorbary a tudíž jsme museli nějakou chybu při měření nebo vyhodnocení špatně vyhodnotit. Domníváme se, že se jedná o systematickou chybu, více rozebráno v diskusi.
 
 \begin{figure}[H]
 \centering
 \caption{Teplota při chladnutí a tuhnutí cínu jako funkce času}
 \includegraphics[width=400pt]{cin.png}
 \end{figure}
-\par Devátý graf má stejné parametry jako graf osmý, rozdílem však je, že spojitá funkce se nachází z výrazné většiny v oblasti vynezené errorbary a dokonce poblíž jejich středu. 
+\par Devátý graf má stejné parametry jako graf osmý, rozdílem však je, že spojitá funkce se nachází z výrazné většiny v oblasti vymezené errorbary a dokonce poblíž jejich středu. 
 
 \section*{Diskuse}
-\par Nejvýraznější problém, který by mohl ovlivnit naše měření jsou příměsy v cínu, tento problém by šlo eliminovat tím, že by se pícká s cínem nacházela v inertní, např. dusíkové atmosféře. Příměsy bývají hlavně oxidy vznikající při fázových změnách. Jak je vidět na grafu č. 3, tak dokonce před ustálení napětí při měření tuhnutí cínu se nám podařilo naměřit pokles napětí, což ukazuje na jeho velkou chemickou čistotu. Nicméně obdobný problém by nás mohl potkat v případě referenčních bodů vztažených vůči vodě, kdy jakákoliv nečistota ovlivní fázový přechod. Další otázkou je, jak ovlivňuje prostředí ve skleněné baňce samotná baňka, hlavně zda vnitřní tlak je stejný jako tlak v místnosti. Navíc, jak jsme mohli vidět na grafu č. 2, tak problém může být i kapka kondenzující na konci termočlánku. Toto se jasně projevuje v předposledním grafu (Obrázek 8), kdy jsme během experimentu pozorovali orosené oba konce měřicích přístrojů a zjevně měřicí konec teploměru byl pokrytý větší vrstvou kapaliny, důkazem pro tuto úvahu nám může být, že při měření v cínu (Obrázek 9) se obě funkce velmi dobře shodují.
+\par Nejvýraznější problém, který by mohl ovlivnit naše měření jsou příměsy v cínu, tento problém by šlo eliminovat tím, že by se pícka s cínem nacházela v inertní, např. dusíkové atmosféře. Příměsy bývají hlavně oxidy vznikající při fázových změnách. Jak je vidět na grafu č. 3, tak dokonce před ustálení napětí při měření tuhnutí cínu se nám podařilo naměřit pokles napětí, což ukazuje na jeho velkou chemickou čistotu. Nicméně obdobný problém by nás mohl potkat v případě referenčních bodů vztažených vůči vodě, kdy jakákoliv nečistota ovlivní fázový přechod. Další otázkou je, jak ovlivňuje prostředí ve skleněné baňce samotná baňka, hlavně zda vnitřní tlak je stejný jako tlak v místnosti. Navíc, jak jsme mohli vidět v grafu na obrázku č. 2, tak problém může být i kapka kondenzující na konci termočlánku. Toto se jasně projevuje v předposledním grafu (obrázek 8), kdy jsme během experimentu pozorovali orosené oba konce měřicích přístrojů a zjevně měřicí konec teploměru byl pokrytý větší vrstvou kapaliny, důkazem pro tuto úvahu nám může být, že při měření v cínu (obrázek 9) se obě funkce velmi dobře shodují. Navíc je dále si potřeba uvědomit, že ikdyž chybu $t_{\epsilon}$ negrafujeme pro nepřehlednost při takhto velkém množství měření, tak dosahuje řádu jednotek stupňů dle vztahu (15).
 \par Další nepřesnosti měření mohli vzniknout úvahou vztahů (1) a (2) pouze jakožto kvadratických, přičemž se může jednat o funkce vyšších řádů.
-\par Problematický může být i zápis napětí $\epsilon$ pomocí počítače a odporu $R$ člověkem, kdy by se nám při prudké změně hodnot mohli funkce rozejít, popř. kdybychom kvůli diskrétnosti měření daný jev nezaznamenali. Avšak, jak ukazuje pokles na Obrázku č. 9, těmto potížím jsme se úspěšně vyhnuli.
+\par Problematický může být i zápis napětí $\epsilon$ pomocí počítače a odporu $R$ člověkem, kdy by se nám při prudké změně hodnot mohli funkce rozejít, popř. kdybychom kvůli diskrétnosti měření daný jev nezaznamenali. Avšak, jak ukazuje pokles na obrázku č. 9, těmto potížím jsme se úspěšně vyhnuli.
 \section*{Závěr}
 \par Z naměřených hodnot $\epsilon$ a $R$ a se nám podařilo naměřit následující hodnoty konstant:
 \begin{center}
-    \begin{tabular}{ | l | l | p{5cm} |}
+    \begin{tabular}{ | l | p{5cm} |}
     \hline
-    Název & hodnota   & jednotka \\ \hline
-    a & (3.69$\pm1.92)$ & [$\mu$V]  \\ \hline
-    b & (4.03$\pm0.02)*10^{-5}$ & [V$K^{-1}$] \\ \hline
-    c & (3.70$\pm0.11)*10^{-8}$ & [V$K^{-2}$]  \\ \hline
-    $R_{0}$ & (101.6$\pm0.5)$ & [$\Omega$]  \\ \hline
-    A & (3.66$\pm0.07)*10^{-3}$ & [$K^{-1}$] \\ \hline
-    B & (-6.63$\pm9.15)*10^{-8}$ & [$K^{-2}$]\\ \hline
+    Název & hodnota \\ \hline
+    a & (3.69$\pm1.92)$ [$\mu$V]  \\ \hline
+    b & (4.03$\pm0.02)\cdot10^{-5}$ [V$K^{-1}$] \\ \hline
+    c & (3.70$\pm0.11)\cdot10^{-8}$ [V$K^{-2}$]  \\ \hline
+    $R_{0}$ & (101.6$\pm0.5)$ [$\Omega$]  \\ \hline
+    A & (3.66$\pm0.07)\cdot10^{-3}$ [$K^{-1}$] \\ \hline
+    B & (-6.63$\pm9.15)\cdot10^{-8}$ [$K^{-2}$]\\ \hline
     \end{tabular}
 \end{center}
-\par Dále jsme nalezli hledané kalibrační křivky i závislosti $\tau_{R}$(t) a $\tau_{\epsilon}$(t), ty lze najít v části výsledky měření v podobě grafů. Z diskusi jsme rozebrali získaná data a zauvažovali nad tím, co je naměřeno přesně, co nepřesně a jakými jevy to bylo ovlivněno.
+\par Dále jsme nalezli hledané kalibrační křivky i závislosti $\tau_{R}$(t) a $\tau_{\epsilon}$(t), ty lze najít v části výsledky měření v podobě grafů.
 
 \renewcommand\refname{Použitá literatura}
 \begin{thebibliography}{}
 \bibitem{broz} 
 BROŽ, J. a KOL. Základy fyzikálních měření I. 1. vydání. Praha: SPN, 1983
 \bibitem{praktikum}
-Fyzikální praktikum. Kalibrace odporového teploměru a termočlánku – fázové přechody [online][cit. 2019-02-28]. Dostupné z:  
+Fyzikální praktikum. Kalibrace odporového teploměru a termočlánku – fázové přechody [online][cit. 2019-03-02]. Dostupné z:  
 \url{https://physics.mff.cuni.cz/vyuka/zfp/_media/zadani/texty/txt_108.pdf}
 \bibitem{englich}
-[3] ENGLICH, Jiří. Úvod do praktické fyziky I. 1. vydání. Praha: Matfyzpress, 2006, ISBN 80-86732-93-2
+ENGLICH, Jiří. Úvod do praktické fyziky I. 1. vydání. Praha: Matfyzpress, 2006, ISBN 80-86732-93-2
+\bibitem{tabulky}
+Table of physical constants - Wikiversity [online][cit. 2019-03-02]. Dostupné z:  
+\url{https://en.wikiversity.org/wiki/Table_of_physical_constants}
 \end{thebibliography}
 \end{document}
