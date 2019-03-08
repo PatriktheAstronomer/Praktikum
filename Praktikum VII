@@ -1,0 +1,294 @@
+\documentclass[a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[czech]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath}
+\usepackage{fullpage}
+\usepackage{graphicx}
+\usepackage{txfonts}
+\usepackage{gensymb}
+\usepackage{eurosym}
+\usepackage[symbol*]{footmisc}
+\usepackage{mathtools}
+\usepackage{enumitem}
+\usepackage{tabularx,ragged2e,booktabs,caption}
+\author{"Václav Kubíček"}
+
+\begin{document}
+\section*{Pracovní úkol}
+\begin{enumerate}%[label=(\alph*)]
+\item Změřte dobu kmitu $T_0$ dvou stejných nevázaných fyzických kyvadel.
+\item Změřte doby kmitů $T_i$ dvou stejných fyzických kyvadel vázaných slabou pružnou vazbou vypouštěných z klidu při počátečních podmínkách:
+\begin{enumerate}[label=\alph*.]
+    \item $y_1=y_2=B$ ... doba kmitu $T_1$
+    \item $y_1=-y_2=B$ ... doba kmitu $T_2$
+    \item $y_1=0$, $y_2=B$
+    \begin{enumerate}[I]
+        \item doba kmitu $T_3$
+        \item doba ${T_S}$, za kterou dojde k maximální výměně energie mezi kyvadly
+    \end{enumerate}
+\end{enumerate}
+\item Vypočtěte kruhové frekvence $\omega_0$, $\omega_1$, $\omega_2$, $\omega_3$ a $\omega_4$ odpovídající dobám $T_0$, $T_1$, $T_2$, $T_3$ a $T_S$, ověřte měřením platnost vztahů odvozených pro $\omega_3$ a $\omega_4$.
+\item Vypočtěte stupeň vazby $\kappa$.
+\item Pro jednu pružinu změřte závislost stupně vazby na vzdálenosti zavěšení pružiny od uložení závěsu kyvadla a graficky znázorněte.
+\end{enumerate}
+
+\section*{1 Teorie}
+\par Studium kmitů vázaných oscilátorů budeme provádět na dvou stejných zavěšených fyzických kyvadlech, mezi nimiž je natažená pružina. Předně budeme považovat kmity jednotlivých kyvadel za harmonické, což s dostatečně dobrou přesností lze přepokládat u kmitů s výchylkou menší než $5\degree$. Jejich úhlové frekvence $\omega_0$ budou mít stejnou hodnotu a určíme je ze vztahu: 
+\begin{align}
+\omega_0 = 2\pi/T_0s,   
+\end{align}
+\par Po přidání vazby mezi kyvadla se obě kyvadla vychýlí o úhel $\alpha$ proti sobě. Kompenzuje se tak výsledný moment vnějších sil. 
+\par Pri drobném vychýlení prvního kyvadla o úhel $\phi_1$ a druhého o úhel $\phi_2$ uvedeme tak soustavu so vázáného kmitavého pohybu. Pohybové rovnice tohoto pohybu uvedeny v [2]. Řešení této soustavy diferenciálnívh rovnic druhého řádu též nalezneme v [2]. Podíváme se blíže na tři konkrétní případy.
+\begin{enumerate}
+\item Pro počáteční podmínky $\phi_1(0) = \phi_2(0) = A$ a $\Dot{\phi_1(0)} = \Dot{\phi_2(0)} = 0$ dostáváme  takovou úhlovou frekvenci, jakoby vazba vůbec nebyla realizována:
+\begin{align}
+    \omega_1 = \omega_0 = 2\pi/T_1
+\end{align}
+\item Pro počáteční podmínky $\phi_1(0) = -\phi_2(0) = A$ a $\Dot{\phi_1}(0) = \Dot{\phi_2}(0) = 0$. Kyvadla kmitají se stejnou amplitudou a frekvencí $\omega_2$, ale s opačnou fází, tedy s fázovým posunem $\pi$. Platí zde analogický vztah jako v (1) a (4). 
+\item Pro počáteční podmínky $\phi_1(0)=0$, $\phi_2(0)=A$ a $\Dot{\phi_1}(0) = \Dot{\phi_2}(0) = 0$ získáváme pro $\phi_1$ a $\phi_2$:
+\begin{align}
+    \phi_1 = A\sin\Big[\frac{1}{2}(\omega_2-\omega_1)t\Big]\sin\Big[\frac{1}{2}(\omega_2+\omega_1)t\Big],
+\end{align}
+\begin{align}
+    \phi_1 = A\sin\Big[\frac{1}{2}(\omega_2-\omega_1)t\Big]\cos\Big[\frac{1}{2}(\omega_2+\omega_1)t\Big].
+\end{align}
+Platí-li $\omega_1 \approx \omega_2$, tedy pokud je vazba mezi oscilátory slabá, pak lze říci, že obě kyvadla kmitají se stejnou frekvencí:
+\begin{align}
+    \omega_3 = \frac{1}{2}(\omega_2 + \omega_1) = 2\pi/T_3.
+\end{align}
+Avšak amplitudy obou kmitů nezůstávají po celou dobu konstantní, ale periodicky se mění. Tímto získáváme čtvrtou význačnou periodu vázaných oscilátorů, tedy periodu, během které si stačí kyvadla vlivem vazby vyměnit oscilační energii. Frekvence této výměny:
+\begin{align}
+    \omega_4 = \frac{1}{2}(\omega_2-\omega_1)
+\end{align}
+Pro úhlovou frekvenci $\omega_4$ platí vztah:
+\begin{align}
+    \omega_4 = \pi/T_S.
+\end{align}
+\end{enumerate}
+\par Pro stupeň vazby je v [2] odvozený vztah:
+\begin{align}
+    \kappa = \frac{\omega_1^2-\omega_2^2}{\omega_2^2+\omega_1^2} = \frac{T_2^2-T_1^2}{T_2^2+T_1^2}
+\end{align}
+\par Počáteční podmínky realizujeme pomocí zařízení, které nám umožňuje nastavit přesnou počáteční výchylku obou kyvadel a spustit oscilaci ve stejný okamžik. 
+\newline
+\newline \textbf{Použité pomůcky:}
+\newline Pro měření výchylky z  počáteční polohy jsme použili snímač, který měří s frekvencí 25 snímků za vteřinu. Na obrazovce následně odečteme periodu. Chybu zde určuje přesnost snímače, budeme tedy počítat s chybou jedné periody, tedy $1/25 s$. Použité pomůcky pro měření vzdálenosti (rolovací metr a měřidlo u mechanického spouštěče) počítáme s chybou $0.001 m$.
+\newpage
+
+\section*{2 Výsledky měření}
+
+\textbf{2.1 Daba kmitu $T_0$ a vlastní frekvence $\omega_0$:}
+
+\begin{center}
+    \captionof{table}{Naměřené časy jednoho kmitu} \label{tab:title} 
+    \begin{tabular}{ | l | l | l |}
+    \hline
+      & Kyvadlo 1 & Kyvadlo 2 &    \hline
+     č. & $T_0[s]$ & $T_0[s]$   \\ \hline
+     \hline
+    1 & 1.90 & 1.88 \\ \hline
+    2 & 1.88 & 1.88 \\ \hline
+    3 & 1.90 & 1.92 \\ \hline
+    4 & 1.88 & 1.88 \\ \hline
+    5 & 1.88 & 1.92 \\ \hline
+    6 & 1.88 & 1.88 \\ \hline
+    7 & 1.92 & 1.92 \\ \hline
+    8 & 1.88 & 1.88 \\ \hline
+    9 & 1.92 & 1.92 \\ \hline
+    10 & 1.84 & 1.88 \\ \hline
+    \hline
+    $\Bar{T_0}$ & 1.888 & 1.896 \\ \hline
+    \end{tabular}
+\end{center}
+\par Výběrovou směrodatnou odchylku určíme ze vztahu (viz [3]):
+\begin{align}
+    s_{\Bar{T_0}} = \sqrt{\frac{\sum\Delta^2}{n(n-1)}}.
+\end{align}
+Statistická odchylka má však minoritní příspěvek do celkové chyby měření, sčítáme ji s časovou chybou senzoru podle vzorce [1]:
+\begin{align}
+    s_c = \sqrt{s_1^2+s_2^2}
+\end{align}
+Získáváme tak doby kmitu obou kyvadel:
+ $$T_{0(1)} = (1.888 \pm 0.041) s$$ 
+$$T_{0(2)} = (1.896 \pm 0.040) s.$$
+Z čehož spočteme statistickou odchylku, jejíž hodnotu určíme ze vztahu pro odchylku odvozené veličiny (např v [1]):
+\begin{align}
+    s_f = \sqrt{\sum\Big(\frac{\partial{f}}{\partial{x_i}}\Big)^{2}s_{x_i}^2}.
+\end{align}
+Odtud konečně můžeme vyjádřit hodnotu $\omega_0$:
+$$\omega_{0(1)} = (3.333 \pm 0.073) s^{-1},$$
+$$\omega_{0(2)} = (3.324 \pm 0.070) s^{-1}.$$
+\newpage
+\textbf{2.2 Daby kmitů vázaných oscilátorů:}
+\begin{center}
+    \captionof{table}{Doby kmitů při stejné výchylce} \label{tab:title} 
+    \begin{tabular}{ | l | l | l |}
+    \hline
+      & Pružina 2 & Pružina 1 &    \hline
+     č. & $5T_1[s]$ & $5T_1[s]$   \\ \hline
+     \hline
+    1 & 9.48 & 9.44 \\ \hline
+    2 & 9.44 & 9.44 \\ \hline
+    3 & 9.36 & 9.48 \\ \hline
+    4 & 9.36 & 9.48 \\ \hline
+    5 & 9.32 & 9.40 \\ \hline
+    6 & 9.48 & 9.52 \\ \hline
+    7 & 9.52 & 9.48 \\ \hline
+    8 & 9.48 & 9.48 \\ \hline
+    9 & 9.40 & 9.44 \\ \hline
+    10 & 9.32 & 9.48 \\ \hline
+    \hline
+    $\Bar{5T_1}$ & 9.416 & 9.464 \\ \hline
+    \end{tabular}
+\end{center}
+\par
+\par Doby kmitu $T_1$ potom získame jako $5T_1/5$:
+$$T_{1(1)} = (1.883 \pm 0.009)s,$$
+$$T_{1(2)} = (1.893 \pm 0.008)s.$$
+Úhlové frekvence potom:
+$$\omega_{1(1)} = (3.337 \pm 0.016) s^{-1},$$
+$$\omega_{1(2)} = (3.319 \pm 0.014) s^{-1}.$$
+\par
+\par
+\begin{center}
+    \captionof{table}{Doby kmitů při opačné výchylce} \label{tab:title} 
+    \begin{tabular}{ | l | l | l |}
+    \hline
+      & Pružina 2 & Pružina 1 &    \hline
+     č. & $5T_2[s]$ & $5T_2[s]$   \\ \hline
+     \hline
+    1 & 8.48 & 8.32 \\ \hline
+    2 & 8.48 & 8.32 \\ \hline
+    3 & 8.44 & 8.32 \\ \hline
+    4 & 8.44 & 8.32 \\ \hline
+    5 & 8.44 & 8.36 \\ \hline
+    6 & 8.48 & 8.32 \\ \hline
+    7 & 8.44 & 8.32 \\ \hline
+    8 & 8.40 & 8.36 \\ \hline
+    9 & 8.36 & 8.36 \\ \hline
+    10 & 8.44 & 8.40 \\ \hline
+    \hline
+    $\Bar{5T_2}$ & 8.440 & 8.340 \\ \hline
+    \end{tabular}
+\end{center}
+\par
+Doby kmitu $T_2$ potom získame jako $5T_2/5$:
+$$T_{2(1)} = (1.688 \pm 0.008)s,$$
+$$T_{2(2)} = (1.668 \pm 0.008)s.$$
+Úhlové frekvence potom:
+$$\omega_{2(1)} = (3.722 \pm 0.018) s^{-1},$$
+$$\omega_{2(2)} = (3.767 \pm 0.018) s^{-1}.$$
+\par
+\par 
+\begin{center}
+    \captionof{table}{Kmity kyvadla při vzájemném předávání energie} \label{tab:title} 
+    \begin{tabular}{ | l | l | l |}
+    \hline
+      & Pružina 2 & Pružina 1 &    \hline
+     č. & $5T_3[s]$ & $5T_3[s]$   \\ \hline
+     \hline
+    1 & 8.92 & 8.88 \\ \hline
+    2 & 9.42 & 8.88 \\ \hline
+    3 & 8.96 & 8.82 \\ \hline
+    4 & 8.92 & 8.92 \\ \hline
+    5 & 8.92 & 9.00 \\ \hline
+    6 & 8.96 & 8.92 \\ \hline
+    7 & 8.92 & 8.96 \\ \hline
+    8 & 9.00 & 8.96 \\ \hline
+    \hline
+    $\Bar{5T_3}$ & 8.943 & 8.918 \\ \hline
+    \end{tabular}
+\end{center}
+\par S vyloučením hrubé chyby v měření číslo dva můžeme určit dobu kmitu vázaných oscilátorů $T_3$:
+$$T_{3(1)} = (1.789 \pm 0.008)s,$$
+$$T_{3(2)} = (1.784 \pm 0.008)s.$$
+Úhlové frekvence potom:
+$$\omega_{3(1)} = (3.512 \pm 0.016) s^{-1},$$
+$$\omega_{3(2)} = (3.522 \pm 0.016) s^{-1}.$$
+Vypočtené hodnoty ze vztahů (7) můžeme porovnat s reálně naměřenými hodnotami:
+$$\omega_{3(1)} = \frac{\omega_{1(1)}+\omega_{2(1)}}{2} =  (3.530 \pm 0.024) s^{-1},$$
+$$\omega_{3(2)} = \frac{\omega_{1(2)}+\omega_{2(2)}}{2} = (3.543 \pm 0.023) s^{-1},$$
+kdy naměřené hodnoty jsou v rámci chyby hodnot spočtených.
+\par
+\begin{center}
+    \captionof{table}{Perioda výměny energie} \label{tab:title} 
+    \begin{tabular}{ | l | l | l |}
+    \hline
+      & Pružina 2 & Pružina 1 &    \hline
+     č. & $T_S[s]$ & $2T_S[s]$   \\ \hline
+     \hline
+    1 & 16.88 & 27.92 \\ \hline
+    2 & 16.92 & 28.08 \\ \hline
+    3 & 16.96 & 28.18 \\ \hline
+    \hline
+    $\Bar{T_S}/2\Bar{T_S}$ & 16.920 & 28.060 \\ \hline
+    \end{tabular}
+\end{center}
+\par Spočteme hodnoty $T_S$:
+$$T_{S(1)} = (16.920 \pm 0.046)s,$$
+$$T_{S(2)} = (14.030 \pm 0.043)s.$$
+Úhlové frekvence potom:
+$$\omega_{3(1)} = (0.186 \pm 0.001) s^{-1},$$
+$$\omega_{3(2)} = (0.224 \pm 0.001) s^{-1}.$$
+Vypočtené hodnoty ze vztahů (8) můžeme porovnat s reálně naměřenými hodnotami:
+$$\omega_{4(1)} = \frac{\omega_{1(1)}-\omega_{2(1)}}{2} =  (0.193 \pm 0.024) s^{-1},$$
+$$\omega_{4(2)} = \frac{\omega_{1(2)}-\omega_{2(2)}}{2} = (0.224 \pm 0.023) s^{-1}.$$
+\par
+\textbf{2.3 Stupeň vazby:}
+\par Vypočteme stupeň vazby podle vztahu (10) a chybu této hodnoty podle (13) pro obě pružiny:
+$$\kappa_{(1)} = (0.109 \pm 0.007) s^{-1},$$
+$$\kappa_{(2)} = (0.126 \pm 0.007) s^{-1}.$$
+\par
+\textbf{2.4 Závislost koeficientu vazby na umístění pružiny:}
+\par 
+\begin{center}
+    \captionof{table}{Kmity kyvadla při vzájemném předávání energie} \label{tab:title} 
+    \begin{tabular}{ | l | l | l | l | l | l | l |l |l |l |}
+    \hline
+     l(cm) & $10T_1[s]$ & $10T_1[s]$ & $10T_1[s]$ & $\Bar{10T_1}[s]$ &&$10T_2[s]$ & $10T_2[s]$ & $10T_2[s]$  &$\Bar{10T_2}[s]$ \\ \hline
+     \hline
+    5& 18.84 & 18.80 & 18.84 & 18.83 &&18.80 & 18.76 & 18.80 & 18.79\\ \hline
+    10 & 18.84 & 18.84 & 18.88 & 18.85 &&18.72 & 18.68 & 18.68 & 18.69\\ \hline
+    15& 18.80 & 18.76 & 18.84 & 18.80 &&18.52 & 18.56 & 18.52 &  18.53\\ \hline
+    20 & 18.84 & 18.88 & 18.84 & 18.85 &&18.16 & 18.20 & 18.20 & 18.19  \\ \hline
+    25 & 18.88 & 18.84 & 18.84 & 18.85 &&17.80 & 17.72 & 17.76 & 17.76\\ \hline
+    30 & 18.80 & 18.84 & 18.80 & 18.81 &&17.46 &  17.42 & 17.42 & 17.43 \\ \hline
+    35 & 18.84 & 18.88 & 18.92 & 18.88 &&16.88 & 16.80 & 16.84 &  16.84 \\ \hline
+    40 & 18.76 & 18.84 & 18.84 & 18.81 &&16.36 & 16.36 & 16.40 & 16.37 \\ \hline
+    45 & 18.88 & 18.80 & 18.84 & 18.84 &&15.72 & 15.72 & 15.68 & 15.71 \\ \hline
+    50 & 18.84 & 18.80 & 18.84 & 18.83 &&15.28 & 15.24 & 15.20 & 15.24\\ \hline
+    \end{tabular}
+\newpage
+\end{center}
+\par
+\begin{figure}
+\centering
+\includegraphics[width=12cm, height=8cm]{chart.png}
+\caption{Graf závislosti vazby oscilátorů na umístění pružiny. Chyba je vyznačena svislími mezemi u jednotlivých bodů a je určena přesností snímače, měřidel vzdálenosti a statistickou chybou podle (12). Závislost je proložena polynomiální křivkou druhého řádu, která odpovídá teorii. }
+\end{figure}
+\newline
+\newline
+\newpage\section*{3 Diskuze}
+\par Experimentálně jsme nejprve ověřili, že obě kyvadla mají stejnou dobu kmitu, což v rámci chyby bylo potvrzeno. Největším zdrojem chyby u určování této doby kmitu $T_0$ byl snímač polohy kyvadla, jehož přesnost byla horší než přesnost běžně dostupých stopovacích zařízení, avšak vyhli jsme se tak chybě způsobené lidským faktorem. Zároveň jsme u prvního měření nepracovali s násobkem časového intervalu, což zpřesňuje měření. U zjišťování shodnosti dob kmitu však obdržená přesnost byla dostačující.
+\par U stejné výchylky obou kyvadel jsme experimentálně v rámci chyby potvrdili shodnost dob kmitu $T_1$ a $T_0$, což bylo očekáváno dle teorie. Zde jsme již pracovali s pětinásobkem doby kmitu (viz tabulka 2). U měření kmitů s opačnou a stejnou výchylkou je zdrojem chyby též nepřesnost spouštěcího mechanismu, kde mírná odchylka způsobí periodický přenos energie, což je nežádoucí. Lze to však dobře odhalit na obrazovce snímače, takže se tato chyba dá úsppěšně redukovat.
+\par Měření periody výměny energie vázaných oscilátorů bylo ze statistických důvodu velmi přesné, kdy chyba představovala méně než jedno procento hodnoty naměřené veličiny. Ověření teorie (identity (7) a (8)) však zvláště u (8) není tak přesné, neboť u odčítání se relativní chyba mnohonásobně zvýší. Vše však bylo potvrzeno v mezích chyby.
+\par Kvadratická závislost není z Obrázku 1 přímo patrná, proložením touto závislostí však zůstaneme v mezích chyb. Problémem zde přestavovala aproximace použitá pro odvození v teorii, ta pro nižší umístění pružiny přestává platit. 
+\section*{Závěr}
+\par Podařilo se s dobrou chybou experimentálně ověřit teorii o vázaných oscilátorech. Pro větší přesnost by bylo nutné použít přesnější snímač času a polohy, neboť ten představoval hlavní zdroj chyb v našem měření. Dále byla potvrzena kvadratická závislost stupně vazby na jejím umístění. Úkoly byly splněny.
+
+\renewcommand\refname{Použitá literatura}
+\begin{thebibliography}{}
+\bibitem{broz} 
+
+Brož J., a kol.: Základy fyzikálních měření I, SPN Praha 1967 
+ 
+\bibitem{einstein} 
+Studium kmitů vázaných oscilátorů [online]. [cit. 2019-05-03]. Dostupné z: 
+\\\texttt{https://physics.mff.cuni.cz/vyuka/zfp/zadani/107}
+ 
+\bibitem{knuthwebsite} 
+Základy zpracování dat fyzikálních měření [online]. [cit. 2019-05-03].
+\newline Dostupné z:\\\texttt{http://fyzikalniolympiada.cz/studijni-texty}
+\end{thebibliography}
+\end{document}
