@@ -17,16 +17,16 @@
 \begin{document}
 \section*{Pracovní úkol}
 \begin{enumerate}
-\item Změřte dynamickou viskozitu destilované vody při pokojové teplotě metodou výtoku kapaliny kapilárou z Mariotteovy láhve.
+\item Změřte dynamickou viskozitu destilované vody při pokojové teplotě metodou výtoku kapaliny kapilárou z Mariottovy láhve.
 \item Určete teplotní závislost kinematické viskozity destilované vody v oboru teplot od 20 $^{\circ}$C do 60 $^{\circ}$C pomocí Ubbelohdeova viskozimetru.
 \item Sestrojte graf teplotní závislosti kinematické viskozity. Určete aktivační energii děje.
 \end{enumerate}
 \section*{Teorie}
-\par Naším úkolem bylo naměřit dynamickou viskozitu vody $\eta$ destilované vody při pokojové teplotě, k tomu nám posloužila Mariottova lahev. Dynamická viskozita $\eta$ vyjadřuje úměrnost mezi tečným napětím $\tau$ mezi vrstavami proudící kapaliny a změnou rychlosti $\frac{dv}{dy}$ ve směru kolmém k proudění.
+\par Naším úkolem bylo naměřit dynamickou viskozitu vody $\eta$ destilované vody při pokojové teplotě, k tomu nám posloužila Mariottova lahev. Dynamická viskozita $\eta$ vyjadřuje úměrnost mezi tečným napětím $\tau$ mezi vrstvami proudící kapaliny a změnou rychlosti $\mathrm{\frac{dv}{dy}}$ ve směru kolmém k proudění.
 \begin{align}
 \tau = \eta \cdot \mathrm{\frac{dv}{dy}} \:  \mathrm{[Pa]}
 \end{align}
-Za předpokladu lamilárního proudění platí pro $\eta$ Poisseuillovův vztah
+Za předpokladu laminárního proudění platí pro $\eta$ Poisseuillovův vztah
 \begin{align}
 \eta = \frac{\pi \cdot r^{4}  \cdot p \cdot t}{8\cdot V \cdot l}\:  \mathrm{[N \cdot s \cdot m^{-2}]}
 \end{align}
@@ -40,7 +40,7 @@ a to právě řeší elegantně Mariottova lahev, která nasává vzduch do lahv
 \caption{Mariottova lahev}
 \includegraphics[width=100pt]{mariotte.png}
 \end{figure}
-\par Nyní se ještě na chvíli vraťme k předpokladu, že proudění během našeho experimentu s Mariottovou lahví bylo laminární. Laminární proudění je takové, pro které Reynoldsovo číslí nepřekročí hodnotu $2\cdot 10^{3}$. Reynoldsovo číslo vyjadřuje nakolik se podílí na celkovém odporu kapaliny vnitřní tření, je určeno následujícím vztahem.
+\par Nyní se ještě na chvíli vraťme k předpokladu, že proudění během našeho experimentu s Mariottovou lahví bylo laminární. Laminární proudění je takové, pro které Reynoldsovo číslo nepřekročí hodnotu $2\cdot 10^{3}$. Reynoldsovo číslo vyjadřuje nakolik se podílí na celkovém odporu kapaliny vnitřní tření, je určeno následujícím vztahem.
 \begin{align}
 Re = \frac{2\cdot r\cdot \rho  \cdot u}{\eta} \:  \mathrm{[1]}
 \end{align}
@@ -75,40 +75,40 @@ ln(\eta) = ln(\eta_{0}) + \frac{\varepsilon_{A}}{k \cdot T}\: \mathrm{[N \cdot s
 \par Na konec se vyjádříme ještě k chybám měřených veličin, pomocí metody přenosu chyb dle [1] a [3] jsme určili následující vztahy popisující chyby
 \begin{align}
 \delta_{\nu} = \delta_{t} =\frac{\Delta_{t}}{t} \\
-\delta_{u} = \sqrt{\delta_{V}^{2} + 2\cdot \delta_{r}^{2} + \delta_{t}^{2}} \\
+\delta_{u} = \sqrt{\delta_{V}^{2} + 4\cdot \delta_{r}^{2} + \delta_{t}^{2}} \\
 \delta_{p} = \delta_{h} \\
-\delta_{\eta} = \sqrt{\delta_{V}^{2} + 4\cdot \delta_{r}^{2} + \delta_{t}^{2} + \delta_{p}^{2} + \delta_{l}^{2}}\\
+\delta_{\eta} = \sqrt{\delta_{V}^{2} + 16\cdot \delta_{r}^{2} + \delta_{t}^{2} + \delta_{p}^{2} + \delta_{l}^{2}}\\
 \delta_{Re} = \sqrt{\delta_{\eta}^{2} + \delta_{r}^{2} + \delta_{u}^{2}}\\
-\delta_{\varepsilon_{A}} = \sqrt{\delta_{\eta}^{2} + \delta_{T}^{2} +stat^{2}}
+\delta_{\varepsilon_{A}} = \sqrt{\delta_{\eta}^{2} + \delta_{T}^{2} +\delta_{fit}^{2}}
 \end{align}
-kde ve vztahu pro aktivační energii uvažuje pouze přenesené chyby i chybu regrese, celkovou chybu za nas pocita ROOT. Všechny výše uvedené teoretické poznatky vychází z [2].
+kde ve vztahu pro aktivační energii uvažuje pouze přenesené chyby i chybu regrese, celkovou chybu za nás počítá ROOT. Všechny výše uvedené teoretické poznatky vychází z [2].
 \section*{Výsledky měření}
 \par Teplota v laboratoři během měření byla $(24.6\pm0.4)$ $^{\circ}$C, jelikož se teplota v laboratoři výrazně neměnila v průběhu měření, pak tuto teplotu považujeme za teplotu vody v Mariottově lahvi v průběhu všech měření. Hustota destilované vody za této teploty je 997 $\mathrm{kg \cdot m^{-3}}$, tuto teplotu považuje za stálou a přesnou. Tlak v místnosti byl $(986\pm2)$ hPa, ten však výrazně viskozitu vody neovlivňuje za předpokladu, že se výrazně neměnil, což se nedělo.
 \par Kalibrační konstantu k Ubbelohdeova viskozimetru jsme nalezli ve zkušební listu jako k = $3.003\cdot 10^{-9}\: \mathrm{m^{2}\cdot s^{-2}}$. Stejně tak rozměry trubice, kterou vytéká voda z Mariottově lahve, jsme nalezli v přiložené dokumentaci jako r = $(0,645\pm0,015)$ mm a l = $(146\pm2)$ mm. Chybu rtuťového teploměru uvažujeme jako 0.25 $^{\circ}$C, jakožto polovinu nejmenšího dílku, dle kterého jsme měřili (byť stupnice je stupňová).
 S ohledem na podmínky v laboratoři dle [2] je přesnost měření katetometrem 1 milimetr, výsledná naměřená hodnota výšky h = $(57\pm1)$ mm. Chybu měření času s ohledem na běžnou lidskou reakční dobu odhadujeme jako 0.2 s. 
-\par Průměrná doba výtoku objemu V = $(40.0\pm0.5)$ ml z Mariottovy lahve byla t = $(150.31\pm0.98)$ s, s pomocí toho údaje jsme určili průměrnou rychlost dle vztahu (5) a (12) jako u = $(2.04\pm0.07)\cdot 10^{-1}$ m/s a tudíž i Reynoldsovo číslo Re = $(268.1\pm17.9)$ dle (4) a (15), čili jsme zjistili, že Hagenovu úpravu není potřeba užít, protože proudění bylo laminární.
+\par Průměrná doba výtoku objemu V = $(40.0\pm0.5)$ ml z Mariottovy lahve byla t = $(150.31\pm0.98)$ s, s pomocí toho údaje jsme určili průměrnou rychlost dle vztahu (5) a (12) jako u = $(2.04\pm0.10)\cdot 10^{-1}$ m/s a tudíž i Reynoldsovo číslo Re = $(268.1\pm29.4)$ dle (4) a (15), čili jsme zjistili, že Hagenovu úpravu není potřeba užít, protože proudění bylo laminární.
 \par Hlavní výsledky měření jsme zaznamenali do tabulek, kdy jako objem V bylo voleno ve všech případech jako 40 ml z důvodu, co nejvíc podobných podmínek při měření Mariottovou lahví, jaké problémy jsme se pokoušeli eliminovat popsáno blíže v diskusi.
 Ubbelohdeova viskozimetru nezačínáme měření na 20 $^{\circ}$C z prostého důvodu, že na takovou teplotu se nám nepovedlo přístroj podchladit. Snažili jsme se o měření po pěti stupních, přičemž nám zbyl čas navíc, tak jsme provedli měření navíc v místech, kde na teplotní škále byly větší rozestupy.
 \begin{center}
     \captionof{table}{Výsledky měření $\eta$ Mariottovou trubicí} \label{tab:title}
     \begin{tabular}{ | l | l | l | p{5cm} |} \hline
     t [s]  & $\eta \: \mathrm{[10^{-4} \cdot m^{2} \cdot s^{-1}}$]    \\ \hline
-    149.31 & $9.70\pm0.49$ \\ \hline
-    151    & $9.81\pm0.49$ \\ \hline
-    149.48 & $9.72\pm0.49$ \\ \hline
-    151.47 & $9.84\pm0.49$ \\ \hline
-    149.55 & $9.72\pm0.49$ \\ \hline
-    150.37 & $9.77\pm0.49$ \\ \hline
-    151.99 & $9.88\pm0.50$ \\ \hline
-    149.88 & $9.74\pm0.49$ \\ \hline
-    151.92 & $9.87\pm0.49$ \\ \hline
-    150.56 & $9.79\pm0.49$ \\ \hline
-    149.68 & $9.73\pm0.49$ \\ \hline
-    149.22 & $9.70\pm0.49$ \\ \hline
-    149.56 & $9.72\pm0.49$ \\ \hline
+    149.31 & $9.70\pm0.92$ \\ \hline
+    151    & $9.81\pm0.93$ \\ \hline
+    149.48 & $9.72\pm0.92$ \\ \hline
+    151.47 & $9.84\pm0.93$ \\ \hline
+    149.55 & $9.72\pm0.92$ \\ \hline
+    150.37 & $9.77\pm0.93$ \\ \hline
+    151.99 & $9.88\pm0.94$ \\ \hline
+    149.88 & $9.74\pm0.92$ \\ \hline
+    151.92 & $9.87\pm0.94$ \\ \hline
+    150.56 & $9.79\pm0.93$ \\ \hline
+    149.68 & $9.73\pm0.92$ \\ \hline
+    149.22 & $9.70\pm0.92$ \\ \hline
+    149.56 & $9.72\pm0.92$ \\ \hline
     \end{tabular}
 \end{center}
-\par Celkově pak v průměru $\eta = (9.77\pm0.49)\cdot \mathrm{10^{-4} \cdot m^{2} \cdot s^{-1}}$, pro porovnání, dle [5] by $\eta$ měla být $8.97\cdot \mathrm{10^{-4} \cdot m^{2} \cdot s^{-1}}$. Více o tom, kde mohly vzniknout chyby v diskusi.
+\par Celkově pak v průměru $\eta = (9.77\pm0.93)\cdot \mathrm{10^{-4} \cdot m^{2} \cdot s^{-1}}$, pro porovnání, dle [5] za teploty 24.6 $^{\circ}$C by $\eta$ měla být $8.97\cdot \mathrm{10^{-4} \cdot m^{2} \cdot s^{-1}}$. Více o tom, kde mohly vzniknout chyby v diskusi.
 \bigbreak
 \bigbreak
 \begin{center}
@@ -137,10 +137,10 @@ Ubbelohdeova viskozimetru nezačínáme měření na 20 $^{\circ}$C z prostého 
 \par Vidíme, že grafovanou závislost lze aproximovat pomocí lineární funkce $y = p_{1}x + p_{0}$. Z koeficientů regrese $p_{0}$ a $p_{1}$ snadno určíme hodnotu $\varepsilon_{A}$ dle (10) jako $\varepsilon_{A} = (2.41\pm0.03)\cdot\mathrm{10^{-20}}$ J a $\nu_{0} =  (2.59\pm0.01)\cdot10^{-9} \cdot \mathrm{N \cdot s \cdot m^{-2}}$.
 \section*{Diskuse}
 \par Možnou společnou chybou měření oběma viskozitoměry může být kontaminace destilované vody jinými příměsemi.
-\par Naměřená hodnota $\eta$ s užitím Mariottově lahve není příliš přesná a to se snažíme odhady chyb nepřehánět, bohužel zde jsou velké chyby dány již přístrojem. Už jen r, které se vyskytuje ve vztahu (2) ve čtvrté mocnině máme zadané s relativní chybou 2.36 $\%$, což vnáší do měření kruciální chybu. Ani relativní chyba l, která činí 1.4 $\%$ není malá, navíc ji neovlivníme sebelepší precizností měření. Další nezanedbatelnou chybou bylo času respektive objemu, nepřesnost vzniklou existencí kapek po předchozím měřením se nám nepodařilo účinně eliminovat. Dalším problém mohlo být, že kvůli rozvlněné hladině se špatně určuje odteklý objem. Provedli jsme tolik měření, že vždy po měření jsme mohli překontrolovat výšku hladiny a pokud se lišila od naší referenční hodnoty 40ml výrazněji měnila, tak jsme tyto hodnoty rovnou vyškrtli a provedli měření znovu. Problémem mohl být též špatně pootočený kohout na trubici, ale i na to jsme se snažili dávat pozor. Vezmeme-li toto vše na vědomí, tak se nám zdá rozdíl mezi naměřenou dynamickou viskozitou $\eta = (9.77\pm0.78)\cdot \mathrm{10^{-4} \cdot m^{2} \cdot s^{-1}}$ a tabulkovou hodnotou $8.97\cdot 10^{-4} \cdot \mathrm{m^{2} \cdot s^{-1}}$ zanedbatelný. Nezdá se, že bychom se dopustili systematické chyby.
+\par Naměřená hodnota $\eta$ s užitím Mariottově lahve není příliš přesná a to se snažíme odhady chyb nenadhodnocovat, bohužel zde jsou velké chyby dány již přístrojem. Už jen r, které se vyskytuje ve vztahu (2) ve čtvrté mocnině máme zadané s relativní chybou 2.36 $\%$, což vnáší do měření kruciální chybu. Ani relativní chyba l, která činí 1.4 $\%$ není malá, navíc ji neovlivníme sebelepší precizností měření. Další nezanedbatelnou chybou bylo času respektive objemu, nepřesnost vzniklou existencí kapek po předchozím měřením se nám nepodařilo účinně eliminovat. Dalším problém mohlo být, že kvůli rozvlněné hladině se špatně určuje odteklý objem. Provedli jsme tolik měření, že vždy po měření jsme mohli překontrolovat výšku hladiny a pokud se lišila od naší referenční hodnoty 40ml výrazněji měnila, tak jsme tyto hodnoty rovnou vyškrtli a provedli měření znovu. Problémem mohl být též špatně pootočený kohout na trubici, ale i na to jsme se snažili dávat pozor. Vezmeme-li toto vše na vědomí, pak je potvrzením kvality našich měření to, že tabulková hodnota dle [5] $8.97\cdot 10^{-4} \cdot \mathrm{m^{2} \cdot s^{-1}}$ spadá do námi určeného intervalu $\eta = (9.77\pm0.93)\cdot \mathrm{10^{-4} \cdot m^{2} \cdot s^{-1}}$. Můžeme tedy konstatovat, že během měření nedošlo k systematické chybě.
 \par Naměřená hodnota $\nu$ je naopak poměrně přesná. Tento fakt přisuzujeme tomu, že chyba měření byla závislá, mimo provedení přístroje, pouze na naší reakční době, která je navíc o tři řády nižší než nejmenší naměřený čas průtoku Ubbelohdeova viskozimetru.
 \section*{Závěr}
-Naměřili jsme dynamickou viskozitu $\eta$ = $(9.77\pm0.49)\cdot 10^{-4} \cdot \mathrm{m^{2} \cdot s^{-1}}$,  a poté jsme metodou lineární regrese určili aktivační energii $\varepsilon_{A} = (2.41\pm0.03)\cdot\mathrm{10^{-20}}$ J navíc jsme vynesli do grafu závislost $ln(\eta) \sim \frac{1}{T}$ i aproximující křivku (přímku) $y = p_{1}x + p_{0}$, kde $p_{0} = -19.77\pm0.07$ a $p_{1} = 1747\pm21.$
+Naměřili jsme dynamickou viskozitu $\eta$ = $(9.77\pm0.93)\cdot 10^{-4} \cdot \mathrm{m^{2} \cdot s^{-1}}$,  a poté jsme metodou lineární regrese určili aktivační energii $\varepsilon_{A} = (2.41\pm0.03)\cdot\mathrm{10^{-20}}$ J navíc jsme vynesli do grafu závislost $ln(\eta) \sim \frac{1}{T}$ i aproximující křivku (přímku) $y = p_{1}x + p_{0}$, kde $p_{0} = -19.77\pm0.07$ a $p_{1} = 1747\pm21.$
 
 \renewcommand\refname{Použitá literatura}
 \begin{thebibliography}{}
