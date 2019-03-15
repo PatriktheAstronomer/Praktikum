@@ -1,0 +1,163 @@
+\documentclass[a4paper]{article}
+\usepackage{kantlipsum} 
+\usepackage[utf8]{inputenc}
+\usepackage[czech]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath}
+\usepackage{fullpage}
+\usepackage{graphicx}
+\usepackage{txfonts}
+\usepackage{gensymb}
+\usepackage{eurosym}
+\usepackage[symbol*]{footmisc}
+\usepackage{mathtools}
+\usepackage{enumitem}
+\usepackage{tabularx,ragged2e,booktabs,caption}
+\author{"Václav Kubíček"}
+
+\begin{document}
+\section*{Pracovní úkol}
+\begin{enumerate}%[label=(\alph*)]
+\item Změřte teplotní závislost povrchového napětí destilované vody $\sigma$ v rozsahu teplot od $23\degree C$ do $70\degree C$ metodou bublin.
+\item Měřenou závislost znázorněte graficky, do grafu vyneste chybové úsečky a tabulkové hodnoty. Závislost aproximujte kvadratickou funkcí.
+\end{enumerate}
+
+\section*{1 Teorie}
+Povrchové napětí je důsledek sil vzájemného působení molekul kapaliny, kdy na povrchu kapaliny převládají síly jedné orientace, a to směrem dovnítř kapaliny kolmo na tečnou rovinu v daném místě povrhu. Pokud je povrch kapaliny například v kapiláře zakřivený vlivem stěn kapiláry, pozorujeme kapilární tlak (přetlak nebo podtlak).
+\par Metoda bublin je založena na kapilárním přetlaku. Při rozdílu tlaků uvnitř kapiláry a nad povrchem kapaliny mimo kapiláru se začne kapalina v kapiláře zakřivovat. Dokud je rozdíl tlaků dostatečně nízký, hydrostatický tlak  a kapilární přetlak tenhle rozdíl vyrovnávají. Můžeme to vyjádřit vzorcem:
+\begin{align}
+    \Delta p = \frac{2\sigma}{r}+\Delta h\rho g, 
+\end{align}
+kde $\Delta p $ je rozdíl tlaků, $r$ je poloměr kulové plochy způsobující kapilární přetlak, $\Delta h$ změna výšky hladiny v kapiláře, $\rho$ hustota kapaliny a $g$ gravitační konstanta. Při překročení kritické hodnoty rozdílu tlaků se začnou uvolňovat bublinky. V daném okamžiku dosahuje kapilární přetlak maximální hodnoty. Kritický rozdíl tlaků můžeme popsat rovnicí:
+\begin{align}
+    \Delta p_{max} = \frac{2\sigma}{r_0}+ h\rho g, 
+\end{align}
+kde $r_0$ je poloměr kapiláry. Více k odvození např v [2]. Při vhodném sestavení naší aparatury můžeme zanedbat příspěvek hydrostatického tlaku. Pak nám tedy zůstane:
+\begin{align}
+    \Delta p_{max} = \frac{2\sigma}{r_0}
+\end{align}
+\par
+\newline \textbf{Aparatura:} 
+\newline
+\begin{figure}
+\centering
+\includegraphics[width=15cm, height=8cm]{aparatura.png}
+\caption{Schéma aparatury. }
+\end{figure}
+\par Pro měření jsme použili mikromanometr, jehož přesnost jsme zvýšili nakloněním o $60 \degree $ od jeho svislé polohy a jeho chybu budeme uvažovat jeden dílek, tedy při svislém postavení $1 mm$. Nádoba s destilovanou vodou se nachází ve vodním nálevu, který je pomalu ohříván magnetickou míchačkou MM2. Aspirátor A zajišťuje pomalé zvětšování rozdílu tlaků vypouštěním kapaliny. Teplotu měříme rtuťovým teploměrem. Chybu teploměru budeme uvažovat nejmenší dílek, tedy $0.5 \degree C$. Vnitřní průměr kapiláry byl určen na $d = (0.52 \pm 0.02)mm$. Teplota při provádění experimentu byla $(23 \pm 1) \degree C$.
+\newline
+\par Konečný vzorec použitý při výpočtu povrchového napětí se odvodí snadno z (3):
+\begin{align}
+    \sigma = \frac{l\sin{\alpha} \rho g r_0}{2}.
+\end{align}
+\newpage
+\section*{2 Výsledky měření}
+\begin{center}
+    \captionof{table}{Závislost povrchového napětí na teplotě.} \label{tab:title} 
+    \begin{tabular}{ | l | l | l | l | l |}
+    \hline
+     č. & $t [\degree C] $ & $l [mm] $ & $\sigma [10^{-3} N/m]$ & \Delta \sigma [10^{-3} N/m] \\ \hline
+     \hline
+    1 & 21.5  &   111.0  & 70.6 & 2.8 \\ \hline
+    2 & 23.0  &   110.0  & 70.0 & 2.8 \\ \hline
+    3 & 26.0  &   110.0  & 70.0 & 2.8 \\ \hline
+    4 & 29.0  &   109.5  & 69.7 & 2.7 \\ \hline
+    5 & 32.0  &   108.5  & 69.0 & 2.7 \\ \hline
+    6 & 35.0  &   106.2  & 67.6 & 2.7 \\ \hline
+    7 & 38.0  &   103.8  & 66.0 & 2.7 \\ \hline
+    8 & 41.0  &   101.5  & 64.6 & 2.6 \\ \hline
+    9 & 44.0  &   101.0  & 64.2 & 2.6 \\ \hline
+    10 & 47.0 &   100.0  & 63.6 & 2.6 \\ \hline
+    11 & 51.0 &   99.2   & 63.1 & 2.6 \\ \hline
+    12 & 54.0 &   98.0   & 62.3 & 2.5 \\ \hline
+    13 & 57.0 &   97.0   & 61.7 & 2.5 \\ \hline
+    14 & 60.0 &   96.5   & 61.4 & 2.5 \\ \hline
+    15 & 63.0 &   96.0   & 61.1 &  2.5 \\ \hline
+    16 & 66.0 &   95.2   & 60.6 & 2.4 \\ \hline
+    17 & 69.0 &   94.5   & 60.1 & 2.4 \\ \hline
+    18 & 70.0 &   93.0   & 59.2 & 2.4 \\ \hline
+    \end{tabular}
+\end{center}
+Chybu každého měření určíme z partikulárních chyb jednotlivých veličin ve vzorci (4) podle vztahu (např v [1]):
+\begin{align}
+    s_f = \sqrt{\sum\Big(\frac{\partial{f}}{\partial{x_i}}\Big)^{2}s_{x_i}^2}
+\end{align}
+Chyba každého sigma záleží na hodnotě naměřené na mikromanometru, proto se chyby jednotlivých měření liší. Zároveň musíme zahrnout chybu teploměru a statistickou chybu podle vzorce: $s_c = \sqrt{s_1^2+s_2^2}$.
+\par Vyneseme danou závislost do grafu spolu s tabulkovými hodnotami:
+\begin{figure}
+    \centering
+    \includegraphics[width=15cm, height=10cm]{graf1.png}
+    \caption{Závislost povrchového napětí na teplotě s tabulkovými hodnotami.}
+    \label{fig:my_label}
+    
+  \vspace*{\floatsep}
+
+    \centering
+    \includegraphics[width=15cm, height=10cm]{graf2.png}
+    \caption{Kvadraticé proložení naměřených hodnot.}
+    \label{fig:my_label}
+\end{figure}
+\newpage
+Naměřená data se zcela neshodují s tabulkovými hodnotmi (graf 1). Po konzultaci s vedoucím praktik a řádném překontrolování měřící aparatury se nanašel zdroj této chyby. Vedoucím praktik bylo usouzeno, že příčinou chyb byl mikromanometr, jehož kontrola nebyla v danou chvíli možná. Na druhém grafu jsou naše naměřené hodnoty proloženy kvadratickou závislostí.
+\newline
+Na hodnotách je patrné, že hodnoty na intervalu teplot od $30$ do $50 \degree C$ není úplně realistický. Proto jsme ho proměříli vícekrát při stoupající i při klecající teplotě. Uvedeme získané hodnoty v následující tabulce.
+\begin{center}
+    \captionof{table}{Závislost povrchového napětí na teplotě na kratším intervalu při rostoucí teplotě.} \label{tab:title} 
+    \begin{tabular}{ | l | l | l | l | l |}
+    \hline
+     č. & $t [\degree C] $ & $l [mm] $ & $\sigma [10^{-3} N/m]$ & \Delta \sigma [10^{-3} N/m] \\ \hline
+     \hline
+    1 & 30.0  &   108.0  & 68.7 & 2.7 \\ \hline
+    2 & 40.0  &   103.0  & 65.5 & 2.7 \\ \hline
+    3 & 43.0  &   102.0  & 64.9 & 2.6 \\ \hline
+    4 & 46.0  &   101.0  & 64.2 & 2.6 \\ \hline
+    5 & 49.0  &   100.5  & 63.9 & 2.6 \\ \hline
+    6 & 52.0  &   100.0  & 63.6 & 2.6 \\ \hline
+    \end{tabular}
+\end{center}
+\begin{center}
+    \captionof{table}{Závislost povrchového napětí na teplotě na kratším intervalu při klesající teplotě.} \label{tab:title} 
+    \begin{tabular}{ | l | l | l | l | l |}
+    \hline
+     č. & $t [\degree C] $ & $l [mm] $ & $\sigma [10^{-3} N/m]$ & \Delta \sigma [10^{-3} N/m] \\ \hline
+     \hline
+    1 & 49.0  &   100.0  & 63.6 & 2.6 \\ \hline
+    2 & 45.0  &   101.0  & 64.2 & 2.6 \\ \hline
+    3 & 41.0  &   103.0  & 65.5 & 2.7 \\ \hline
+    4 & 38.0  &   104.0  & 66.1 & 2.7 \\ \hline
+    5 & 34.0  &   106.5  & 67.7 & 2.7 \\ \hline
+    6 & 30.5  &   106.5  & 67.7 & 2.7 \\ \hline
+    \end{tabular}
+\end{center}
+Abychom porovnali všechna měření vyneseme je všechny do jednoho grafu na zúženém intervalu, tentokrát ale bez chybových úseček a zobrazíme pouze jejich proložení kvadratickou závislostí (viz obrázek 4).
+\begin{figure}
+    \centering
+    \includegraphics[width=12cm, height=8cm]{graf3.png}
+    \caption{Kvadratický fit dat na zúženém intervalu.}
+    \label{fig:my_label}
+\end{figure}
+\newpage
+\section*{3 Diskuze}
+\par Měření jsme provedli na intervalu od $21.5$ do $70 \degree C$ s přijatelnou relativní chybou kolem $4\%$. Ovšem jak se ukázalo (viz obrázek 1), naměřené hodnoty se vůbec s tabulkovými hodnotami neshodují. Po konzultaci s vedoucím pratik jsme společně s ním usoudili, že chybovým článkem bude mikromanometr, který mohl obsahovat v sobě malé bublinky nebo jiný zdroj fluktoací tak, že přístroj neměřil spolehlivě. 
+\par Do hodnoty asi $30 \degree C$ tvarově naše data částečně kopírují tabulková data, ovšem s mírným posunutím. Tahle chyba mohla být způsobena degradací destilované vody, která nebývá pravidelně vyměňována. Dále pozorujeme mírný skok a následně znovu podobný tvar s tabulkovou závislostí, ovšem tentokrát s větším posunutím. 
+Proložíme-li naše data kvadratickou závislostí (obrázak 2), jak je pracovním úkolem vyžadováno, získáme křivku, která je však narozdíl od tabulkové závislosti konvexní.
+\par Zlom, který nastává na intervalu od $30$ do $40 \degree C$ jsme proměřili ještě dvakrát při stoupající i při klesající teplotě nálevu. Získali jsme prakticky identická data jako při původním měření. 
+\par Dalším zdrojem chyby mohl být požadavek rovnovážnosti stavu při uvolňování bublinek, čož bylo splněno jen s určitou přesností. Tahle skutečnost však nemohla ovlibnit hodnoty takovým způsobem jak jsme pozorovali. 
+\par Určitou nejistotu měření přináší též teplotní roztažnost jednotlivých částí naší aparatury. Zvláště pak roztažnost kapiláry, jejíž poloměr ovlivňuje výsledek měření. Dále pak teplotní roztažnost teploměru. 
+
+\section*{4 Závěr}
+\par Měření bylo poměrně náročné na čas kvůli zachování rovnovážnosti dějě, která byla požadována. Na chyby hodnot měla největší vliv připravená aparatura, proto nebylo možné na místě více ovlivnit přesnost výsledku měření. Defekt manometru nám však nepřinesl uspokojivé výsledky. Výsledná závislost nebyla zjištěna jako kvadratická podle očekávání.
+
+\renewcommand\refname{Použitá literatura}
+\begin{thebibliography}{}
+\bibitem{broz} 
+
+Brož J., a kol.: Základy fyzikálních měření I, SPN Praha 1967 
+ 
+\bibitem{einstein} 
+Studium kmitů vázaných oscilátorů [online]. [cit. 2019-05-03]. Dostupné z: 
+\\\texttt{https://physics.mff.cuni.cz/vyuka/zfp/zadani/114}
+\end{thebibliography}
+
+
+\end{document}
