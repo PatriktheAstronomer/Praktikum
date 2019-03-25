@@ -1,0 +1,190 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[czech]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{txfonts}
+\usepackage{wasysym}
+\usepackage{eurosym}
+\usepackage[symbol*]{footmisc}
+\usepackage{mathtools}
+\usepackage{enumitem}
+\usepackage{tabularx,ragged2e,booktabs,caption}
+\usepackage{url}
+\author{"Patrik Novotný"}
+
+\begin{document}
+\section*{Pracovní úkol}
+\begin{enumerate}
+\item Změřte místní tíhové zrychlení $g$ metodou matematického kyvadla.
+\item Změřte závislost doby kmitu fyzického kyvadla na poloze čočky. Měření proveďte pro obě osy otáčení. Graficky znázorněte.
+\item Změřte místní tíhové zrychlení $g$ metodou reverzního kyvadla.
+\item Vypočítejte chybu, které se dopouštíte idealizací reálného kyvadla v rámci modelu kyvadla matematického. Srovnejte moment setrvačnosti reálného kyvadla s jeho matematickou idealizací.
+\item Vypočítejte vzdálenost těžiště reálného kyvadla od osy otáčení a porovnejte s délkou matematického kyvadla.
+\end{enumerate}
+\section*{Teorie}
+Tuhé těleso, které upevněno tak, že se může volně otáčet kolem osy, která neprochází jeho těžištěm nazýváme fyzické kyvadlo. Dobou kmitu se rozumí doba, za kterou by se kyvadlo vrátilo do úvodní polohy v případě, že by se pohybovalo v prostředí bez tření. V našem případě se jedná o dobu, kdy se pohyb se zanedbáním malých změn začne opakovat. Kyv je pak polovinou takovéto doby. Dobu kmitu T fyzického kyvadla určíme dostatečně přesně jako
+\begin{align}
+T=2 \cdot \pi \cdot \sqrt{\frac{I}{m \cdot g \cdot d}} \cdot \Bigg(1 + \frac{1}{4} \cdot sin^{2}\frac{\alpha}{2}\Bigg)\: \mathrm{[s]}
+\end{align}
+kde $I$ je moment setrvačnosti kyvadla vzhledem k ose otáčení, $m$ je hmotnost kyvadla, $g$ je tíhové zrychlení v místě měření, $d$ je vzdálenost těžiště od osy otáčení, $\alpha$ je maximální úhlová vzdálenost těžiště od rovnovážné polohy. 
+\par Naopak idealizací je kyvadlo matematické, kdy uvažujeme bodové závaží o hmotnosti $m$ pohybující se na nehmotném otáčivém závěsu délky $l$. Moment setrvačnosti matematického kyvadla lze vůči ose otáčení určit jako
+\begin{align}
+I_{M} = m \cdot l^{2}\: \mathrm{[N \cdot kg \cdot m^{2}]}
+\end{align}
+Dosazením vztahu (1) do vztahu (2) získáme vztah pro dobu kmitu matematického kyvadla.
+\begin{align}
+T_{M} =2 \cdot \pi \cdot \sqrt{\frac{l}{g}} \cdot \Bigg(1 + \frac{1}{4} \cdot sin^{2}\frac{\alpha}{2}\Bigg)\: \mathrm{[s]}
+\end{align}
+Pro velmi malé výchylky lze vztah zjednodušit do podoby
+\begin{align}
+T_{M} = 2 \cdot \pi \cdot \sqrt{\frac{l}{g}}\: \mathrm{[s]}
+\end{align}
+během experimentu jsme se snažili, aby maximální výchylka nepřesáhla $5^{\circ}$. Ze vztahu (4) již snadno vyjádříme $g$.
+\begin{align}
+g_{M} = 4 \cdot \pi^{2} \cdot \sqrt{\frac{l}{T_{M}^{2}}}\: \mathrm{[m \cdot s^{-2}]}
+\end{align}
+naopak pokud neaproximujeme, pak je pro fyzické kyvadlo platí vztah
+\begin{align}
+g_{F} = 4 \cdot \pi^{2} \cdot \Bigg(1 + \frac{1}{4} \cdot sin^{2}\frac{\alpha}{2}\Bigg) \cdot \frac{I}{T^{2}\cdot m \cdot d}\: \mathrm{[m \cdot s^{-2}]}
+\end{align}
+\par Při měření je potřeba si dát pozor, aby nedocházelo k většímu rušivému kmitání v jiném směru než v rovině, v níž měříme. O vlivu tohoto jevu se více zmíníme v diskusi. Dále je nutno si uvědomit zanedbání, k čemuž dochází užitím fyzického kyvadla namísto matematického, porovnejme si jednotlivé momenty setrvačnosti vůči ose procházející těžištěm se vztahem (2)
+\begin{align}
+I_{0_{koule}} = \frac{2}{5} \cdot m_{koule} \cdot r^{2}\: \mathrm{[kg \cdot m^{2}]}\\
+I_{0_{\textnormal{tyč}}} = \frac{1}{12} \cdot m_{\textnormal{tyč}} \cdot L^{2}\: \mathrm{[kg \cdot m^{2}]}
+\end{align}
+kde $r$ značí poloměr kulatého závaží, $m$ daná závaží a $L$ délku tyče (v našem případě délku provázku, o tom, jak ji určit níže).
+Neprochází-li osa těžištěm tělesa, získáme moment hybnosti užitím Steinerovy věty.
+\begin{align}
+I = I_{0} + M \cdot a^{2}\: \mathrm{[kg \cdot m^{2}]}
+\end{align}
+kde $a$ značí vzdálenost od osy otáčení. Následně z čistě praktických důvodů je potřeba si uvědomit, že délku závěsu $l$, je nutno určit jako délku provázku měřenou včetně tyčky, na níž je provázek ukotven mínus průměr této tyčky (toto je $L$)  plus rozměr háčku ve svislém směru plus poloměr kulatého závaží (resp. s ohledem na přesnost polovina průměru). Přičemž postupně měříme tyto veličiny svinovacím metrem a posuvným měřítkem. Za absolutní chybu určení $l$ považujeme chybu vzniklou měřením svinovacím metrem, neb stupnice (a v závislosti na tom i absolutní chyba) svinovacího metru je 50krát větší. Slovní popis uvádíme i ve formě vzorce
+\begin{align}
+L = l_{\textnormal{provázek}}- \diameter_{\textnormal{tyčka}} \: \mathrm{[m]} \\
+l = L + l_\textnormal{háček} + \diameter_{\textnormal{závaží}}\: \mathrm{[m]}
+\end{align}
+celkový moment hybnosti fyzického kyvadla následně dle (7,8,9) a spolu s úvahou, že vliv háčku na těžiště i moment setrvačnosti je zanedbatelný a hlavně ho nejsme schopni vážit bez koule, určíme jako
+\begin{align}
+I = \frac{1}{3}\cdot m_{\textnormal{provázek}}\cdot L^{2} + \frac{2}{5} \cdot m_{\textnormal{koule}} \cdot r^{2} + m_{\textnormal{koule}} \cdot l^{2}\: \mathrm{[kg \cdot m^{2}]}
+\end{align} uvedené proměnné jsou definovány stejně jako výše. Nyní si ještě stačí uvědomit, že fyzické kyvadlo má těžiště jinde než kyvadlo matematické. Těžiště vytažené vůči počátku, kterým je pro nás bod otáčení, nalezne dle zákona superpozice
+\begin{align}
+m = m_{\textnormal{provázek}} + m_{\textnormal{koule}} \\
+d =\frac{\frac{L}{2}\cdot m_{\textnormal{provázek}} + l \cdot m_{\textnormal{koule}}}{m} \: \mathrm{[m]}
+\end{align}
+\par Mimo aproximace matematického kyvadla jsme k měření $a$ použili ještě reverzním kyvadlo, což je objekt s stejnou dobou kmitu vůči dvou rovnoběžným osám ležícím v rovině procházející těžištěm kyvadla, které jsou vzdáleny o tzv. redukovanou délku $l_{r}$ Jsou-li osy rozloženy nesymetricky, pak právě $l_{r}$ je jejich vzdáleností. Pro periodu reverzního kyvadla platí vztah
+\begin{align}
+T_{R} = 2 \cdot \pi \cdot \sqrt{\frac{l_{r}}{g}}\: \mathrm{[s]}
+\end{align}
+lze si povšimnout podobnosti se vztahem (4), stejně tak doba kmitu bude analogická vztahu (5)
+\begin{align}
+g_{R} = 4 \cdot \pi^{2} \cdot \sqrt{\frac{l_{r}}{T_{R}^{2}}}\: \mathrm{[m \cdot s^{-2}]}
+\end{align}
+to je velmi elegantní z hlediska toho, že nám stačí pouze změřit dobu kmitu a redukovanou délku. Naopak nevýhodou metody je nutnost zjistit polohu těžiště, kterou lze měnit pomocí změny polohy jedné z čoček. Myšlenkou měření bylo určení polohy a následně jsme již snadno změřili veličiny potřebné pro výpočet $g$ dle (10). Polohu těžiště takovou, aby naše kyvadlo bylo reverzním kyvadlem určíme metodou grafické interpolace (v programu Origin), kdy měříme dobu kmitu (kmitů) jakožto funkci vzdálenosti těžiště od nějaké referenční hodnoty. Měření provádíme pro obě polohy kyvadla, tudíž již po naměření dvou poloh kyvadla získáme dvě funkce, jejíž průnik ukazuje přibližnou polohu těžiště. Následně provedeme pár dalších zpřesňujících měření, až nalezneme hodnotu v našich měřeních nazvanou $X_{2}$. Mírně měníme hodnotu polohy těžiště kolem hodnoty $X_{2}$ než klesne relativní chyba doby kmitu v poloze nahoře a dole pod úroveň relativní chyby určování délky. Následně naměříme získanou dobu kmitu a získali jsme hledanou hodnotu $T_{R}$. Pro lepší pochopení popsané metody přikládáme nákres znázorňující grafickou interpolaci z [2].
+\begin{figure}[H]
+\centering
+\caption{Grafická interpolace}
+\includegraphics[width=150pt]{interpolace.png}
+\end{figure}
+\par Na závěr zhodnotíme teoreticky chyby našich měření nesouvisející s aproximací, přičemž vycházíme z teorie obsažené v [1] a [3]. Metodou přenosu chyb snadno určíme chybu tíhového zrychlení určeného dle (5) a (6)  analogický vztah platí i pro (15)
+\begin{align}
+\delta_{l} =\frac{\Delta_{l}}{l} \\
+\delta_{g_{M}} = \sqrt{\delta_{l}^{2} + 4\cdot \delta_{T_{M}}^{2}} \\
+\delta_{g_{F}} = \sqrt{\delta_{d}^{2} + 4\cdot \delta_{T_{F}}^{2} + \delta_{m}^{2} + \delta_{I}^{2}}
+\end{align}
+úhel $\alpha$ v (6) považujeme za přesně určený, protože bude uvedeno níže, tak za předpokladu, že je menší než $5^{\circ}$, pak jeho i větší změny vzhledem k ostatním chybám nehrají roli a právě proto není chyba úhlové výchylky reflektována ani v (19). Chyby $I$ a $d$ se odvozují analogicky dle [3], teoreticky by bylo možné je také zanedbat, protože v rámci našeho měření je vliv nízké, přesto tak nečiníme s ohledem na to, že chceme porovnat validnosti aproximování našeho fyzického kyvadla kyvadlem matematickým.
+\par V celém oddílu teorie jsme vycházeli z [2].
+\section*{Výsledky měření}
+\par Atmosférické podmínky v laboratoři zanedbáváme, neb jejich vliv na měření je výrazně menší než vlivy námi uváděné. Naopak mezi podmínky měření je záhodno uvést polohu experimentu z důvodu lokálnosti tíhového zrychlení. Měřeno bylo v místě 50.0696492N, 14.4278908E.
+\par Měření jsme prováděli po deseti kmitech z důvodu zvýšení přesnosti měření. Hodnoty v rámci grafické interpolace (přiloženo externě) jsou brány pro 10.5 kmitu, což bylo způsobeno špatnou komunikací s vedoucím úlohy, v průběhu experimentu jsme si tuto chybu uvědomili, výsledky jsou uvedeny pro hodnotu 10 kmitů, stejně tak graf v sekci výsledky obsahuje časovou hodnotu pro 10 kmitů. Přepočítáno a přiloženo níže jakožto obrázek č. 2 v rámci tohoto textu.
+\par Prvně se podívejme na výsledky pro matematické kyvadlo.
+\bigbreak
+\bigbreak
+\begin{center}
+    \captionof{table}{Výsledky měření doby pro 10 kmitů matematického kyvadla)}
+    \label{tab:title}
+    \begin{tabular}{ | m{2cm} |} \hline
+    t [s]   \\ \hline
+    19.9832 \\ \hline
+    19.9792 \\ \hline
+    19.9770  \\ \hline
+    19.9751 \\ \hline
+    19.9741 \\ \hline
+    19.9928 \\ \hline
+    19.9903 \\ \hline
+    19.9829 \\ \hline
+    19.9879 \\ \hline
+    19.9863 \\ \hline
+    19.9857 \\ \hline
+    19.9880 \\ \hline
+    19.9866 \\ \hline
+    \end{tabular}
+\end{center}
+celkově pak získáváme $T_{M} = (1.9984\pm0.0005)\: \mathrm{s}$, dále bylo potřeba určit délku naší aproximace matematického kyvadla v souladu s slovním popisem v teorii výše.
+\begin{center}
+    \captionof{table}{Mezivýsledky potřebné pro určení délky závěsu fyzického (matematického kyvadla}
+    \label{tab:title}
+    \begin{tabular}{ | l | l | l | p{4cm} |} \hline
+    Provázek [cm] & Tyčka [cm] & Háček [cm] & $\diameter$ koule [cm] \\ \hline
+    98.5     & 0.792 & 0.738 & 2.61  \\ \hline
+    98.3     & 0.788 & 0.724 & 2.62  \\ \hline
+    98.3     & 0.792 & 0.722 & 2.624 \\ \hline
+    98.4     & 0.79  & 0.734 & 2.602 \\ \hline
+    98.5     &   X    &   X  & 2.612 \\ \hline
+    \end{tabular}
+\end{center}
+Veličiny přinášející menší chybu do celkové hodnoty jsme dle doporučení cvičícího měřili o jeden pokus méněkrát, což je logická, avšak někoho by formátování tabulky zaskočit, proto tento fakt raději uvádíme. Celková délka závěsu je tedy $l$ = $(99.7\pm0.1)$ cm. A tedy lokální tíhové zrychlení určené naší metodou aproximace matematického kyvadla bez uvažování vlivu aproximace vyjde dle (5) a (18) jako $g_{F}$ = $(9.84\pm0.02)\: \mathrm{m \cdot s^{-2}}$ Porovnáme-li $g_{F}$ a $g_{M}$ zjistíme, že chyba aproximace činí 0.04 $\%$.
+\par Nyní uvažme tíhového zrychlení dány užitím aproximace dle (1), (12), (14) a (19). Naměřené vzdálenosti a doby kmitu jsou stejné jako v tabulkách výše, k tomu jsme naměřili tyto hmotnosti
+\begin{center}
+    \captionof{table}{Hmotnosti součástí fyzického kyvadla}
+    \label{tab:title}
+    \begin{tabular}{ | l |  p{4cm} |} \hline
+    Koule s háčkem [g] & Provázek [g]  \\ \hline
+    62.506     & 0.481   \\ \hline
+    \end{tabular}
+\end{center}
+Těžiště soustavy pak leží ve vzdálenosti $d = (99.3\pm0.1)$ cm od bodu otáčení soustavy. Od hodnoty délky závěsu $l$ se tento bod liší o 0.4 $\%$.  Moment setrvačnosti soustavy $I = (6.22\pm0.01) \cdot 10^{-2} \: \mathrm{kg \cdot m^{2}} $
+a tedy hodnota lokálního tíhového zrychlení pak vyjde jako $g_{F}$ = $(9.84\pm0.03)\: \mathrm{m \cdot s^{-2}}$ a to nehledě na úhel $\alpha$, pokud $\alpha$ < $5^{\circ}$. Nad rámec úkolu můžeme ještě spočíst moment setrvačnosti matematického kyvadla dle (2) a získáme hodnotu $I = (6.28\pm0.02) \cdot 10^{-2} \: \mathrm{kg \cdot m^{2}} $, které se liší pouze o 0.9 $\%$.
+\par V této části výsledků měření budeme diskutovat výsledky měření pro reverzní kyvadlo. Za redukovanou vzdálenost považujeme vzdálenost břitů, kterou jsme určili jako $l_{r} = (99.4\pm0.1)$ cm. Z prvních dvou měření reverzním kyvadlem, což jsou měření nejvíce na okraji obrázku č. 2 jsme určili prvotní odhad těžiště X = 39.44 mm od počátku souřadnic, což byla nejbližší možná poloha čočky vůči břitům. Po naměření dalších výsledků jsme určili hodnotu $X_{2}$ = 39.83 mm, v jejíž okolí jsme s pomocí malých mechanických změn (otočení závitu držící jednu z čoček o půl závitu) nalezli správnou hodnotu těžiště. Samotné mezivýsledky z hledání těžiště neuvádíme, protože nemá význam pro vyhodnocení výsledků a vyvození závěrů. Následující tabulka ukazuje výsledné naměřené doby kmitu vůči oběma osám (polohy nahoře a dole)
+\begin{center}
+    \captionof{table}{Doby kyvu reverzního kyvadla měřené v dvou polohách - nahoře a dole určených dle setupu experimentu}
+    \label{tab:title}
+    \begin{tabular}{ | l |  p{3cm} |} \hline
+    Dole [s] & Nahoře [s]  \\ \hline
+    2.0044  & 2.00462 \\ \hline
+    2.00422 & 2.00498 \\ \hline
+    2.00444 & 2.00482 \\ \hline
+    2.00426 & 2.00470  \\ \hline
+    2.00432 & 2.00474 \\ \hline
+    2.00418 & 2.00469 \\ \hline
+    \end{tabular}
+\end{center}
+výsledná doba kmitu reverzního kyvadla je tedy t = $2.005\pm0.002$ s, následně
+dle vztahu (16) analogicky s (18) jsme určili $g_{R} = (9.79\pm0.01) \: \mathrm{m \cdot s^{-2}}$.
+\par Na závěr přikládáme graf zobrazující vztah dob kmitu v polohách nahoře a dole v závislosti na poloze těžiště. Pomocí podobného grafu (přiložen externě) jsme nalezli polohu těžiště.
+\begin{figure}[H]
+\centering
+\caption{Grafická interpolace - kmity v závislosti na poloze těžiště}
+\includegraphics[width=400pt]{Interpolace.png}
+\end{figure}
+kde $\tau$ na ose y reprezentuje čas potřebný pro 10 kmitů v dané poloze a x polohu těžiště.
+\section*{Diskuse}
+\par Jako problematické se ukázalo správné určení výchylky $\alpha$, nesměla být ani příliš velká, ani příliš malá (ideálně kolem $3^{\circ}$). Dalším problémem při měření byla nestálost podmínek, co se týče pohybu kyvadel mimo rovinu, v níž jsme měřili. Jediným naším měřítkem, že tyto kmity neodnáší signifikantní množství energie bylo ověření pohledem, jistě by toto šlo ošetřit dalšími fotorezistory, které by monitorovali pohyb komplexně v pohledu. Na druhou stranu chvilku po rozhoupání kyvadla tyto kmity vymizí, spíše nás trápí fakt, že nejsme schopni význam těchto kmitů kvantifikovat a uvažovat pro každé jednotlivé měření.
+\par Dále při vyhodnocování chyby měření je nutno si uvědomit, že gravitační zrychlení může lokálně dosahovat jiných hodnot, než je tabulková hodnota pro tzv. normální tíhové zrychlení $g$ = 9.80665 $\mathrm{N \cdot m \cdot s^{-2}}$ dle [4]. Porovnáme-li tuto hodnotu s $g$ měřeného fyzickým kyvadlem jako a, tak vidíme, že nám tabulková hodnota nevyšla. Za prvé by toto šlo snadno přisoudit tomu, že námi uvažovaná aproximace byla neoprávněná, ovšem hodnota $g_{F}$ nevyjde také, sice se blíží více tabulkové hodnotě, nicméně rozdíl daný aproximováním je pod úrovní zaokrouhlení na řád chyby resp. nejistoty měření, ta je naopak větší. Také porovnání momentů setrvačností a délky závěsu, resp. polohy těžiště ukazuje, že aproximace byla na místě. Vyloučíme-li systematickou chybu měření danou rozvržením experimentu, pak si musíme uvědomit, že významnou chybu do měření přináší fakt, že normální tíhové zrychlení je určeno pro $45^{\circ}$. zeměpisné šířky při hladině moře nehledě na existenci lokálních odchylek tíhového pole. Porovnáme-li tabulkovou hodnotu s $g_{R}$, pak ani zde tabulková hodnota nepadne do intervalu chyby. Naopak $g_{R}$ je menší než $g$, což lze přisoudit odporu prostředí, protože to zásadně více ovlivnilo měření reverzním kyvadlem než předchozí měření a to z důvodu větší plochy reverzního kyvadla. Navíc z vztahu (6) je vidět, že způsobí-li odpor prostředí vyšší hodnotu T, pak se čtvercem klesá hodnota $g_{R}$. Také je možné, že závit držící čočku se v průběhu měření povoloval a její poloha nebyla tedy stálá, nicméně tento vliv by prokázalo až porovnání s měřením ve vakuu. Je škoda, že měření $g_{R}$ nemohlo proběhnout ve vakuu, protože se jedná ze vše tří měřících metod o tu nejpřesnější. Celkově lze naše měření považovat za úspěšné, jelikož se nepříliš neliší od tabulkových hodnot, které však mohou být, jak bylo již uvedeno výše, pro náš experiment spíše orientační vzhledem k lokální povaze tíhového pole. Zřejmě jsme se tedy nedopustili výrazné systematické chyby.
+\section*{Závěr}
+\par Třemi odlišnými metodami jsme změřili hodnotu lokálního tíhového zrychlení $g$. Výsledné naměřené hodnoty jsou $g_{M}$ = $(9.84\pm0.02)\:$ $\mathrm{m \cdot s^{-2}}$ při měření fyzickým kyvadlem,$g_{F}$ $(9.84\pm0.03)\: \mathrm{m \cdot s^{-2}}$, pakliže jsme nezanedbaly moment hybnosti a polohy těžiště. Posledně naměřená hodnota lokálního tíhového zrychlení činí $g_{R}$ $(9.79\pm0.01)\: \mathrm{m \cdot s^{-2}}$. Dále jsme změřili a do grafu vynesli závislost dob kmitu na poloze čočky na poloze čočky a zjistili jsme, že rozdíl polohy těžiště fyzického kyvadla od délky závěsu činí $d-l = (0.4\pm0.1$) cm. Liší se tedy o 0.4 $\%$ délky závěsu. Relativní rozdíl momentů setrvačnosti činil 0.9 $\%$ Relativní rozdíl určení tíhového zrychlení pomocí fyzického kyvadla a matematického (resp. fyzického považovaného za matematické) pak činil pouze 0.04 $\%$.
+\renewcommand\refname{Použitá literatura}
+\begin{thebibliography}{}
+\bibitem{broz} 
+BROŽ, J. a KOL. Základy fyzikálních měření I. 1. vydání. Praha: SPN, 1983
+\bibitem{praktikum}
+Fyzikální praktikum. Měření tíhového zrychlení [online][cit. 2019-03-19]. Dostupné z:
+\url{https://physics.mff.cuni.cz/vyuka/zfp/_media/zadani/texty/txt_121.pdf}
+\bibitem{englich}
+ENGLICH, Jiří. Úvod do praktické fyziky I. 1. vydání. Praha: Matfyzpress, 2006, ISBN 80-86732-93-2
+\bibitem{grav. konstanta}
+The Physics Hypertextbook. Physical Constants [online][cit. 2019-03-22]. Dostupné z: 
+\url{https://physics.info/constants/}
+\end{thebibliography}
+\end{document}
