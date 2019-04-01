@@ -1,0 +1,214 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[czech]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{txfonts}
+\usepackage{wasysym}
+\usepackage{eurosym}
+\usepackage[symbol*]{footmisc}
+\usepackage{mathtools}
+\usepackage{enumitem}
+\usepackage{tabularx,ragged2e,booktabs,caption}
+\usepackage{url}
+\author{"Patrik Novotný"}
+
+\begin{document}
+\section*{Pracovní úkol}
+\begin{enumerate}
+\item Změřte závislost prodloužení tyče na teplotě. Měření proveďte pro čtyři různé materiály.
+\item Výsledky měření zpracujte metodou lineární regrese a graficky znázorněte.
+\item Určete koeficient teplotní roztažnosti měřených materiálů.
+\end{enumerate}
+\section*{Teorie}
+\par V sekci teorie vycházíme z [1]. Měření součinitelů délkové resp. objemové roztažnosti se provádí přístroji zvanými dilatometry. V našem případě jsme měřili délkovou tepelnou roztažnost charakterizovanou součinitelem teplotní roztažnosti $\alpha$, která je signitfikatní pro objekty, u nichž převažuje pouze jeden z rozměrů - v našem případě jsme měřili $\alpha$ pro duté kovové tyče. Využití v praxi je například roztažnost kolejí. Koeficient $\alpha$ je definován jako
+\begin{align}
+\alpha = \frac{1}{l_{0}} \cdot \Bigg( \frac{\partial l}{\partial t} \Bigg)_{p} \: \mathrm{[K^{-1}]}
+\end{align}
+kde $l_{0}$ je délka nejdelšího rozměru tělesa, jehož odchylku měříme úchylkoměrem. $t$ je teplota objektu. Je nutno si také uvědomit, že i samotný součinitel je funkcí teploty, takže vztah (1) platí, avšak pouze na relativně malých rozsazích teplot, na námi měřené škále 40 kelvinů ho však můžeme považovat za konstantu. Oprávněnost tohoto předpokladu s ohledem na výsledky zhodnotíme v diskusi. Ze vztahu (1) je možné odvodit další podstatné vztahy
+\begin{align}
+l = l_{0} \cdot ( 1 + \alpha \cdot t) \: \mathrm{[m]} \\
+\Delta l = l_{0} \cdot \alpha \cdot (t-t_{0}) \: \mathrm{[m]} \\
+l = \alpha \cdot t + l_{0} \cdot (1 - \alpha \cdot t_{0}) \: \mathrm{[m]}
+\end{align}
+kdy poslední vztah je již zapsán ve tvaru přímky $y(x) = ax + b$ a snadno z něj lineární regresí určíme parametr $\alpha$.
+\par Chyby jednotlivých součinitelů $\alpha$ určíme dle [2] a [3] metodou přenosu chyb.
+\begin{align}
+\delta f = \sqrt{\sum\limits_{i=1}^n  \Bigg( \frac{\partial f}{\partial  x_{i}} \Bigg)  \cdot \delta x_{i}}
+\end{align}
+Nejprve si ze vztahu (2) vyjádříme $\alpha$, následně si vyjádříme chybu $\alpha$ dle (5) a získaného vztahu (6).  Konkrétně tedy
+\begin{align}
+\alpha = \frac{l - l_{0}}{l_{0} \cdot t} \: \mathrm{[K^{-1}]} \\
+\delta_{\alpha} = \sqrt{\Bigg(\frac{\alpha}{l_{0}}\Bigg)^{2} \cdot \delta_{l_{0}}^{2} + \Bigg(\frac{\alpha}{a}\Bigg)^{2}  \cdot \delta_{a}^2}
+\end{align}
+kde a je směrnice přímky z lineární regrese. Chybu regrese za nás počítá program ROOT, v němž tvoříme grafy.
+\par Na závěr si dovolíme pár poznámek i k samotnému provedení měření. Princip dilatometrů spočívá v kontrolovaném ohříváním předmětu (tyče) a měření prodloužení. V našem případě jsme nejprve změřili délku tyčí před zahříváním, poté jsme je pevně uchytili do dilatometru, přičemž na jedné straně dilatometru ve směru nejdelší osy tyč tlačila na vynulovaný úchylkoměr. Získali jsme vždy 10 měření prodloužení pro 10 hodnot teploty tyče. Provedeným lineární regrese jsme pak určili součinitel $\alpha$. Rovnoměrné a rychlé nahřátí tyče na danou teplotu umožňuje průtok vody vnitřkem měřených tyčí, jelikož voda je velmi dobrým vodičem tepla. Naopak zvnějšku jsme obalili tyče izolací.
+\section*{Výsledky měření}
+\par Atmosférické podmínky v laboratoři neuvádíme, protože ovlivňují experiment řádově než jiné chyby, jimž se budeme věnovat v diskusi. Teoreticky by měření mohla ovlivnit prudká změna atmosférického tlaku a bylo by nutné tento vliv kvantifikovat, k ničemu takovému však nedošlo. Teplotu vody vháněné do trubice jsme měřili teploměrem s nejmenším dílkem 0.5 stupně. Úchylkoměr, jímž jsme měřili změnu délky tyče měl nejmenší dílek 0.01 mm. Svinovací metr pak 1 mm, jímž jsme měřili délky tyčí před ohříváním. Chyby těchto přístrojů uvažujeme dle [2] a [3], o jejich teoretickém vyhodnocení více v teorii.
+\par Hodnoty $l_{0}$ v tabulce níže považujeme za referenční. Tyče jsme podchlazovali, jelikož teplota v místnosti byla vyšší než spodní mez intervalu, v němž bylo naším úkolem měřit.
+\begin{center}
+    \label{tab:title}
+    \begin{tabular}{ | l | l | l | p{4cm} |} \hline
+    materiál & $l_{0}$ [mm] & $t$ [$^\circ$C] \\ \hline
+    ocel & $5980\pm5$ & $18.5\pm0.5$ \\ \hline
+    měď & $5970\pm5$ & $19\pm0.5$ \\ \hline
+    mosaz & $5980\pm5$ & $19\pm0.5$ \\ \hline
+    hliník & $5970\pm5$ & $18\pm0.5$ \\ \hline
+    \end{tabular}
+    \captionof{table}{Referenční hodnoty $l_{0}$ pro všechny 4 měřené kovy}
+\end{center}
+Už při těchto prvních měřeních by se mohl čtenář podivit, proč neměříme roztažnost vždy při stejných teplotách pro různé kovy a se stejnými rozestupy. Po zkušenostech s měřením viskozity jsme usoudili, že je lepší měřit teplotu po delším ustálení než v pravidelných intervalech. Nepravidelnost měření v rámci intervalu zásadně neovlivní lineární fit. Měla by význam, pokud bychom zkoumali existenci lokálních extrémů například, nic takového však teorie nepředpokládá, a proto si můžeme měřit tímto způsobem. Co se týče problémů s nastavením určité teploty a následného ustálení plynou z nedostatků termostatu.
+\par Naměřené hodnoty jsou představeny níže v tabulkách vždy i s přísluším grafem. Na konci kapitolky se nachází graf porovnávající všechny fity.
+\begin{center}
+    \label{tab:title}
+    \begin{tabular}{ | l | l  | p{4cm} |} \hline
+    $\Delta l$ [$\mu$m] & $t$ [$^\circ$C] \\ \hline
+    0 & $18.5\pm0.5$ \\ \hline
+    $20\pm5$ & $22.5\pm0.5$ \\ \hline
+    $50\pm5$ & $26\pm0.5$ \\ \hline
+    $80\pm5$ & $30.5\pm0.5$ \\ \hline
+    $110\pm5$ & $35\pm0.5$ \\ \hline
+    $140\pm5$ & $39.5\pm0.5$ \\ \hline
+    $170\pm5$ & $43\pm0.5$ \\ \hline
+    $200\pm5$ & $48\pm0.5$ \\ \hline
+    $230\pm5$ & $53\pm0.5$ \\ \hline
+    $250\pm5$ & $56\pm0.5$ \\ \hline
+    $280\pm5$ & $60\pm0.5$ \\ \hline
+    \end{tabular}
+    \captionof{table}{Naměřená prodloužení pro dané teploty - ocel}
+\end{center}
+\begin{figure}[H]
+\centering
+\includegraphics[width=400pt]{ocel.png}
+\caption{Lineární regrese v grafu zobrazujícím prodloužení jako funkci teploty, pro ocel}
+\end{figure}
+\begin{center}
+    \label{tab:title}
+    \begin{tabular}{ | l | l  | p{4cm} |} \hline
+    $\Delta l$ [$\mu$m] & $t$ [$^\circ$C] \\ \hline
+    0 & $19\pm0.5$ \\ \hline
+    $40\pm5$ & $23\pm0.5$ \\ \hline
+    $90\pm5$ & $28\pm0.5$ \\ \hline
+    $130\pm5$ & $32\pm0.5$ \\ \hline
+    $170\pm5$ & $35\pm0.5$ \\ \hline
+    $200\pm5$ & $39\pm0.5$ \\ \hline
+    $240\pm5$ & $43.5\pm0.5$ \\ \hline
+    $280\pm5$ & $46.5\pm0.5$ \\ \hline
+    $310\pm5$ & $51\pm0.5$ \\ \hline
+    $350\pm5$ & $56\pm0.5$ \\ \hline
+    $400\pm5$ & $60\pm0.5$ \\ \hline
+    \end{tabular}
+    \captionof{table}{Naměřená prodloužení pro dané teploty - měď}
+\end{center}
+\begin{figure}[H]
+\centering
+\includegraphics[width=400pt]{med.png}
+\caption{Lineární regrese v grafu zobrazujícím prodloužení jako funkci teploty, pro měď}
+\end{figure}
+\begin{center}
+    \label{tab:title}
+    \begin{tabular}{ | l | l  | p{4cm} |} \hline
+    $\Delta l$ [$\mu$m] & $t$ [$^\circ$C] \\ \hline
+    0 & $19\pm0.5$ \\ \hline
+    $30\pm5$ & $22.5\pm0.5$ \\ \hline
+    $70\pm5$ & $26\pm0.5$ \\ \hline
+    $120\pm5$ & $30.5\pm0.5$ \\ \hline
+    $170\pm5$ & $34.5\pm0.5$ \\ \hline
+    $220\pm5$ & $39\pm0.5$ \\ \hline
+    $270\pm5$ & $43\pm0.5$ \\ \hline
+    $340\pm5$ & $49\pm0.5$ \\ \hline
+    $370\pm5$ & $51.5\pm0.5$ \\ \hline
+    $420\pm5$ & $56\pm0.5$ \\ \hline
+    $460\pm5$ & $60\pm0.5$ \\ \hline
+    \end{tabular}
+    \captionof{table}{Naměřená prodloužení pro dané teploty - mosaz}
+\end{center}
+\begin{figure}[H]
+\centering
+\includegraphics[width=400pt]{mosaz.png}
+\caption{Lineární regrese v grafu zobrazujícím prodloužení jako funkci teploty, pro mosaz}
+\end{figure}
+Zde uvedené měření pro mosaz bylo získáno až jako měření druhé. Stejně tak je označeno v příloze surových dat z měření. V prvním měření došlo lokálně k výrazně nelineárnímu průběhu, což přisuzujeme hrubé chyby, nejspíš někdo fyzicky hnul celou s měřící soustavu a tím změnil hodnotu na úchylkoměru v průběhu měření. Více o možných chybách v diskusi.
+\begin{center}
+    \label{tab:title}
+    \begin{tabular}{ | l | l  | p{4cm} |} \hline
+    $\Delta l$ [$\mu$m] & $t$ [$^\circ$C] \\ \hline
+    0 & $18\pm0.5$ \\ \hline
+    $50\pm5$ & $22\pm0.5$ \\ \hline
+    $120\pm5$ & $27\pm0.5$ \\ \hline
+    $180\pm5$ & $31.5\pm0.5$ \\ \hline
+    $220\pm5$ & $34\pm0.5$ \\ \hline
+    $250\pm5$ & $37\pm0.5$ \\ \hline
+    $310\pm5$ & $41\pm0.5$ \\ \hline
+    $370\pm5$ & $45\pm0.5$ \\ \hline
+    $410\pm5$ & $50\pm0.5$ \\ \hline
+    $460\pm5$ & $54.5\pm0.5$ \\ \hline
+    $510\pm5$ & $59\pm0.5$ \\ \hline
+    \end{tabular}
+    \captionof{table}{Naměřená prodloužení pro dané teploty - hliník}
+\end{center}
+\begin{figure}[H]
+\centering
+\includegraphics[width=400pt]{hlinik.png}
+\caption{Lineární regrese v grafu zobrazujícím prodloužení jako funkci teploty, pro hliník}
+\end{figure}
+nyní z rovnic lineárních regresí a vztahů (3), (7) určíme hledaný součinitel jako $\alpha = \frac{a}{l_{0}}$. Koeficient b nás nezajímá, protože v naší úloze nemá konkrétní fyzikální význam. Výsledné hodnoty jsou uvedeny v následující tabulce
+\begin{center}
+    \label{tab:title}
+    \begin{tabular}{ | c | c | c  | m{4cm} |} \hline
+    materiál & koeficient a [$\mathrm{10^{4} \cdot m \cdot K^{-1}}$] & $\alpha$ [$\mathrm{10^{-5} \cdot K^{-1}}$] \\ \hline
+    ocel & $68\pm1$ & $1.13\pm0.02$ \\ \hline
+    měď & $96\pm1$ & $1.61\pm0.02$ \\ \hline
+    mosaz & $115\pm1$ & $1.92\pm0.02$ \\ \hline
+    hliník & $123\pm2$ & $2.12\pm0.03$ \\ \hline
+    \end{tabular}
+    \captionof{table}{Výsledné hodnoty směrnice a a $\alpha$ pro jednotlivé kovy}
+\end{center}
+Dále ještě pro porovnání uvádíme tabulkové hodnoty dle [4], které jsou považovány za přesné. Na tuto tabulku se odkazujeme v diskusi při porovnávání výsledků. Intervaly jsou udávány z důvodu různé chemické čistoty, vnitřní konfigurace (typicky problém u uhlíku) či přímo jiných prvků ve slitinách.
+\begin{center}
+    \label{tab:title}
+    \begin{tabular}{ | c | c | c  | m{4cm} |} \hline
+    materiál & $\alpha$ [$\mathrm{10^{-5} \cdot K^{-1}}$] \\ \hline
+    ocel &  1.10-1.25 \\ \hline
+    železo & 1.13 \\ \hline
+    uhlík & 0.40-0.80 \\ \hline
+    měď &  1.60-1.67 \\ \hline
+    mosaz & 1.80-1.90 \\ \hline
+    zinek & 3.00-3.50 \\ \hline
+    hliník & 2.10-2.40 \\ \hline
+    \end{tabular}
+    \captionof{table}{Tabulkové hodnoty $\alpha$ dle [4]}
+\end{center}
+\par Nakonec uveďme graf všech měřených hodnot pro všechny kovy, abychom mohli porovnat jednotlivé směrnice, které jsou přímo úměrné koeficientu $\alpha$.
+\begin{figure}[H]
+\centering
+\includegraphics[width=400pt]{all.png}
+\caption{Lineární regrese v grafu zobrazujícím prodloužení jako funkci teploty, grafovány měď, mosaz, ocel a hliník}
+\end{figure}
+\section*{Diskuse}
+\par Bohužel ve výsledcích bylo vidět, že při naší úvaze na začátku sekce měření o tom, proč jsme neměřili prodloužení pro stejné teploty, jsme udělali chybu. Sice nedošlo k ovlivnění dat, nicméně výsledné grafy i tabulky jsme méně přehledné pro porovnávání dat mezi jednotlivými. Pro příště je nutno přemýšlet nad možným výstupem z měření ještě před jeho započetím. Na druhou stranu stojíme si za danou úvahou, že výsledné fity a tudíž i hodnoty $\alpha$ bude přesnější než s při měření na přesně určených a stejných teplotách (samozřejmě ideální je obojí - stejné a přesné teploty a zároveň delší čas na ustálení, nicméně jsme limitováni časem v praktiku). Toto tvrzení by bylo podložené až pokud by došlo ke statisticky nezanedbatelnému počtu měření celé úlohy oběma způsoby. 
+\par Dále, díky metodě měření uvedené v teorii, kdy tyče nahříváme vodou zevnitř a jsou zvnějšku izolovány dochází k rovnoměrnému ohřívání tyčí, tudíž i rovnoměrnému prodlužování. Díky tomu oproti jiným metodám např. nahříváním tyče svíčkou nedocházelo k špatnému určení součinitele $\alpha$ vlivem nerovnoměrností. Přesto jsme se nedokázali vyhnout jiným chybám měření. Předně nemáme žádné informace o chemické čistotě daných tyčí, což je hlavně u slitin (ocel a mosaz) kruciální problémem, protože dle tabulky č. 7 stačí uvážit, jak moc ovlivní mosaz větší příměs zinku nebo naopak u oceli příměs uhlíku. Obě tyto příměsi se zásadně liší o většinové složky mědi, resp. železa. Přičemž u obou příměsí čekáme malé a přesně dané podíly na složení. Nicméně nejsme schopni daná složení přesně kvantifikovat, je potom jaký význam má měřit součinitele roztažnosti pro materiál, jehož složení neznáme. Nicméně na druhou stranu právě součinitel $\alpha$ by nám spolu s měřením hustoty již mohl poskytnout o složeních vhodné informace. Pro příště by bylo vhodné měřit navíc právě hustoty daných tyčí.
+\par Dále jednotlivá měření negativně mohl ovlivnit mechanický náraz do měřící soustavy. Už malá změna konfigurace může změnit měření úchylkoměrem. Po nalezení skokové nespojitosti u mosazi jsme dané měření provedli znovu. Nicméně marginálnějším způsobem byla jistě ovlivněna všechna měření. Přesnost měření by zvýšila naše vyšší pozornost, vyšší ohleduplnost ostatních v praktiku i protiotřesová podložka pod dilatometrem. Další zkreslení dat by mohlo způsobit ohřívání dilatometru od přívodních trubic s vodou, přičemž by se také prodloužil a výsledná hodnota prodloužení a tedy i $\alpha$ by byla menší. Dále neuvažujeme samotnou roztažnost vody v trubici, která se na prodloužení tyčí také projevu, tento efekt naopak měřené prodloužení i $\alpha$ zvyšuje.
+\par Nyní již k vyhodnocení výsledků. Přes všechna výše popsaná úskalí a možné zdroje chyb hodnoty součinitele délkové roztažnosti $\alpha$ nám pro ocel, měď i hliník vyšly v rámci udávaných intervalů dle [4]. Co se týče mosazi, tak ta vyšla nepatrně vyšší, resp. okraj chybového intervalu je totožný s intervalem udávaným dle [4]. Zrovna u mosazi, kde neznáme přesné poměry slitin, se dle nás jedná o dobrý výsledek. Lze se tedy domnívat, že tyč obsahuje vyšší množství zinku, než je běžné. Jednalo by se o tyč z jednoho prvku či o vyšší rozdíl hodnot mezi tabulko č. 7 a č. 6 s výsledky, pak by bylo na místě hledat chybu jinde, nejspíše ve výše uvedených důvodech. 
+\section*{Závěr}
+\par Metodou lineární regrese jsme určili součinitel délkové roztažnosti $\alpha$, graficky jsme znázornili pro čtyři měřené kovové tyče prodloužení jako funkci teploty.
+Výsledné naměřené hodnoty jsou $\alpha_\textnormal{ocel} = (1.13\pm0.02)\:\:\mathrm{10^{-5} \cdot K^{-1}}$,
+$\alpha_\textnormal{měď} = (1.61\pm0.02)\:\: \mathrm{10^{-5} \cdot K^{-1}}$, $\alpha_\textnormal{mosaz} = (1.92\pm0.02)\:\: \mathrm{10^{-5} \cdot K^{-1}}$ a $\alpha_\textnormal{hliník} = (2.12\pm0.03)\:\: \mathrm{10^{-5} \cdot K^{-1}}$.
+\par Hodnoty pro ocel, měď a hliník se shodující s tabulkovými hodnotami, hodnota pro mosaz je lehce větší, přičemž chybový interval má společný okraj s intervalem pro mosaz udávaným v tabulkách. Jako pravděpodobný důvod nesrovnalostí v hodnotě $\alpha_\textnormal{mosaz}$ jsme v diskusi označili vyšší obsah zinku v mosazi než bývá běžné. S ohledem na výsledky se domníváme, že naše měření i zpracování dat bylo korektní.
+
+\renewcommand\refname{Použitá literatura}
+\begin{thebibliography}{}
+\bibitem{praktikum}
+Fyzikální praktikum. Teplotní roztažnost pevných látek a kapalin [online][cit. 2019-03-30]. Dostupné z:
+\url{https://physics.mff.cuni.cz/vyuka/zfp/_media/zadani/texty/txt_124.pdf}
+\bibitem{broz} 
+BROŽ, J. a KOL. Základy fyzikálních měření I. 1. vydání. Praha: SPN, 1983
+\bibitem{englich}
+ENGLICH, Jiří. Úvod do praktické fyziky I. 1. vydání. Praha: Matfyzpress, 2006, ISBN 80-86732-93-2
+\bibitem{hodnoty k porovnani}
+Engineering Toolbox. Linear expansion coefficients [online][cit. 2019-04-01]. Dostupné z:
+\url{https://www.engineeringtoolbox.com/linear-expansion-coefficients-d_95.html}
+\end{thebibliography}
+\end{document}
