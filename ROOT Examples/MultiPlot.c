@@ -25,8 +25,7 @@ void MultiPlot() {
    }
    FILE* data;
    data = fopen("teplota1SERR.txt","r"); //source name
-   fscanf(data, "%lf	%lf	%lf	%lf", &x1[0], &empty[0] , &y1[0], &ey[0]);
-   for(Int_t i = 1; i < n; i++){
+   for(Int_t i = 0; i < n; i++){
    	fscanf(data, "%lf	%lf	%lf	%lf", &x1[i], &empty[i] , &y1[i], &ey[i]);
 	}
    fclose(data);
@@ -43,8 +42,7 @@ void MultiPlot() {
 
    FILE* data2;
    data2 = fopen("Prub1.txt","r"); //2nd source name
-   fscanf(data2, "%lf	%lf	%lf", &x2[0], &empty2[0], &y2[0]);
-   for(Int_t i = 1; i < m; i++){
+   for(Int_t i = 0; i < m; i++){
    	fscanf(data2, "%lf	%lf	%lf", &x2[i], &empty2[i], &y2[i]);
 	}
    fclose(data2);
