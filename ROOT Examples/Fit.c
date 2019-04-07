@@ -17,11 +17,9 @@ void Fit()
    }
    FILE* data;
    data = fopen("Logaritmicke.txt","r"); //source name
-   fscanf(data, "%lf	%lf	%lf", &y[0] , &x[0], &ey[0]);
-   ex[0] = (0.5)/(1/x[0])*x[0];
-   for(Int_t i = 1; i < n; i++){
+   for(Int_t i = 0; i < n; i++){
    	fscanf(data, "%lf	%lf	%lf", &y[i], &x[i], &ey[i]);
-	ex[i] = (0.5)/(1/x[0])*x[0];
+	ex[i] = (0.5)/(1/x[i])*x[i];
 	}
    fclose(data);
 
