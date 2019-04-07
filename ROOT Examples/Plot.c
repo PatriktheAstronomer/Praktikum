@@ -18,8 +18,7 @@ void Plot() {
    }
    FILE* data;
    data = fopen("Odporvoda.txt","r"); //source name
-   fscanf(data, "%lf	%lf", &x1[0], &y1[0]);
-   for(Int_t i = 1; i < n; i++){
+   for(Int_t i = 0; i < n; i++){
    	fscanf(data, "%lf	%lf", &x1[i], &y1[i]);
 	}
    fclose(data);
