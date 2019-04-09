@@ -31,19 +31,19 @@
 \caption{Schéma měřicí aparatury}
 \includegraphics[width=150pt]{aparatura.png}
 \end{figure}
-Voda je přiváděna přepadem přes bod A, máme možnost regulovat její rychlost. Dále $l$ reprezentuje délku trubice, na níž klesne tlak o $Delta p$, $r$ poloměr trubice a $h$ výšku vodního sloupce v manometru, která nám slouží k určení rozdílu tlaku mezi manometrem a ústím trubice. Pro vztah (rozdílu) tlaku a výšky vodního sloupce platí
+Voda je přiváděna přepadem přes bod A, máme možnost regulovat její rychlost. Dále $l$ reprezentuje délku trubice, na níž klesne tlak o $\Delta p$, $r$ poloměr trubice a $h$ výšku vodního sloupce v manometru, která nám slouží k určení rozdílu tlaku mezi manometrem a ústím trubice. Pro vztah (rozdílu) tlaku a výšky vodního sloupce platí
 \begin{align}
-\Delta p = h \cdot g \cdot \rho(t) \: \mathrm{[Pa]}
+\Delta p = h \cdot g \cdot \rho(T) \: \mathrm{[Pa]}
 \end{align}
-kde $g$ je lokální tíhové zrychlení a $\rho(t)$ hustota zkoumané kapaliny, v našem případě vody, o dané teplotě. V dalších případech značíme již pouze jako $\rho$. Měříme-li objem proteklý za čas, pak je možno změřit objemový průtok $Q_{v}$.
+kde $g$ je lokální tíhové zrychlení a $\rho(T)$ hustota zkoumané kapaliny, v našem případě vody, o dané teplotě. V dalších případech značíme již pouze jako $\rho$. Měříme-li objem proteklý za čas, pak je možno změřit objemový průtok $Q_{v}$.
 \begin{align}
 Q_{v} = \frac{V}{t} = r^{2} \cdot \pi \cdot v_{s} \: \mathrm{[m^{3} \cdot s^{-1}]}
 \end{align}
-kde $V$ je objem, který protekl trubicí za čas $t$. Stejně tak můžeme definovat objemový průtok $Q_{v}$ pomocí již střední rychlosti proudění kapaliny $v^{s}$. Pomocí střední rychlosti proudění lze pak definovat Reynoldsovo číslo, které nám umožňuje rozlišit laminární, přechodový a turbulentní průběh proudění. 
+kde $V$ je objem, který protekl trubicí za čas $t$. Stejně tak můžeme definovat objemový průtok $Q_{v}$ pomocí střední rychlosti proudění kapaliny $v_{s}$. Pomocí střední rychlosti proudění můžeme pak také definovat Reynoldsovo číslo, které nám umožňuje rozlišit laminární, přechodový a turbulentní průběh proudění. 
 \begin{align}
-Re = \frac{r \cdot \rho \cdot v_{s}}{\eta(t)}  \: \mathrm{[1]}
+Re = \frac{r \cdot \rho \cdot v_{s}}{\eta(T)}  \: \mathrm{[1]}
 \end{align}
-kde $\eta(t)$ je dynamická viskozita měřené kapaliny (vody) za teploty $t$, dále značíme pouze $\eta$. Porovnání se vztahem vztahem (2) můžeme odvodit vztah pro Reynoldsovo číslo závislý na veličinách, které měříme. Ty jsou popsány v sekci výsledky měření.
+kde $\eta(T)$ je dynamická viskozita měřené kapaliny (vody) za teploty $T$, dále značíme pouze $\eta$. Porovnání se vztahem vztahem (2) můžeme odvodit vztah pro Reynoldsovo číslo závislý na veličinách, které měříme. Ty jsou popsány v sekci výsledky měření.
 \begin{align}
 Re = \frac{\rho \cdot Q_{v}}{\pi \cdot r \cdot \eta}  \: \mathrm{[1]}
 \end{align}
@@ -51,7 +51,7 @@ Re = \frac{\rho \cdot Q_{v}}{\pi \cdot r \cdot \eta}  \: \mathrm{[1]}
 \begin{align}
 Q_{v}(p) = \frac{\pi \cdot r^{4} \cdot \Delta p}{8 \cdot \eta \cdot l}  \: \mathrm{[m^{3} \cdot s^{-1}]}
 \end{align}
-\par Předpokládáme, že měření poloměru $r$ posuvným měřítkem je nepřesné, právě proto můžeme poloměr určit dle vztahu (5) určit jako směrnici lineární závislosti $y = ax + b$. Tedy konkrétně následujícími úpravami.
+\par Předpokládáme, že měření poloměru $r$ posuvným měřítkem je nepřesné, právě proto můžeme poloměr určit dle vztahu (5) jako směrnici lineární závislosti $y = ax + b$. Tedy konkrétně následujícími úpravami.
 \begin{align}
 Q_{v}(p) = a \cdot \Delta p  \: \mathrm{[m^{3} \cdot s^{-1}]} \\
 a = \frac{\pi \cdot r^{4}}{8 \cdot \eta \cdot l} \: \mathrm{[m^{5} \cdot s^{-1} \cdot N^{-1} ]} \\
@@ -61,24 +61,24 @@ r = \sqrt[4]{\frac{8 \cdot a \cdot \eta \cdot l}{\pi}}  \: \mathrm{[m]}
 \begin{align}
 \Delta p = \frac{k \cdot l \cdot \rho \cdot v^{2}_{s}}{2 \cdot r}   \: \mathrm{[Pa]}
 \end{align}
-Z rovnice (2,3,5 a 9) lze součinitel $k$ vyjádřit jako
+Z rovnic (2,3,5 a 9) lze součinitel $k$ vyjádřit jako
 \begin{align}
 k = \frac{16}{Re} =  \frac{2 \cdot \pi^{2} \cdot r^{5} \cdot \Delta p}{\rho \cdot l \cdot Q^{2}_{V}}  \: \mathrm{[1]}
 \end{align}
-Kde druhá rovnost dává do souvislosti $k$ a námi měřené veličiny a je odvozena z (2) a (9). Explicitně uvádíme tento vzorec, abychom z něj později snadno určili chybu. Zároveň platí experimentálně zjištěný aproximativní vztah pro hladkostěnné trubice během turbulentního proudění
+Kde druhá rovnost dává do souvislosti součinitel $k$ a námi měřené veličiny, a je odvozena z (2) a (9). Explicitně uvádíme tento vzorec, abychom z něj později snadno určili chybu. Zároveň platí experimentálně zjištěný aproximativní vztah pro hladkostěnné trubice během turbulentního proudění
 \begin{align}
 k_{t} \approx \frac{0.133}{\sqrt[4]{Re}} \: \mathrm{[1]}
 \end{align}
-\par Nyní rozebereme chyby výsledných měřených veličin. Vycházíme z metody přenosu chyb popsané v [2] a [3]. Začneme chybou změny tlaku. Hodnotu lokálního tíhového zrychlení g = 9.80665 $\mathrm{m \cdot s^{-2}}$ dle [2] považujeme za přesnou, její možná nepřesnost je řádově méně významná než chyby ostatní a mimo to i v [2] je pro jakékoli aplikace považována za přesnou.
+\par Nyní rozebereme chyby výsledných měřených veličin. Vycházíme z metody přenosu chyb popsané v [2] a [3]. Začneme chybou změny tlaku. Hodnotu lokálního tíhového zrychlení $g$ = 9.80665 $\mathrm{m \cdot s^{-2}}$ dle [2] považujeme za přesnou, její možná nepřesnost je řádově méně významná než chyby ostatní a mimo to i v [2] je pro jakékoli aplikace považována za přesnou.
 \begin{align}
 \delta_{h} = \frac{\Delta h}{h} \\
 \delta_{\Delta_p} = \sqrt{\delta^{2}_{h} + \delta^{2}_{\rho}}
 \end{align}
-samozřejmě je nutno si uvědomit, že $\rho$ a v dalších vzorcích i $\eta$ jsou závislé na teplotě a její nejistotě. Jelikož závislost těchto proměnných na $t$ není snadno vyjádřitelná, pak ji aproximujeme jako lineární a za relativní chybu tedy považujeme
+samozřejmě je nutno si uvědomit, že $\rho$ a v dalších vzorcích i $\eta$ jsou závislé na teplotě a její nejistotě. Jelikož závislost těchto proměnných na $T$ není snadno vyjádřitelná, pak ji aproximujeme jako lineární a za relativní chybu tedy považujeme
 \begin{align}
 \delta_{\eta} = \frac{2 \cdot (\eta(t+\Delta t) - \eta(t-\Delta t))}{\eta(t+\Delta t) + \eta(t-\Delta t)}
 \end{align}
-analogicky s chybou $\rho(t)$. Chyby dalších veličin dopočteme stejným způsobem jako ze vztahů (2),(3),(7),(8) a (10).
+analogicky pracujeme s chybou $\rho(T)$. Chyby dalších veličin dopočteme také metodou přenosu chyb ze vztahů (2),(3),(7),(8) a (10).
 \begin{align}
 \delta_{Q_{V}} = \sqrt{\delta^{2}_{V} + \delta^{2}_{t}}\\
 \delta_{Re} = \sqrt{\delta^{2}_{\rho} + \delta^{2}_{Q_{V}} + \delta^{2}_{r} + \delta^{2}_{\eta}}\\
@@ -88,8 +88,8 @@ analogicky s chybou $\rho(t)$. Chyby dalších veličin dopočteme stejným způ
 \end{align}
 Chybu směrnice uvádíme pouze pro úplnost, počítá ji za nás program ROOT, v němž tvoříme grafy a regrese.
 \section*{Výsledky měření}
-\par Na úvod uveďme použité přístroje a jejich chybu. Všechny užité přístroje byly analogové, takže dle [2] a [3] uvažujeme jejich chybu jako polovinu nejmenšího dílku stupnice. Teplotu vody jsme měřili teploměrem s chybou $0.5\:^{\circ}\mathrm{C}$ Menší objemy (u trubic s pomalejším výtokem) jsme měřili s chybou 0.25 ml, větší pak s chybou 1 ml. Chybu měření času odhadujeme jako 0.3 s, což je více než je běžná reakční doba, nicméně se stiskem stopek je nutné ještě vzdálit válec z výtokové oblasti, což do určení času, kdy skončil přítok vody do válce, přináší další nejistotu. Výšku $h$ na manometru jsme měřili s chybou 0.5 mm v případě nepohyblivé hladiny. Pro ostatní případy jsme k této hodnotě přičítali polovinu rozdílu amplitudy kmitání kapaliny v manometru. Vzdálenosti jsme měřili svinovacím metrem s chybou 0.05 cm a průměry trubic s posuvným měřítkem, které má chybu 0.05 mm.
-\par Podmínky v laboratoři ovlivňují experiment za předpokladu, že se výrazně nezměnil tlak vzduchu, řádově méně než ostatní jevy, které budeme rozebírat v sekci diskuse, proto je neuvádíme. Naopak kruciální pro správné vyhodnocení dat je teplota vody, kterou jsme měřili vždy se stejným výsledkem, chybový interval tedy ovlivňuje pouze chyba teploměru a tedy $t = (23\pm0.5)\:^{\circ}\mathrm{C}$. Této hodnotě přísluší dle [4] hustota $\rho = 997.5\pm0.2 \: \mathrm{kg \cdot m^{-3}}$ a dle [5] dynamická viskozita $\eta = (9.3\pm0.1)\: \mathrm{\cdot 10^{-4} \cdot Pa \cdot s}$.
+\par Na úvod uveďme použité přístroje a jejich chybu. Všechny užité přístroje byly analogové, takže dle [2] a [3] uvažujeme jejich chybu jako polovinu nejmenšího dílku stupnice. Teplotu vody $T$ jsme měřili teploměrem s chybou $0.5\:^{\circ}\mathrm{C}$ Menší objemy $V$ (u trubic s pomalejším výtokem) jsme měřili s chybou 0.25 ml, větší pak s chybou 1 ml. Chybu měření času $t$ odhadujeme jako 0.3 s, což je více než je běžná reakční doba, nicméně se stiskem stopek je nutné ještě vzdálit válec z výtokové oblasti, což do určení času, kdy skončil přítok vody do válce, přináší další nejistotu. Výšku $h$ na manometru jsme měřili s chybou 0.5 mm v případě nepohyblivé hladiny. Pro ostatní případy jsme k této hodnotě přičítali polovinu rozdílu amplitudy kmitání kapaliny v manometru. Vzdálenost $l$ jsme měřili svinovacím metrem s chybou 0.05 cm a průměry $d$ trubic s posuvným měřítkem, které má chybu 0.05 mm.
+\par Podmínky v laboratoři ovlivňují experiment za předpokladu, že se výrazně nezměnil tlak vzduchu, řádově méně než ostatní jevy, které budeme rozebírat v sekci diskuse, proto je neuvádíme. Naopak kruciální pro správné vyhodnocení dat je teplota vody, kterou jsme měřili vždy se stejným výsledkem, chybový interval tedy ovlivňuje pouze chyba teploměru a tedy $T = (23\pm0.5)\:^{\circ}\mathrm{C}$. Této hodnotě přísluší dle [4] hustota $\rho = 997.5\pm0.2 \: \mathrm{kg \cdot m^{-3}}$ a dle [5] dynamická viskozita $\eta = (9.3\pm0.1)\: \mathrm{\cdot 10^{-4} \cdot Pa \cdot s}$.
 \par Nejprve uveďme naměřené geometrické parametry trubic $l$ a $r$.
 \begin{center}
     \captionof{table}{Naměřené vzdálenost $l$ pro jednotlivé trubice}
@@ -158,7 +158,7 @@ Chybu směrnice uvádíme pouze pro úplnost, počítá ji za nás program ROOT,
 \includegraphics[width=350pt]{GrafA.png}
 \caption{Graf závislosti $Q_{v}(p)$ pro trubici A}
 \end{figure}
-\par Lze si všimnout nástupu přechodové fáze proudění u posledních tří měření. V souladu s teorií hodnota $Q_{v}(p)$ klesla. Jedno z měření se však zásadně neliší od laminární části, pro kterou určujeme regresi. Všechna tři měření měla stejný přítok kapaliny a tedy i výšku $h$ a její kolísání. Dá se tedy říci, že hodnota Reynoldsova čísla se pro poslední měření pohybovala okolo hodnoty 1000. Všechna měření, a to platí i pro všechny další grafy, mají errorbary, ovšem mnohdy je chyba tam malá, že jsou jen velmi těžko rozpoznatelné.
+\par V grafu na Obrázku č. 2 si lze všimnout nástupu přechodové fáze proudění u posledních tří měření. V souladu s teorií hodnota $Q_{v}(p)$ klesla. Jedno z měření se však zásadně neliší od laminární části, pro kterou určujeme regresi. Poslední tři měření měla stejný přítok kapaliny a tedy i výšku $h$ a její kolísání. Dá se tedy říci, že hodnota Reynoldsova čísla se pro poslední měření pohybovala okolo hodnoty 1000. Všechna měření, a to platí i pro všechny další grafy, mají errorbary, ovšem mnohdy je chyba tam malá, že jsou jen velmi těžko rozpoznatelné.
 \begin{center}
     \captionof{table}{Hodnoty $Q_{v}(p)$ u trubice B}
     \label{tab:title}
@@ -190,7 +190,8 @@ Chybu směrnice uvádíme pouze pro úplnost, počítá ji za nás program ROOT,
 \includegraphics[width=350pt]{GrafB.png}
 \caption{Graf závislosti $Q_{v}(p)$ pro trubici B}
 \end{figure}
-\par Lze si povšimnout opět v podstatě lineární části, jak předpokládá naše teorie, kde je proudění laminární. Poté nastupuje pokles resp. odklon od směrnice směrem k nižším hodnotám $Q_{v}(p)$, kde je proudění v přechodové fázi a nakonec nárůst spojený s ustálením turbulentního proudění u posledního bodu grafu. Jak je vidět z grafu i tabulky, tak u části měření mezi výškou $h$ 19.9 až 25.6 cm jsme nebyli sto rozhodnout z tabulkových hodnot, jestli se jedná o mírně oscilující proudění nebo o již turbulentní proudění. Ze grafu bychom se spíše přiklonili k interpretaci, že tato data sdílí směrnici s proudění přechodovým a až poslední hodnota je hodnotou proudění turbulentního.
+\par Na grafu na Obrázku č. 3 si lze povšimnout opět v podstatě lineární části, jak předpokládá naše teorie, kde je proudění laminární. Poté nastupuje pokles resp. odklon od směrnice směrem k nižším hodnotám $Q_{v}(p)$, kde je proudění v přechodové fázi a nakonec nárůst spojený s ustálením turbulentního proudění u posledního bodu grafu. Jak je vidět z grafu i tabulky, tak u části měření mezi výškou $h$ 19.9 až 25.6 cm jsme nebyli sto rozhodnout z tabulkových hodnot, jestli se jedná o mírně oscilující přechodové proudění nebo o již turbulentní proudění. S ohledem na grafickou podobu dat bychom se spíše přiklonili k interpretaci, že tato data sdílí směrnici s prouděním přechodovým a až poslední hodnota je hodnotou proudění turbulentního.
+\newpage
 \begin{center}
     \captionof{table}{Hodnoty $Q_{v}(p)$ u trubice C}
     \label{tab:title}
@@ -223,7 +224,7 @@ Chybu směrnice uvádíme pouze pro úplnost, počítá ji za nás program ROOT,
 \caption{Graf závislosti $Q_{v}(p)$ pro trubici C}
 \end{figure}
 \par U trubice C jsme nenaměřili všechny hodnoty výšky manometru, protože sud, z něhož přitéká do trubice vody neposkytoval dostatečný tlak, ani při plně otevřeném kohoutu. Po konzultaci s vedoucím úlohy jsme měření trubice C ukončili. Z průběhu grafu i hodnot v tabulce lze vidět, že pokud by měření pokračovali, tak bychom naměřili pouze další hodnoty pro turbulentní měření. Existenci dalších změn proudění námi ověřovaná teorie nepředpokládá.
-\par V grafu opět vidíme lineární oblast proudění laminárního, přechodového, kde dochází ke změně směrnice i proudění turbulentního, jehož opět stoupající charakter podporuje úvahy o povaze proudění pod grafem zobrazující závislost $Q_{v}(p)$ pro trubici C. Bohužel máme naměřena pouze dvě měření pro oblast přechodového proudění, což zpětně hodnotíme jako chybu. Směrnice této oblasti, ač ji nepotřebujeme nijak kvantifikovat, by byla mnohem přesněji určena naměřením hodnot tří či čtyř, které by snížili velký rozptyl hodnot směrnice, pokud je přímka určena pouze dvěma nepřesně určenými body.
+\par V grafu na Obrázku č. 4 opět vidíme lineární oblast proudění laminárního, přechodového, kde dochází ke změně směrnice, i proudění turbulentního, jehož opět stoupající charakter souhlasí s teorií. Bohužel máme naměřena pouze tři měření pro oblast přechodového proudění, což zpětně hodnotíme jako chybu.
 \par S pomocí lineární regrese aplikované na oblasti lineárního proudění a vztahů (8) a (17) jsme určili přesnější hodnoty poloměrů. Pro porovnání uvádíme i naměřené hodnoty. Je vidět, že hodnoty se liší v řádu procent, ač se jejich chybové úsečky neprotínají. Pro další výpočty pracujeme s nově získanými hodnotami, které jsou dle povahy měření přesnější.
 \begin{center}
     \captionof{table}{Porovnání poloměrů $r$ získaných přímými měřeními a $r(a)$ získaných lineární regresí}
@@ -236,6 +237,7 @@ Chybu směrnice uvádíme pouze pro úplnost, počítá ji za nás program ROOT,
     \end{tabular}
 \end{center}
 \par Dosadíme-li nově získané hodnoty poloměrů do vztahů (4) a (16) získáme hodnotu a chybu Reynoldsova čísla $Re$ a ze vztahů (10) a (19) hodnotu a chybu součinitele odporu $k$. Výsledky opět prezentujeme jako tabelované hodnoty i grafy. Získaný vztah pak porovnáme s teoretickými vztahy (10) a (11).
+\newpage
 \begin{center}
     \captionof{table}{Závislost $k(Re)$ pro trubici A}
     \label{tab:title}
@@ -278,7 +280,7 @@ Chybu směrnice uvádíme pouze pro úplnost, počítá ji za nás program ROOT,
 \includegraphics[width=350pt]{ReA.png}
 \caption{Graf závislosti $k(Re)$ pro trubici A}
 \end{figure}
-\par Na grafu na Obrázku č. 5 si lze povšimnout, že hodnoty k se z většiny blíží horní křivce, která zobrazuje teoretickou závislost $k(Re)$ za předpokladu, že se jedná o laminární proudění. Po překonání hodnoty Reynoldsova čísla 1000 se body mírně vzdalují této závislosti a blíží se k druhé závislosti spodní, která zobrazuje teoretickou závislost pro turbulentní proudění. Tato pozorování jsou v souladu s naší teorii i tvrzeními vyslovenými v komentářích k závislosti $Q(v)$ pro trubici A.
+\par Na grafu na Obrázku č. 5 si lze povšimnout, že hodnoty $k$ se z většiny blíží horní křivce, která zobrazuje teoretickou závislost $k(Re)$ dle vztahu (10) za předpokladu, že se jedná o laminární proudění. Po překonání hodnoty Reynoldsova čísla 1000 se body mírně vzdalují této závislosti a blíží se k druhé závislosti spodní, která zobrazuje teoretickou závislost pro turbulentní proudění dle vztahu (11). Tato pozorování jsou v souladu s teorií i tvrzeními vyslovenými v komentářích k závislosti $Q(v)$ pro trubici A.
 \begin{center}
     \captionof{table}{Závislost $k(Re)$ pro trubici B}
     \label{tab:title}
@@ -310,8 +312,9 @@ Chybu směrnice uvádíme pouze pro úplnost, počítá ji za nás program ROOT,
 \includegraphics[width=350pt]{ReB.png}
 \caption{Graf závislosti $k(Re)$ pro trubici B}
 \end{figure}
-\par Na grafu na Obrázku č. 6 si lze povšimnout, že hodnoty k se z počátku blíží horní křivce, která zobrazuje teoretickou závislost $k(Re)$ za předpokladu, že se jedná o laminární proudění. Po překonání hodnoty Reynoldsova čísla 1000 se body vzdalují této závislosti a blíží se k druhé závislosti spodní, která zobrazuje teoretickou závislost pro turbulentní proudění. Po překonání hodnoty $Re$ 1800 se již drží této závislosti. Tato pozorování jsou v souladu s naší teorii i tvrzeními vyslovenými v komentářích k závislosti $Q(v)$ pro trubici B.
-\par Ještě si dovolíme okomentovat chybu $k$, která se pro trubici B pohybuje kolem 25 $\%$, u ostatních dvou trubic se drží kolem 8 $\%$. Chyby určení $Re$ pak jsou pro všechny trubice kolem menší než 5 $\%$. Ona velká chyba $k$ u trubice B je způsobena přenosem z chyby 5 $\%$ u $r(a)_{B}$, kdežto zbylé dva poloměru mají chybu kolem 1.5 $\%$, význam chyby  $r$ při určování $k$ lze vidět z (19). O tom, jak zpřesnit měření se více rozepíšeme v diskusi.
+\par Na grafu na Obrázku č. 6 si lze povšimnout, že hodnoty $k$ se z počátku blíží horní křivce, která zobrazuje teoretickou závislost $k(Re)$ dle vztahu (10) za předpokladu, že se jedná o laminární proudění. Po překonání hodnoty Reynoldsova čísla 1000 se body vzdalují této závislosti a blíží se k druhé závislosti spodní, která zobrazuje teoretickou závislost pro turbulentní proudění dle vztahu (11). Po překonání hodnoty $Re$ 1800 se již drží této závislosti. Tato pozorování jsou v souladu s teorií i tvrzeními vyslovenými v komentářích k závislosti $Q(v)$ pro trubici B.
+\par Ještě si dovolíme okomentovat chybu $k$, která se pro trubici B pohybuje kolem 25 $\%$, u ostatních dvou trubic se drží kolem 8 $\%$. Chyby určení $Re$ pak jsou pro všechny trubice kolem menší než 5 $\%$. Ona velká chyba $k$ u trubice B je způsobena přenosem z chyby 5 $\%$ u $r(a)_{B}$, kdežto zbylé dva poloměru mají chybu kolem 1.5 $\%$, význam chyby  $r$ při určování $k$ lze vidět z (19). O tom, jak by bylo možné zpřesnit měření se více rozepíšeme v diskusi.
+\newpage
 \begin{center}
     \captionof{table}{Závislost $k(Re)$ pro trubici C}
     \label{tab:title}
@@ -343,17 +346,17 @@ Chybu směrnice uvádíme pouze pro úplnost, počítá ji za nás program ROOT,
 \includegraphics[width=350pt]{ReC.png}
 \caption{Graf závislosti $k(Re)$ pro trubici C}
 \end{figure}
-\par Na grafu na Obrázku č. 7 si lze povšimnout, že hodnoty k se z počátku blíží spodní křivce, která zobrazuje teoretickou závislost $k(Re)$ za předpokladu, že se jedná o laminární proudění. Po překonání hodnoty Reynoldsova čísla 1000 se body vzdalují této závislosti a blíží se k druhé závislosti horní, která zobrazuje teoretickou závislost pro turbulentní proudění. Po překonání hodnoty $Re$ 1700 se již drží této závislosti. U všech tří závislostí $k(Re)$ si lze všimnout, že hodnoty pro turbulentní proudění jsou menší než teoretický vztah udaný vztahem (11), ten je však pouze aproximativní. Navíc mohlo dojít k některým systematickým chybám respektive zanedbáním, tyto jevy rozebíráme v diskusi.
+\par Na grafu na Obrázku č. 7 si lze povšimnout, že hodnoty $k$ se z počátku blíží spodní křivce, která zobrazuje teoretickou závislost $k(Re)$ dle vztahu (10) za předpokladu, že se jedná o laminární proudění. Po překonání hodnoty Reynoldsova čísla 1000 se body vzdalují této závislosti a blíží se k druhé závislosti horní, která zobrazuje teoretickou závislost pro turbulentní proudění dle vztahu (11). Po překonání hodnoty $Re$ 1700 se již drží této závislosti. U všech tří závislostí $k(Re)$ si lze všimnout, že hodnoty pro turbulentní proudění jsou menší než teoretický vztah udaný vztahem (11), ten je však pouze aproximativní. Navíc mohlo dojít k některým systematickým chybám respektive zanedbáním, tyto jevy rozebíráme v diskusi.
 \section*{Diskuse}
-\par Při měření objemového průtoku u trubice A jsme měřili vždy stejné objemy (20, 55 a 100 ml), důvodem zavedení této metody bylo, že při zápisu času bylo velmi snadné rozpoznat, zda nedošlo při měření k systematické chybě. Naopak nevýhodou se stala rostoucí chyba měření, protože s tím, jak rostla rychlost kapaliny rostla i relativní chyba určení času. U trubic B a C se vzhledem k rychlosti proudění kapaliny ukázala tato metoda jako neudržitelná. Tento způsob se ukázal jako mylný již během měření. Proto jsme pokračovali v měření u trubic B a C způsobem, že nám stačila přibližná hodnota kolem nějakého určitého objemu, aby jsme alespoň s nějakou jistotou rozeznali systematickou chybu v tak velkém měření. Samozřejmě bychom mohli až při vyhodnocení aplikovat $3 \sigma$ kritérium, avšak chybějící data bychom už nezískali.
-\par Obecně jsme se snažili měnit odměrné válce, později určený objem, tak, aby chyba v měření času i objemu byla menší než 3$\%$, což se nám v případě všech měření podařilo. Naprostá většina rel. chyb určení času a objemu je dokonce menší než 1.5$\%$. Jako kruciální se ukázala opožděná změna nádoby z 25 ml na 55ml. Obecně pokaždé, když došlo ke změně nádoby, tak relativní chyba $Q_{V}$ klesla. Celkově jsme tedy měli nádoby, respektive měřené objemy, měnit dříve, protože jsme podcenili chybu měření času na úkor chyby měření objemu.
-\par Dalším problémem však je, že jak jsme se dozvěděli, tak někdo dva dny před naším měřením rozbil odběrný válec na 50 ml, který byl na tento objem přesně určen a relativní chyba jeho objemu byla více než poloviční oproti válci náhradnímu. To nás vedlo ke snaze raději i po velmi krátké doby (kolem 10 s) měřit na válci s objemem 20 ml. Náš odhad se ukázal jako mylný, jedná se právě o hodnoty atakující chybu 3$\%$ na druhou stranu v chybě $Q_{V}$ se toto příliš neprojevuje, protože rel. chyba válce 55 ml je vyšší než válce 20 ml.
-\par Odpovědí na problém s 55 ml válcem i obecně chybu měření způsobenou nepřesnostmi v měření času a objemu by bylo měřit delší dobu a tudíž i větší objemy, což by obě chyby podílející se na určení $Q_{V}$ poměrně snížilo, bohužel čas určený na měření je limitován. Toto se názorně projevuje u trubice C, kde je rychlost proudění mnohem větší a tudíž za podobný čas si můžeme dovolit naměřit velké objemy, jejichž rel. chyba je díky tomu nízká. Na druhou stranu, pokud by dále rychlost stoupala, tak by pro nás bylo problematické dané objemy zachytit nebo bychom museli zmenšit čas $t$, což by chybu začalo opět zvětšovat.
-\par Větší množství měření by mohlo významně zpřesnit i hodnoty směrnice, kterou jsem hledali fitováním lineární závislostí na závislost $Q_{V}$ v oblasti laminárního proudění. Zvláště pak se tento nedostatek měření projevil při určování poloměru trubice B a následně se přenesl i do hodnoty $k_{B}$.
+\par Při měření objemového průtoku $Q_{V}$ u trubice A jsme měřili vždy stejné objemy (20, 55 a 100 ml), důvodem zavedení této metody bylo, že při zápisu času bylo velmi snadné rozpoznat, zda nedošlo při měření k systematické chybě. Naopak nevýhodou se stala rostoucí chyba měření, protože s tím, jak rostla rychlost kapaliny rostla i relativní chyba určení času. U trubic B a C se vzhledem k rychlosti proudění kapaliny ukázala tato metoda jako neudržitelná. Tento způsob se ukázal jako mylný již během měření trubice A. Proto jsme pokračovali v měření u trubic B a C způsobem takovým, že nám stačila přibližná hodnota kolem určitého objemu, abychom alespoň s nějakou jistotou rozeznali systematickou chybu. Samozřejmě bychom mohli až při vyhodnocení aplikovat $3 \sigma$ kritérium, avšak chybějící data bychom už nezískali.
+\par Obecně jsme se snažili měnit odměrné válce, později určený objem, tak, aby chyba v měření času i objemu byla menší než 3$\%$, což se nám v případě všech měření podařilo. Naprostá většina rel. chyb určení času a objemu je dokonce menší než 1.5$\%$. Jako kruciální se ukázala opožděná změna nádoby z 25 ml na 55ml u trubice A. Obecně pokaždé, když došlo ke změně nádoby, tak relativní chyba $Q_{V}$ klesla. Celkově jsme tedy měli nádoby, respektive měřené objemy, měnit dříve, protože jsme podcenili chybu měření času na úkor chyby měření objemu.
+\par Dalším problémem však je, že jak jsme se dozvěděli, tak někdo dva dny před naším měřením rozbil odběrný válec na 50 ml, který byl na tento objem přesně určen a relativní chyba jeho objemu byla více než poloviční oproti válci náhradnímu. To nás vedlo ke snaze raději i po velmi krátké doby (kolem 10 s) měřit na válci s objemem 20 ml. Náš odhad se ukázal jako mylný, jedná se právě o hodnoty atakující chybu 3$\%$. Na druhou stranu v chybě $Q_{V}$ se toto příliš neprojevuje, protože rel. chyba válce 55 ml je přibližně 2krát vyšší než válce 20 ml.
+\par Odpovědí na problém s 55 ml válcem i obecně chybu měření způsobenou nepřesnostmi v měření času a objemu by bylo měřit delší dobu a tudíž i větší objemy, což by obě chyby podílející se na určení $Q_{V}$ poměrně snížilo, bohužel čas určený na měření je limitován. Toto se názorně projevuje u trubice C, kde je rychlost proudění mnohem větší a tudíž za krátký čas si můžeme dovolit naměřit velké objemy, jejichž rel. chyba je díky tomu nízká. Na druhou stranu, pokud by dále rychlost stoupala, tak by pro nás bylo problematické dané objemy zachytit nebo bychom museli zmenšit čas $t$, což by chybu $Q_{v}$ začalo opět zvětšovat.
+\par Větší množství měření by mohlo významně zpřesnit i hodnoty směrnice, kterou jsme hledali fitováním lineární závislostí na závislost $Q_{V}$ v oblasti laminárního proudění. Zvláště pak se tento nedostatek měření projevil při určování poloměru trubice B a následně se přenesl i do hodnoty $k_{B}$.
 \par Ještě si dovolíme terminologickou poznámky, rozbit byl 50 ml válec, na místo něj jsme měřili do náhradního. Po přeměřování ve všech ostatních válcích jsme však zjistili, že tento náhradní 50 ml válec má reálný objem 55 ml.
-\par Další chyby do měření $Re$ a $k$  vneslo nepřesné určení teploty, resp. z ní plynoucí chyba $\eta$, která měla při námi uvažované aproximaci dle vztahu (14) chybu přes 2 $\%$, to samé platí i pro $\rho$, ač tam byla chyba zanedbatelná. Navíc, kdybychom skutečně znali funkční vztahy těchto veličin s $t$, tak bychom se zbavili chyb, které ani nekvantifikujeme zavedení vztahu (14) oproti reálnému vztahu. Stejně tak nevíme, jak moc se liší vztah (11) od reality.
-\par Na konec bychom se vyjádřili k možným systematickým chybám. Jednak víme, že manometrické trubice neměří tlak přesně. Při výtoku vody z trubice může docházet k víření a proudění, které nejsme sto naší měřící metodou postihnout. Občas se stalo, že v manometru byla bublinky. Mohlo se tedy stát, že takovýto jev zkreslil nějakou hodnotu $Q_{V}$. K tomu však nejspíše nedošlo s ohledem na tom na to, že všechny hodnoty splňují $3 \sigma$ kritérium a s ohledem na naší úvodní měřící metodu stejných objemů. Dále je možné, že byla měřená kapalina znečištěna nějakou hustší příměsí, což by ovlivnilo hodnoty $\eta$ a $\rho$, oboje by vedlo k vyšší hodnotám $k$ než předpokládáme, k čemuž opět nedošlo dle našich pozorování. Samozřejmě by mohla být hustota kapaliny i nižší, avšak mimo nepřesně určené teploty nás nenapadá, jak by bylo možno příměsí snížit hustotu vody, neb tato příměs by jednoduše vyplavala nad kapalinu již v sudu, popř. manometru.
-\par Přes všechny výše zmíněné chyby se se všechna měření shodují s teorií a lze tedy tvrdit, že měření bylo provedeno správně a neobsahuje hrubé systematické chyby, totéž platí i pro vyhodnocení.
+\par Další chyby do měření $Re$ a $k$  vneslo nepřesné určení teploty, resp. z ní plynoucí chyba $\eta$, která měla při námi uvažované aproximaci dle vztahu (14) relativní chybu přes 2 $\%$, to samé platí i pro $\rho$, ač tam byla chyba zanedbatelná. Navíc, kdybychom skutečně znali funkční vztahy těchto veličin s $T$, tak bychom se zbavili chyb, které ani nekvantifikujeme zavedení vztahu (14) oproti reálnému vztahu. Stejně tak nevíme, jak moc se liší vztah (11) od reality.
+\par Nakonec bychom se vyjádřili k možným systematickým chybám. Jednak víme, že manometrické trubice neměří tlak přesně. Při výtoku vody z trubice může docházet k víření a proudění, které nejsme sto naší měřící metodou postihnout. Občas se stalo, že v manometru byla bublinka. Tu jsme odstraňovali drátkem, přesto nám mohla některá menší uniknout. Mohlo se tedy stát, že takovýto jev zkreslil nějakou hodnotu $Q_{V}$. K tomu však nejspíše nedošlo s ohledem na tom, že všechny hodnoty splňují $3 \sigma$ kritérium a s ohledem na naší úvodní měřící metodu stejných objemů. Dále je možné, že byla měřená kapalina znečištěna nějakou hustší příměsí, což by ovlivnilo hodnoty $\eta$ a $\rho$, oboje by vedlo k vyšší hodnotám $k$ než předpokládáme, k čemuž opět nedošlo dle našich pozorování. Samozřejmě by mohla být hustota kapaliny i nižší, avšak mimo nepřesně určené teploty nás nenapadá, jak by bylo možno příměsí snížit hustotu vody, neb tato příměs by jednoduše vyplavala nad kapalinu již v sudu, popř. manometru.
+\par Přes všechny výše zmíněné možné zdroje nepřesností se všechna měření shodují s teorií a lze tedy tvrdit, že měření bylo provedeno správně a neobsahuje hrubé systematické chyby, totéž platí i pro vyhodnocení.
 \section*{Závěr}
 \par Sestrojili jsme tabulky a grafy závislostí $Q_{V}(p)$ pro všechny tři trubice. Všechny tři závislosti se chovali v souladu s předpoklady zmíněnými v teorii. Ze směrnic $Q_{V}(p)$ v oblasti laminárního proudění jsme určili poloměry trubic $r$ přesněji než než měřením posuvným měřítkem s ohledem na teorii. Změřené hodnoty jsou tyto $r(a)_{A}$ = $1.03\pm0.01$ mm, $r(a)_{B}$ = $1.42\pm0.04$ mm a $r(a)_{C}$ = $1.54\pm0.02$ mm. Tyto poloměry se řádově neliší od hodnot měřených posuvným měřítkem, ač se jejich chybové intervaly neprotínají. Z těchto vypočtených poloměrů jsme sestrojili grafy a tabulky závislostí $k(Re)$ pro všechny tři trubice. Výsledky $k(Re)$ byly v souladu s teorií i závislostmi $Q_{V}(p)$, nedošlo tedy k chybě měření ani vyhodnocení dat. 
 
