@@ -1,0 +1,250 @@
+\documentclass[a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[czech]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{txfonts}
+\usepackage{wasysym}
+\usepackage{eurosym}
+\usepackage[symbol*]{footmisc}
+\usepackage{mathtools}
+\usepackage{enumitem}
+\usepackage{tabularx,ragged2e,booktabs,caption}
+\usepackage{url}
+\usepackage{soul}
+\author{"Patrik Novotný"}
+
+\begin{document}
+\section*{Pracovní úkol}
+\begin{enumerate}
+\item Ověřte, zda jsou pro dané experimentální uspořádání splněny podmínky platnosti Stokesova vzorce pro odpor prostředí při pohybu koule, určete Reynoldsovo číslo.
+\item Změřte dynamickou viskozitu olivového a ricinového oleje Stokesovou metodou.
+\item Pro jednu kapalinu proveďte měření s více typy kuliček. Výsledky porovnejte.
+\item Hustotu skleněných kuliček určete pyknometrickou metodou.
+\end{enumerate}
+\section*{Teorie}
+V celém oddílu teorie vycházíme z [1]. Naším úkolem je naměřit dynamickou viskozitu $\eta$ ricinového a olivového oleje pomocí Stokesovy metody. Stokesova metoda předpokládá, že proudění okolo kuličky padající danou kapalinou je laminárního charakteru. Potom je možno přiblížit hydrodynamickou odporovou sílu pomocí Stokesova vztahu, ještě přesnější měření nám umožní verze zohledňující konečné rozměry nádoby.
+\begin{align}
+F_{S} = 6 \cdot \pi \cdot \eta \cdot r \cdot v   \: \mathrm{[N]} \\
+F_{S} = 6 \cdot \pi \cdot \eta \cdot r \cdot v \cdot \bigg(1 - 2.4 \cdot \frac{r}{R} \bigg)   \: \mathrm{[N]}
+\end{align}
+kde $r$ je poloměr kuličky, $R$ poloměr válce a $v$ je její rychlost, kterou určujeme jednoduše jako uraženou vzdálenost $l$ za čas $t$.
+\begin{align}
+v = \frac{l}{t}  \: \mathrm{[\frac{m}{s}]}
+\end{align}
+\par Přičemž je nutno dát si pozor na to, abychom dráhu měřili až od bodu, kde již kulička nezrychluje. Na padající kuličku totiž působí minimálně další dvě síly, které je nutno uvažovat, a to síla tíhová směrem dolů a síla vztlaková proti ní směrem vzhůru.
+\begin{align}
+F_{G} = m \cdot g  \: \mathrm{[N]} \\
+F_{VZ} = V \cdot \rho_{\textnormal{kapalina}} \cdot g \: \mathrm{[N]}
+\end{align}
+kde $m$ je hmotnost tělesa, $g$ lokální tíhové zrychlení, $\rho$ hustota a $V$ objem.
+\par Rozdíl těchto sil udílí kuličce dle druhého Newtonova zákona zrychlení. Mění se tedy rychlost kuličky a právě na ní závisí Stokesova síla až do bodu, kdy se síly vyrovnají. Pro užití Stokesova vztahu je však nutnou podmínkou, aby bylo Reynoldsovo číslo $Re$ řádově menší než 1 a zároveň pohyb kuličky byl rovnoměrný.
+\begin{align}
+Re \ll 1  \:
+\end{align}
+\par Pokud není vztah (6) splněn, je není možno považovat Stokesovu sílu za dostatečně přesnou aproximaci hydrodynamické odporové síly a je nutno používat např. Newtonův zákon odporu. V případě našeho měření situaci řešíme tak, že setup experimentu, u něhož zjistíme Reynoldsovo číslo vyšší než 1, nebudeme měřit.
+\par Reynoldsovo číslo určíme jako
+\begin{align}
+Re = \frac{2 \cdot r \cdot \rho \cdot v}{\eta}  \: \mathrm{[1]}
+\end{align}
+\par Jak jsme již řekli, síly se vyrovnají. Právě díky tomu můžeme z dané rovnosti vyjádřit dynamickou viskozitu $\eta$
+\begin{align}
+F_{S} = F_{G} - F_{VZ}  \: \mathrm{[N]} \\
+6 \cdot \pi \cdot \eta \cdot r \cdot v \cdot \bigg(1 - 2.4 \cdot \frac{r}{R} \bigg) = \frac{4 \cdot \pi \cdot r^{3} \cdot g  \cdot (\rho_{\textnormal{těleso}} - \rho_{\textnormal{kapalina}})}{3} \: \mathrm{[N]} \\
+\eta = \frac{2 \cdot r^{2} \cdot g  \cdot (\rho_{\textnormal{těleso}} - \rho_{\textnormal{kapalina}})}{ 9 \cdot v \cdot \bigg(1 - 2.4 \cdot \frac{r}{R} \bigg)} \: \mathrm{[N \cdot s \cdot m^{-2}]}
+\end{align}
+\par Vysvětleme ještě metodu měření pyknometrem. Pyknometr je skleněná nádoba, kterou lze naplnit maximálně na stejný objem. Přebytečná kapalina vyteče kapilárou v uzávěru. Díku této konstrukce můžeme určit hustotu malých tělísek pouze měřením hmotnosti. Nejprve zvážíme samotný prázdný pyknometr (včetně zátky), získáme hmotnost $m_{1}$, posléze do pyknometru nasypeme tělíska (asi do 1/3 objemu), která chceme měřit a vážením určíme hmotnost pyknometru $m_{2}$. Pak pyknometr dolijeme celý kapalinou o známé hustotě (destilovanou vodou) a opět ho zvážíme, získáme tak hmotnost $m_{3}$. Nakonec vyndáme měřené kuličky a změříme hmotnost $m_{4}$ pyknometru naplněného pouze
+kapalinou o známé hustotě. Po celou dobu měření dbáme na to, aby pyknometr nebyl mokrý zvnějšku a neobsahoval při měření kapaliny bublinky vzduchu. Hustotu tělísek pak lze určit podle vztahu
+\begin{align}
+\rho_{\textnormal{tělíska}} = \rho_{kapalina} \frac{m_{2} - m_{1}}{m_{4} - m_{3} + m_{2} - m_{1}} \: \mathrm{[kg \cdot m^{-3}}]
+\end{align}
+\par Nakonec ještě uvádíme výpočet chyb měřených veličin, Reynoldsova čísla a hlavně dynamické viskozity. Při odvození chyby pracujeme metodou přenosu chyb popsanou v [2] a [3]. Vztah (12) je obecný a uvádíme jej pro jednoznačné zavedení notace. Vztah (13) získáváme tak, že na malém intervalu teplot považujeme $\rho$ za lineárně rostoucí.  
+\begin{align}
+\delta r = \frac{\Delta r}{r}\\
+\delta \rho = \frac{2 \cdot (\rho(T+\Delta T) - \rho(T-\Delta T))}{\rho(T+\Delta T) + \rho(T-\Delta T)}
+\end{align}
+s chybou $\eta(T)$ pracujeme analogicky jako s chybou $\rho$. Vztahy (14), (15), (16) a (17) získáme ze vztahů právě metodou přenosu chyb ze vztahů (3), (7), (11) a (10). Poslední dva vzorce uvádíme pouze náznakově, protože jejich přepis by byl silně náchylný k chybě a informační hodnota mizivá. Raději jsme zvolili notaci $\eta(T)$, které značí tabulkovou hodnotu určovanou z teploty kapaliny, naopak $\eta$ znační dynamickou viskozitu, kterou se snažíme zjistit.
+\begin{align}
+\delta v = \sqrt{{\delta l}^{2} + {\delta t}^{2}}\\
+\delta Re = \sqrt{{\delta r}^{2} + {\delta \rho}^{2} + {\delta v}^{2} + {\delta \eta(T)}^{2}}
+\end{align}
+\newpage
+\begin{align}
+\end{align}
+\begin{eqnarray*}
+\Delta \rho_{\textnormal{těleso}} = \Bigg(\bigg({\Delta \rho_{kapalina}} \cdot \frac{m_{2} - m_{1}}{m_{4} - m_{3} + m_{2} - m_{1}} \bigg)^{2} + {\Delta m}^{2} \bigg[ 2 \cdot  {\bigg( \frac{m_{2} - m_{1}}{{(m_{4} - m_{3} + m_{2} - m_{1})^{2}}} \bigg)^{2}} \\
++ 2 \cdot {\bigg( \frac{m_{4} - m_{3} + 2 \cdot m_{2} - 2 \cdot m_{1}}{{(m_{4} - m_{3} + m_{2} - m_{1})^{2}}} \bigg)^{2}} \bigg] \Bigg)^{1/2}
+\end{eqnarray*}
+\begin{align}
+\end{align}
+\begin{eqnarray*}
+\Delta \eta = \Bigg(\bigg({\frac{2 \cdot r^{2} \cdot g  \cdot (\rho_{\textnormal{těleso}} - \rho_{\textnormal{kapalina}})}{ 9 \cdot v^{2} \cdot \bigg(1 - 2.4 \cdot \frac{r}{R} \bigg)} \cdot \Delta v \bigg)}^{2} + \bigg( \:{\frac{2 \cdot r^{2} \cdot g}{ 9 \cdot v \cdot \bigg(1 - 2.4 \cdot \frac{r}{R} \bigg)} \cdot \Delta \rho_{\textnormal{kapalina}} \bigg)}^{2} \\
++ \bigg( \:{\frac{2 \cdot r^{2} \cdot g}{ 9 \cdot v \cdot \bigg(1 - 2.4 \cdot \frac{r}{R} \bigg)} \cdot \Delta \rho_{\textnormal{těleso}} \bigg)}^{2} + \bigg({\frac{4.8 \cdot r^{2} \cdot g  \cdot (\rho_{\textnormal{těleso}} - \rho_{\textnormal{kapalina}}) \cdot r}{9 \cdot v \cdot \bigg[R \cdot  \bigg(1 - 2.4 \cdot \frac{r}{R} \bigg)\bigg]^{2}} \cdot \Delta R \bigg)}^{2} \\
++ \bigg({\frac{2 \cdot r^{2} \cdot g  \cdot (\rho_{\textnormal{těleso}} - \rho_{\textnormal{kapalina}}) \cdot \frac{21.6 \cdot v}{R} + 4 \cdot r \cdot g \cdot \bigg[ 9 \cdot v \cdot \bigg(1 - 2.4 \cdot \frac{r}{R} \bigg)\bigg] }{\bigg[ 9 \cdot v \cdot \bigg(1 - 2.4 \cdot \frac{r}{R} \bigg)\bigg]^{2}} \cdot \Delta r \bigg)}^{2} \:
+\Bigg)^{1/2}
+\end{eqnarray*}
+\par Hodnotu lokálního tíhového zrychlení $g$ = 9.80665 $\mathrm{m \cdot s^{-2}}$ dle [2] považujeme za přesnou, její možná nepřesnost je řádově méně významná než chyby ostatní a mimo to i v [2] je pro jakékoli aplikace považována za přesnou. A proto se vztazích výše nenalézá. $\Delta m$ absolutní značí chybu měření na vahách a kvantitativně ji zhodnotíme v sekci výsledky měření.
+\section*{Výsledky měření}
+\par Chyby přístrojů uvažujeme dle [2] a [3] jako polovinu nejmenšího dílku stupnice u analogových přístrojů a poslední digit u přístrojů digitálních není-li řečeno jinak.
+\par Na úvod jako podmínky měření uveďme teplotu v místnosti T = $(26.2\pm0.1) ^{\circ}$ C. S ohledem na stálost teploty v místnosti považujeme tuto teplotu za teplotu obou olejů i kapaliny měřené v pyknometru. Tlak v místnosti neudáváme, neboť jeho vliv na výsledky měření je řádově mnohonásobně menší než chyby uváděné. Z daných teplot dle [4] a [5] interpolací tabulkových hodnot získáme hustoty látek, které jsme využili při měření.
+\begin{center}
+    \captionof{table}{Hustota $\rho$ měřených látek} \label{tab:title}
+    \begin{tabular}{ | l | l | p{5cm} |} \hline
+    materiál & $\rho \: \mathrm{[kg \cdot m^{-3}}]$   \\ \hline
+    destilovaná voda & $997.24\pm0.02$ \\ \hline
+    ricinový olej    & $956.90\pm0.05$ \\ \hline
+    olivový olej    & $909.56\pm0.08$ \\ \hline
+    \end{tabular}
+\end{center}
+\par Dané teplotě a kapalinám dle [6] a [7] přísluší také dynamická viskozita. $\eta_{oliv} = (58.5\pm2) \cdot 10^{-3} \: \mathrm{N \cdot s \cdot m^{-2}}$ a $\eta_{ricin} = (650\pm25) \cdot 10^{-3} \: \mathrm{N \cdot s \cdot m^{-2}}$. Výsledky se mezi různými autory často liší, nikoliv však výrazně a pro řádový odhad platnosti podmínek nám to stačí. Dle vztahů (7) a (15) určíme Reynoldsovo číslo a můžeme tedy určit platnost Stokesova vztahu.
+\begin{center}
+    \captionof{table}{Reynoldsovo číslo pro různé setupy experimentu} \label{tab:title}
+    \begin{tabular}{ | l | l | l | l | l | p{3cm} |} \hline
+    materiál & $x_{1}$ [mm] & $x_{2}$ [mm] & $r$ [mm] & $t$ [s] & $Re$ [1]   \\ \hline
+    $\textit{ž}_{oliv}$ & 8.05  & 10.86 & 1.405 & 1.82  & $3.41\pm0.58$ \\ \hline
+    $\textit{ž}_{ricin}$ & 8.9   & 11.71 & 1.405 & 20.32 & $(2.89\pm0.12)  \cdot 10^{-2}$ \\ \hline
+    $\textit{m}_{oliv}$ & 8.19  & 10.32 & 1.065 & 2.82  & $1.67\pm0.19$ \\ \hline
+    $\textit{m}_{ricin}$ & 8.04  & 10.19 & 1.075 & 32.32 & $(13.91\pm0.56)  \cdot 10^{-3}$ \\ \hline
+    $\textit{b}_{oliv}$ & 10.77 & 12.36 & 0.795 & 5.09  & $0.69\pm0.05$ \\ \hline
+    $\textit{b}_{ricin}$ & 9.82  & 11.41 & 0.795 & 59.06 & $(5.62\pm0.22)  \cdot 10^{-3}$ \\ \hline
+    \end{tabular}
+\end{center}
+\par Z tabulky č. 2 plyne, že podmínku danou vztahem (6) splňují všechny kuličky právě tehdy, když je vhazujeme do ricinového oleje. Pro olivový olej vztah splňují pouze kuličky bílé.
+\par Dále jsme metrem naměřili průměry válců, všechna měření vyšla stejně, chyba měření pochází tedy z chyby měřidel. Poloměr válců tedy je $R = (3.00\pm0.03)$  $\mathrm{cm}$. Vzdálenost $l$ jsme zvolili u obou válců jako $l = (14.2\pm0.1)$  $\mathrm{cm}$, chyba vychází jednak z chyby metru a za druhé z měření vzdáleností mezi gumičkami a s gumičkami včetně. Gumičky sami o sobě nemají pro měření fyzikální význam, jedná se pouze o způsob značení vzdálenosti $l$ na povrchu válce.
+\par Chybu měření času, který měříme stopkami, považujeme za 0.2 s, což je standardní reakční doba člověka.
+\par Pomocí dílenského mikroskopu jsme naměřili průměry jednotlivých druhů kuliček a to hned ve dvou osách po konzultaci s vedoucím úlohy. Chyba způsobená asymetrií kuliček, a to, jak se s ní potýkáme je více rozebráno v diskusi. Naměřené hodnoty uvádíme v tabulce číslo 3. Z těchto dat poté vycházíme v tabulce, kde uvádíme vypočtené hodnoty viskozity $\eta$.
+\newpage
+\begin{center}
+    \captionof{table}{Měření poloměru $r$ skleněných kuliček v dvou na sebe kolmých osách} \label{tab:title}
+    \begin{tabular}{ | l | l | l | l | l | p{3cm} |} \hline
+    měření & $x_{1}$ [mm]    & $x_{2}$ [mm]   & $y_{1}$ [mm] & $y_{2}$ [mm] & $r$ [mm]  \\ \hline
+    $\textit{ž}_{1}$       & 8.91  & 11.91 & 10.51 & 13.42 & $1.48\pm0.02$ \\ \hline
+    $\textit{ž}_{2}$       & 10.90 & 13.91 & 10.27 & 13.15 & $1.47\pm0.03$ \\ \hline
+    $\textit{ž}_{3}$       & 10.83 & 13.93 & 12.67 & 14.60 & $1.26\pm0.29$ \\ \hline
+    $\textit{ž}_{4}$       & 9.41  & 12.32 & 7.87  & 10.77 & $1.45\pm0.01$ \\ \hline
+    $\textit{ž}_{5}$       & 8.28  & 11.20 & 7.02  & 9.99  & $1.47\pm0.01$ \\ \hline
+    $\textit{ž}_{6}$       & 8.06  & 10.82 & 7.89  & 10.85 & $1.43\pm0.05$ \\ \hline
+    $m_{1}$       & 9.46  & 11.62 & 11.43 & 14.36 & $1.27\pm0.19$ \\ \hline
+    $m_{2}$       & 9.36  & 11.47 & 8.83  & 11.00 & $1.07\pm0.02$ \\ \hline
+    $m_{3}$       & 9.69  & 11.80 & 9.12  & 11.27 & $1.07\pm0.01$ \\ \hline
+    $m_{4}$       & 9.87  & 11.97 & 8.80  & 10.97 & $1.07\pm0.02$ \\ \hline
+    $m_{5}$       & 10.12 & 12.26 & 9.44  & 11.52 & $1.06\pm0.02$ \\ \hline
+    $m_{6}$       & 9.81  & 11.97 & 9.41  & 11.52 & $1.07\pm0.01$ \\ \hline
+    $b_{1}$       & 10.33 & 11.86 & 8.00  & 9.64  & $0.79\pm0.03$ \\ \hline
+    $b_{2}$       & 10.36 & 11.90 & 7.34  & 8.92  & $0.78\pm0.01$ \\ \hline
+    $b_{3}$       & 9.98  & 11.52 & 8.25  & 9.76  & $0.76\pm0.01$ \\ \hline
+    $b_{4}$       & 10.17 & 11.76 & 9.05  & 10.62 & $0.79\pm0.01$ \\ \hline
+    $b_{5}$       & 10.65 & 12.23 & 8.11  & 9.68  & $0.79\pm0.01$ \\ \hline
+    $b_{6}$       & 11.64 & 13.16 & 8.78  & 10.35 & $0.77\pm0.01$ \\ \hline
+    $bO_{1}$      & 12.21 & 13.74 & 8.84  & 10.37 & $0.77\pm0.01$ \\ \hline
+    $bO_{2}$      & 12.06 & 13.66 & 6.29  & 7.87  & $0.80\pm0.01$ \\ \hline
+    $bO_{3}$      & 11.70 & 13.29 & 8.09  & 9.67  & $0.79\pm0.01$ \\ \hline
+    $bO_{4}$      & 10.35 & 11.88 & 7.75  & 9.29  & $0.77\pm0.01$ \\ \hline
+    $bO_{5}$      & 10.95 & 12.49 & 6.75  & 8.29  & $0.77\pm0.01$ \\ \hline
+    $bO_{6}$      & 11.23 &	12.80 &	7.39  &	8.95  & $0.78\pm0.01$ \\ \hline
+    \end{tabular}
+\end{center}
+\par Chyby pro veličiny v tabulce č. 3 uvádíme pouze pro hodnoty $r$, jinak hodnoty jednotlivých měření mají chybu danou chybou mikroskopu a to 0.005 mm. Značení měření znamená postupně - žluté, modré, bílé kuličky v ricinovém oleji a bílé v olivovém. Toto značení je použito i v tabulce zobrazující $\eta$.
+\par Nyní bychom rádi odhadli chybu $\Delta m$. Musíme si uvědomit, že chyba vah je proti situaci, kdy se v pyknometru nachází bublinka vzduchu naprosto zanedbatelná. Prvotní představu nám dává porovnání prázdných pyknometrů a pyknometrů naplněných kapalinou o známé hustotě. Jednalo se o stejné pyknometry, právě větší z těchto rozdílů bereme v prvotním přiblížení jako chybu pyknometrického měření. O širších aspektech této problematiky se více rozepíšeme v diskusi. Pro pyknometr, jímž jsme měřili bílé kuličky, volíme chybu vůči v poměru hmotností pyknometrů.
+\par Naměřené hmotnosti uvádíme v tabulce č. 3 a z nich dle vztahů (11) a (16) odvodili hustoty kuliček.
+\begin{center}
+    \captionof{table}{Hmotnosti měření pro potřeby pyknometrické metody} \label{tab:title}
+    \begin{tabular}{ | l | l | l | l | p{5cm} |} \hline
+    Měření & žluté $\mathrm{[g]}$ & modré $\mathrm{[g]}$ & bílé $\mathrm{[g]}$ \\ \hline
+    Prázdný ($m_{1}$)     & $9.28\pm0.05$  & $9.23\pm0.05$  & $21.48\pm0.10$ \\ \hline
+    S tělísky ($m_{2}$) & $14.35\pm0.05$ & $14.64\pm0.05$ & $37.96\pm0.10$ \\ \hline
+    S tělísky i kapalinou ($m_{3}$) & $22.40\pm0.05$ & $22.74\pm0.05$ & $56.36\pm0.10$ \\ \hline
+    S kapalinou ($m_{4}$) & $19.34\pm0.05$ & $19.36\pm0.05$ & $46.35\pm0.10$ \\ \hline
+    \end{tabular}
+\end{center}
+\begin{center}
+    \captionof{table}{Výsledné hustoty jednotlivých kuliček} \label{tab:title}
+    \begin{tabular}{ | l | l | p{3cm} |} \hline
+    Druh & hustota $\mathrm{[kg \cdot m^{-3}]}$ \\ \hline
+    žluté & $2541\pm11$ \\ \hline
+    modré & $2660\pm9$ \\ \hline
+    bílé & $2505\pm9$  \\ \hline
+    \end{tabular}
+\end{center}
+\par Nyní již můžeme s pomocí vztahů (10) a (17) a naměřených mezivýsledků uvedených v tabulkách výše můžeme přímo určit hodnotu $\eta$ pro ricinový a olivový olej. S ohledem na značení u tabulky č. 3 je jasně rozlišitelné, která dynamická viskozita $\eta$ přísluší které látce.
+\begin{center}
+    \captionof{table}{Doby pádu kuliček a příslušné hodnoty $\eta$ pro ricinový a olivový olej pro jednotlivá měření} \label{tab:title}
+    \begin{tabular}{ | l | l | l | p{3cm} |} \hline
+    měření & doba pádu [s]  & $\eta \: \mathrm{[N \cdot s \cdot m^{-2}]}$ \\ \hline
+    $\textit{ž}_{1}$       & $17.44\pm0.20$ & $1.03\pm0.04$ \\ \hline
+    $\textit{ž}_{2}$       & $17.41\pm0.20$ & $1.02\pm0.03$  \\ \hline
+    $\textit{ž}_{3}$       & $16.16\pm0.20$ & \st{0.68}$\pm$\st{0.03}  \\ \hline
+    $\textit{ž}_{4}$       & $17.97\pm0.20$ & $1.02\pm0.03$  \\ \hline
+    $\textit{ž}_{5}$       & $17.75\pm0.20$ & $1.04\pm0.04$   \\ \hline
+    $\textit{ž}_{6}$       & $18.41\pm0.20$ & $1.01\pm0.03$   \\ \hline
+    $m_{1}$       & $28.45\pm0.20$ & \st{1.35}$\pm$\st{0.05} \\ \hline
+    $m_{2}$       & $29.00\pm0.20$ & $0.95\pm0.03$ \\ \hline
+    $m_{3}$       & $28.59\pm0.20$ & $0.93\pm0.03$ \\ \hline
+    $m_{4}$       & $28.72\pm0.20$ & $0.94\pm0.03$ \\ \hline
+    $m_{5}$       & $28.97\pm0.20$ & $0.92\pm0.03$ \\ \hline
+    $m_{6}$       & $28.87\pm0.20$ & $0.94\pm0.03$ \\ \hline
+    $b_{1}$       & $53.22\pm0.20$ & $0.87\pm0.02$ \\ \hline
+    $b_{2}$       & $53.32\pm0.20$ & $0.84\pm0.02$ \\ \hline
+    $b_{3}$       & $52.28\pm0.20$ & $0.79\pm0.02$ \\ \hline
+    $b_{4}$       & $52.18\pm0.20$ & $0.85\pm0.02$ \\ \hline
+    $b_{5}$       & $53.96\pm0.20$ & $0.85\pm0.02$ \\ \hline
+    $b_{6}$       & $53.32\pm0.20$ & $0.82\pm0.02$ \\ \hline
+    $bO_{1}$      & $4.72\pm0.20$ & $(0.74\pm0.04) \cdot 10^{-1}$ \\ \hline
+    $bO_{2}$      & $4.82\pm0.20$ & $(0.81\pm0.04) \cdot 10^{-1}$ \\ \hline
+    $bO_{3}$      & $4.66\pm0.20$ & $(0.78\pm0.04) \cdot 10^{-1}$ \\ \hline
+    $bO_{4}$      & $4.72\pm0.20$ & $(0.74\pm0.04) \cdot 10^{-1}$ \\ \hline
+    $bO_{5}$      & $5.00\pm0.20$ & $(0.79\pm0.04) \cdot 10^{-1}$ \\ \hline
+    $bO_{6}$      & $4.63\pm0.20$ & $(0.76\pm0.04) \cdot 10^{-1}$ \\ \hline
+    \end{tabular}
+\end{center}
+\par Nejprve stojí za okomentování vyškrtnutí dvou hodnot, z nichž dále počítáme hodnoty $\eta$. Důvodem je, že dané dvě kuličky, které jsme měřili, jsou velmi asymetrické, toho si lze povšimnout v tabulce číslo 3. Tato chyba se však nepřenáší běžným přenosem chyb. Více o tom v diskusi. Celkově jsme získali hodnoty dynamické viskozity uvedené v tabulce číslo 7.
+\newpage
+\begin{center}
+    \captionof{table}{Výsledné hodnoty dynamické viskozity pro olivový a ricinový olej } \label{tab:title}
+    \begin{tabular}{ | l | l | l | p{3cm} |} \hline
+    Druh & $\eta_{oliv} \: \mathrm{[10^{-1} \cdot N \cdot s \cdot m^{-2}]}$  & $\eta_{ricin} \: \mathrm{[N \cdot s \cdot m^{-2}]}$ \\ \hline
+    žluté & $------$ & $1.02\pm0.04$ \\ \hline
+    modré & $------$ & $0.93\pm0.03$ \\ \hline
+    bílé & $0.77\pm0.04$ & $0.84\pm0.02$ \\ \hline
+    \end{tabular}
+\end{center}
+\par Hodnoty pro jednotlivé kuličky sečteme již jen váženým průměrem a dostáváme hodnoty $\eta_{oliv} = (0.77\pm0.04)  \: \mathrm{\cdot 10^{-1} \cdot N \cdot s \cdot m^{-2}}$ a $\eta_{ricin} = (0.92\pm0.08)  \: \mathrm{N \cdot s \cdot m^{-2}}$
+\section*{Diskuse}
+\par Výrazné porovnání si zaslouží měření, která jsme získali při odhadu Reynoldsova čísla a měření, která jsme využívali pro výpočet $\eta$. Je vidět, že časy pro všechny druhy kuliček se při měření, kdy cílem bylo zjistit $\eta$ oproti testovacím měřením prodloužily. Toto bylo způsobeno posunutím gumiček (značek) o pár centimetrů níže. Za předpokladu, že pohyb kuličky již byl v rovnoměrný, tak by se čas nezměnil. Naopak jeho prodloužení ukazuje, že posunutím jsme pro výsledná měření zlepšili setup experimentu a zrychlení kuliček se na nové dráze o stejné délce zmenšilo. Ideálně by mělo být nulové. Toto pozorování nemění platnost odhadu Reynoldsova čísla.
+\par Dále bychom se rádi zamysleli nad zdroji chyb a jejich eliminace. Kupříkladu nutnost měřit průměry válců metrem namísto mikrometrického měřítka přináší do měření zbytečenou chybu. Ze vztahu (17) je však vidět, že chyba měření průměru válců je málo výrazná. Změna měřidel tedy má smysl, ale až v případě, že se podaří eliminovat výraznější zdroje chyb, kterou jsou uvedeny v dalších odstavcích.
+\par Podíváme-li se na chybu pyknometru, pak musíme konstatovat, že za chybu měření pyknometrem nelze považovat chybu vah, jak již bylo uvedeno krátce v sekci výsledky měření. K určení chyby jsme si pomohli porovnáním dvou různých pyknometrů. Přesto k přesnému určení by bylo udělat větší množství měření a lépe než na dvou podobných pyknometrem přímo na pyknometru stejném. Chyby měření vznikají existencí bublinek uvnitř pyknometru, dále i špatným osušením pyknometru. Oboje chyby se dají teoreticky vzato eliminovat a lze je považovat za chyby hrubé. Ovšem experimentální zkušenost ukazuje, že je pravdivější, že se jedná o chyby systematické, neb nikdy nejde se bublinek zbavit úplně. Celkově však hodnocení hustoty kuliček pyknometrem považujeme za přesné. Všechny výsledné hodnoty spadají do intervalu hustoty skla dle [8], což je materiál, z něho by kuličky měli bát vyrobeny.
+\par Co se týče kuliček, ty samotné dle nás do měření vnášejí největší chybu. V tabulce číslo 3 si lze všimnout, že kuličky označené jako $\textit{ž}_{3}$ a $m_{1}$ jsou výrazně asymetrické. Následně v tabulce číslo 6 je vidět, že pro tyto stejné kuličky vychází výsledné hodnoty $\eta$ skoro poloviční resp. dvojnásobné vůči ostatním měřeným i tabulkovým hodnotám. Lze tedy říct, že asymetrie zřejmě porušuje platnost Stokesova vztahu. Nedokážeme totiž metodou přenosu chyb nijak vnést informaci o této asymetrii do výsledné chyby. Je otázka, jak se takováto asymetrie následně projevuje při pohybu kuličky kapalinou. Jistě může vznikat neobvyklé proudění, také záleží na natočení kuličky. Přesnější informaci by nám dalo větší množství pokusů na toto téma a samozřejmě informace i o třetí rozměru. O neextrémních případů jsme vliv šišatosti nevyhodnocovali. Při větším množství dat by to jistě mohlo poskytnout zpřesnění Stokesova vztahu resp. naší teorie. Lze třeba předpokládat, že ve snaze o zaujmutí, co nejvýhodnějšího energetického stavu se těleso při pádu bude natáčet a tím se vzdá části kinetické energie. Stejně tak průřez kolmý na směr pohybu je úměrný velikosti odporových hydrodynamických sil.
+\par Samotný Stokesův vztah je také pouhou aproximací. Kvantitativně za daných podmínek dostačující. Přesto pro ricinový olej vidíme, že pro různé kuličky se chybové intervaly jednotlivých výsledných hodnot dynamické viskozity neprotínají. Jednotlivým kuličkám přísluší různá Reynoldsova čísla. Výsledek pro nejmenší, bílé, kuličky, které mají i nejmenší Reynoldsovo číslo, se také blíží nejvíce tabulkovým hodnotám. Měli-li bychom možnost přímo sledovat proudění kolem kuliček, jistě bychom dosáhli přesnějších hodnot $\eta$, to je ovšem pouze velmi složitě proveditelné. Pomoci by mohli i menší kuličky, které nejenže mají kolem sebe menší víření, ale i kvůli pomalejšímu pohybu by se snížila chyby přenesená z určení času. Ovšem už při nynějších nejmenších kuliček bylo velmi těžké je sledovat. Pro měření zaznamenávaná člověk se toto nezdá vhodným řešením.
+\par Již jsme zmínili jako možný zdroj chyb otáčení. To také vedu k tomu, že tělíska se ne vždy pohybovali přímo k podstavě válce, ale občas vykonávala i pohyb ke stěnám válce, čímž došlo k prodloužení měření času. Tento vliv je ovšem malý s ohledem na rozměry válce a velmi špatně by se měřil, proto ho také zanedbáváme.
+\par Chyby, ač malé mohou přinášet i příměsi a nečistoty, ať už pevné či kapalné v testovaných kapalinách a gradient teploty v nich. Dbali jsme však na to, aby v blízkosti zkoumaných kapalin nebyl zdroj tepla a při vizuálním pohledu se kapaliny zdáli čisté. Vliv znečištění kapalin zřejmě tedy nebyl markantní.
+\par Celkově k diskusi lze říci, že většinu chyb, s nimiž se potýkáme jen těžko blíže kvantifikujeme či odstraníme. I když toto víme, tak výsledné hodnoty $\eta$ se nepříliš (jsou toho samého řádu a i to je silné slovo - bavíme se o 4 násobně velkých chybových intervalech a celkově chybě kolem 30 $\%$).
+\section*{Závěr}
+\par Pro všechny poloměry kuliček $r$ jsme určili Reynoldsovo číslo, abychom mohli potvrdit oprávněnost použití Stokesova vztahu. Zjistili jsme, že pro olivový olej lze použít pouze bílé kuličky, naopak pro ricinový olej je možné Stokesovou metodou měřit $\eta$ pomocí všech tří druhů kuliček. Pyknometrickou metodou jsme určili hustoty kuliček $\rho_{\textnormal{žluté}} = (2541\pm11) \: \mathrm{kg \cdot m^{-3}}$, $\rho_{\textnormal{modré}} = (2660\pm9) \: \mathrm{kg \cdot m^{-3}}$ a $\rho_{\textnormal{bílé}} = (2505\pm9) \: \mathrm{kg \cdot m^{-3}}$. Tyto hodnoty spadají do udávaného rozsahu pro hustot pro sklo dle [8]. Výsledné dynamické hustoty jsou $\eta_{oliv} = (0.77\pm0.04)  \: \mathrm{\cdot 10^{-1} \cdot N \cdot s \cdot m^{-2}}$ a $\eta_{ricin} = (0.92\pm0.08)  \: \mathrm{N \cdot s \cdot m^{-2}}$. Porovnáním s tabulkovými hodnotami dle [6] a [7] vidíme, že tabulkové hodnoty pro olivový i ricinový olej nespadají do chybových intervalů námi naměřený hodnot $\eta_{oliv}$, možné příčiny nekvantifikovaných chyb rozebíráme v diskusi. Nicméně rozdíl není markantní. Lze tedy konstatovat, že teorie je platná a vyhodnocení dat proběhlo bez chyby.
+\renewcommand\refname{Použitá literatura}
+\begin{thebibliography}{}
+\bibitem{praktikum}
+Fyzikální praktikum. Studium proudění viskózní kapaliny trubicemi kruhového
+průřezu [online][cit. 2019-04-12]. Dostupné z:
+\url{https://physics.mff.cuni.cz/vyuka/zfp/_media/zadani/texty/txt_103.pdf}
+\bibitem{broz} 
+BROŽ, J. a KOL. Základy fyzikálních měření I. 1. vydání. Praha: SPN, 1983
+\bibitem{englich}
+ENGLICH, Jiří. Úvod do praktické fyziky I. 1. vydání. Praha: Matfyzpress, 2006, ISBN 80-86732-93-2
+\bibitem{hustoty}
+Engineers edge. Fluid data [online][cit. 2019-04-13]. Dostupné z:
+\url{https://www.engineersedge.com/fluid_flow/fluid_data.htm}
+\bibitem{hustoty - olive oil}
+Aceite De Las Valdesas. Propiedades composicion aceite oliva [online][cit. 2019-04-13]. Dostupné z:
+\url{https://www.aceitedelasvaldesas.com/en/faq/propiedades-composicion-aceite-oliva/densidad-del-aceite-de-oliva/}
+\bibitem{viscosity- olive oil}
+Tajweed Hashim Nierat, Temperature-dependence of olive oil viscosity, MSAIJ, 11(7), 2014 [233-238] [online][cit. 2019-04-15]. Dostupné z:
+\url{https://www.tsijournals.com/articles/temperaturedependence-of-olive-oil-viscosity.pdf}
+\bibitem{viscosity- castor oil}
+Engineers edge. Dynamic Viscosity of common Liquids. [online][cit. 2019-04-15]. Dostupné z:
+\url{https://www.engineeringtoolbox.com/absolute-viscosity-liquids-d_1259.html}
+\bibitem{glass}
+Webber, Robert L. College Physics, 4th Edition. McGraw Hill, 1959: 156. str
+\end{thebibliography}
+\end{document}
