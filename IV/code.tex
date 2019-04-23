@@ -1,0 +1,154 @@
+\documentclass[a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[czech]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{txfonts}
+\usepackage{wasysym}
+\usepackage{eurosym}
+\usepackage[symbol*]{footmisc}
+\usepackage{mathtools}
+\usepackage{enumitem}
+\usepackage{tabularx,ragged2e,booktabs,caption}
+\usepackage{url}
+\usepackage{soul}
+\author{"Patrik Novotný"}
+
+\begin{document}
+\section*{Pracovní úkol}
+\begin{enumerate}
+\item Určete závislost povrchového napětí $\sigma$ na objemové koncentraci $c$ roztoku etylalkoholu ve vodě odtrhávací metodou.
+\item Sestrojte graf této závislosti.
+\end{enumerate}
+\section*{Teorie}
+\par V celé sekci teorie vycházíme z [1]. Jako povrchové napětí $\sigma$ se označuje síla působící kolmo na jednotkovou délku každého myšleného řezu povrchem látky. Látky, které snižují povrchové napětí, se nazývají povrchově aktivní. Povrchové napětí je výrazně ovlivněno také teplotou, důsledky tohoto aspektu jsou rozebrány v diskusi.
+Povrchové napětí typicky studujeme u kapalin, jejíž je charakteristickým znakem.
+\par Povrchové napětí lze měřit přímo pomocí tzv. odtrhávací metody. Metoda spočívá v naměření síly potřebné k vytažení drátku délky $l$ z kapaliny. Je-li drátek tenký a lze tedy zanedbat další rozměry, pak potřebnou sílu a z ní povrchové napětí lze určit jako
+\begin{align}
+P_{0} = 2 \cdot \sigma \cdot l \: \mathrm{[N]} \\
+\sigma = \frac{P_{0}}{2 \cdot l} \: \mathrm{[N \cdot m^{-1}]}
+\end{align}
+Sílu $P_{0}$ určíme pomocí torzních vah, které umožňují plynulé zvyšování působící síly a jsou dostatečně přesné. Nejprve změříme sílu $P_{1}$, která se rovná tíhové síle příslušející rozdílu hmotností závaží a protizávaží a je snížena o hodnotu vztlakové síly. Protizávaží nám pomáhá vyřešit problém s omezeným rozsahem torzních vah. Volíme protizávaží tak, aby bylo možno hmotnosti příslušející silám $P_{1}$ a $P_{2}$ změřit v rozsahu stupnice torzních vah, který činí 500 mg. Zvyšujeme-li dále sílu působící na drátek a zároveň udržujeme váhy v rovnováze, pak dojde pro určitou sílu k odtržení drátku od povrchu vody a váhy se rozváží. Tuto hodnotu nazveme $P_{2}$. Pak tedy platí
+\begin{align}
+P_{0} = P_{2} - P_{1}  \: \mathrm{[N]} \\
+\sigma = \frac{P_{2} - P_{1}}{2 \cdot l} \: \mathrm{[N \cdot m^{-1}]}
+\end{align}
+\par Testovací měření, která jsme provedli pro vodu a líh, ukázala, že naměřené hodnoty výrazně neodpovídají hodnotám tabulkovým. Uvedeno v sekci výsledky měření. Bylo tudíž nutno zavést vztah, který zohledňuje i další rozměry drátku.
+\begin{align}
+\sigma = \frac{P_{2} - P_{1}}{2 \cdot l} - r \cdot \bigg(\sqrt{\frac{P_{2} - P_{1} \cdot \rho \cdot g}{l}}-\frac{P_{2} - P_{1}}{l^{2}} \bigg)\: \mathrm{[N \cdot m^{-1}]}
+\end{align}
+kde $r$ značí poloměr drátku, $\rho$ hustotu kapaliny a $g$ lokální tíhové zrychlení. Hustota $\rho$ je dána koncentrací jednotlivých látek.
+\begin{align}
+\rho_{\textnormal{roztok}} = c \cdot \rho_{\textnormal{líh}} + (1-c) \cdot \rho_{\textnormal{voda}}  \: \mathrm{[kg \cdot m^{-3}]}
+\end{align}
+kde $c$ značí koncentraci aktivní látky v roztoku.
+\par V další části teorie se budeme zabývat chybou vypočtených hodnot. Chyby určujeme pomocí metody přenosu chyb, která je popsaná v [2] a [3]. Dle vztahu (4) je chybou určení povrchového napětí $\sigma$
+\begin{align}
+\delta P_{0} = \frac{\sqrt{2} \cdot \Delta_{\textnormal{váhy}}}{P_{0}} \\
+\delta \sigma = \sqrt{\delta_{P_{0}}^2 + \delta_{l}^2}
+\end{align}
+\par Chybu lze dále zpřesnit dle vztahu (5). Hodnotu lokálního tíhového zrychlení $g$ = 9.80665 $\mathrm{m \cdot s^{-2}}$ považujeme za přesné dle [2], dále podíváme-li se na hodnoty hustot dle [6] a [7] dosahuje řádu setin procenta, a proto i hustotu budeme považovat za přesnou. Chybu koncentrace dle našeho odhadu tabelujeme a zobrazujeme za jako chybu proměnné. Naopak chyba měření průměru $r$ zanedbat nelze, protože je s ohledem na naší experimentální zkušenost v řádu procent. Pak získáme chybu $\sigma$ ve tvaru
+\begin{align}
+\end{align}
+\begin{eqnarray*}
+\Delta \sigma = \bigg(\Delta_{P_{0}}^{2} \cdot \bigg(\frac{1}{2 \cdot l} - r \cdot \sqrt{\frac{\rho \cdot g}{4 \cdot l \cdot P_{0}}} + r \cdot \frac{1}{l^{2}}\bigg)^2 \\
+ + \Delta_{r}^{2} \cdot \bigg(\sqrt{\frac{P_{0} \cdot \rho \cdot g}{l}} - \frac{P_{0}}{l^2} \bigg)^2 + \Delta_{l}^{2} \cdot \bigg(\frac{P_{0}}{2\cdot l^{2}} + \frac{r \cdot \sqrt{\rho \cdot g \cdot P_{0}}}{2 \cdot l^{3/2}} - 2\frac{P_{0}}{l^{3}} \bigg)^2 \bigg)^{1/2}
+\end{eqnarray*}
+\par Na závěr lze říct, že předpokládáme, že hodnota $\sigma$ roztoku se bude s klesající koncentrací limitně blížit $\sigma$ vody a s rostoucí $\sigma$ lihu. Očekávaným průběhem křivky je exponenciála.
+\section*{Výsledky měření}
+\par Za chyby analogových přístrojů považujeme dle [2] a [3] polovinu nejmenšího dílku stupnice. Měřícími přístroji byl lihový teploměr s dílky po 1 $^\circ$ C a torzní váhy s chybou 1 mg a posuvné měřítko 0.025 mm. Koncentraci povrchově aktivní látky jsme určovali pomocí pyknometru a následným ředěním lihu a destilované vody. Při nízkých koncentracích jsme použili pipetu, s níž jsme však neuměli příliš zacházet. Chybu určení objemu pyknometrem považujeme za zanedbatelnou s ohledem na chyby vzniklé ředěním. Za chybu koncentrace považujeme 1 $\%$ při každém ředění látky. Úvahu, jíž jsme došli této hodnoty uvádíme v diskusi. Líh a destilovanou vodu před ředěným považujeme za čisté látky s koncentracemi 100 $\%$ a 0 $\%$.
+\par Podmínky měření neuvádíme, protože na provedení experimentu nemají zásadní vliv oproti jiným zdrojům chyb, hlavně ředění.
+\par Nejprve uvádíme pouze tři kontrolní měření, kde jsme ani neurčovali chyby, protože zjištění přesné hodnoty nebylo naším cílem. Cílem bylo zvolit rámeček, s nímž se nám nejlépe pracuje, také naučit se pracovat s torzními váhami a posledně porovnat výsledky zjištěné dle vztahu (4) a (5) s tabulkovou hodnotou dle [4].
+\begin{center}
+    \captionof{table}{Měření povrchového napětí $\sigma$ destilované vody} \label{tab:title}
+    \begin{tabular}{ | l | l | l | l | l | l | p{3cm} |} \hline
+    $m_{2}$ [mg] & $m_{1}$ [mg] & $l$ [mm] & $\sigma$  [$10^{-3} \cdot  \mathrm {N \cdot m^{-1}}]$ & $\sigma_{\textnormal{přesnější}} \: [10^{-3} \cdot \mathrm{N \cdot m^{-1}]}$ & t [$^\circ$C] & r [mm] \\ \hline
+    367 & 37 & 20.35 & 79.54 & 74.84 & 24.5 & 0.4 \\ \hline
+    370 & 43 & 20.35 & 78.82 & 74.14 & 24.5 & 0.4 \\ \hline
+    475 & 76 & 22.35 & 87.57 & 75.25 & 25   & 1   \\ \hline
+    \end{tabular}
+\end{center}
+kde $m_{i}$ značí měřené hmotnosti příslušné $P_{i}$ na torzních váhách.
+\par Dle [4] odpovídá povrchové napětí vody $\sigma = (72.0\pm0.1) \cdot 10^{-3} \mathrm{N \cdot m^{-1}}$ Vidíme tedy, že korekční vztah (5) je potřebný a také, že jsme poměrně přesně schopni měřit povrchové napětí. Vliv poloměru drátku je nejlépe vidět u posledního měření, kde se hodnoty liší o více než 10$\%$ a zároveň poloměr je největší z měřených rámečků. Drobná nepřesnost, která u všech měření vedla k vyšší hodnotě nám nevadí. Lze ji zdůvodnit konstrukcí rámečku. Více o chybách opět v diskusi.
+\par Po provedení zkušebních měření jsme si vybrali vhodný rámeček a měřili již na čisto, to znamená roztoky. Vlastnosti zvoleného rámečku pro měření na čisto byly $l$ = (22.20$\pm$0.03) mm a $r$ = (0.35$\pm$0.01) mm.  S již zvoleným rámečkem jsme naměřili tyto hodnoty povrchového napětí $\sigma$. Každou hodnotu jsme měřili dvakrát mimo čistého lihu a vody, kde známe tabulkové hodnoty, důvodem bylo, abychom si mohli být jisti, že při měření nedošlo k hrubé chybě. Povrchové napětí $\sigma$ určujeme již pouze pomocí přesnějšího vztahu (5)  Měřené hodnoty jsou uvedeny v tabulce č. 2.
+\begin{center}
+    \captionof{table}{Měření povrchového napětí $\sigma$ roztoku s povrchově aktivní látkou} \label{tab:title}
+    \begin{tabular}{ | l | l | l | l | l | p{3cm} |} \hline
+    $m_{2}$ [mg] & $m_{1}$ [mg] & hustota [$\mathrm{kg\cdot m^{-3}}$] & koncentrace [1] & $\sigma$  [$10^{-3} \cdot  \mathrm {N \cdot m^{-1}}]$ \\ \hline
+    400 & 60 & 977.77 & 0.0 $\%$   & $71.10\pm0.78$ \\ \hline
+    204 & 72 & 785.22 & 100.0 $\%$ & $26.88\pm0.56$ \\ \hline
+    237 & 64 & 881.50 & 50.0 $\%$  & $35.46\pm0.60$ \\ \hline
+    235 & 63 & 881.50 & 50.0 $\%$  & $35.25\pm0.60$ \\ \hline
+    281 & 66 & 929.63 & 25.0 $\%$  & $44.35\pm0.64$ \\ \hline
+    278 & 64 & 929.63 & 25.0 $\%$  & $44.14\pm0.64$ \\ \hline
+    \st{375} & \st{63} & \st{953.70} & \st{12.5} $\%$  & \st{65.12}$\pm$\st{0.75} \\ \hline
+    \st{377} & \st{61} & \st{953.70} & \st{12.5} $\%$  & \st{65.98}$\pm$\st{0.75} \\ \hline
+    254 & 56 & 905.56 & 37.5 $\%$  & $40.76\pm0.62$ \\ \hline
+    258 & 62 & 905.56 & 37.5 $\%$  & $40.33\pm0.62$ \\ \hline
+    212 & 63 & 833.36 & 75.0 $\%$  & $30.42\pm0.58$ \\ \hline
+    209 & 61 & 833.36 & 75.0 $\%$  & $30.21\pm0.58$ \\ \hline
+    294 & 65 & 939.26 & 20.0 $\%$  & $47.33\pm0.65$ \\ \hline
+    295 & 65 & 939.26 & 20.0 $\%$  & $47.54\pm0.65$ \\ \hline
+    370 & 65 & 973.99 & 2.0 $\%$   & $63.57\pm0.74$ \\ \hline
+    370 & 63 & 973.99 & 2.0 $\%$   & $64.00\pm0.74$ \\ \hline
+    343 & 68 & 970.36 & 3.8 $\%$   & $57.13\pm0.70$ \\ \hline
+    345 & 68 & 970.36 & 3.8 $\%$   & $57.56\pm0.70$ \\ \hline
+    \end{tabular}
+\end{center}
+\begin{figure}[H]
+\centering
+\includegraphics[width=400pt]{raw.png}
+\caption{Vypočtené hodnoty $\sigma$ v závislosti na koncentraci $c$ }
+\end{figure}
+\par Nejsou-li chybové úsečky vidět, je chyba příliš malá. Všechna data mají chybové úsečky mimo chyby koncentrace destilované vody a lihu, platí i pro další grafy.
+\begin{figure}[H]
+\centering
+\includegraphics[width=400pt]{exp.png}
+\caption{Hodnoty $\sigma$ v závislosti na koncentraci $c$ proloženy exponenciální závislostí}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=400pt]{lin.png}
+\caption{Logaritmy hodnot $\sigma$ v závislosti na koncentraci $c$ proloženy lineární závislostí závislostí}
+\end{figure}
+\par Rovnice závislosti z grafu zobrazeného na obrázku č. 2 je $y = exp(Ax+B)$, kde A = (-1.01$\pm$0.02) a B = (4.134$\pm$0.006), zjištěno pomocí programu ROOT.
+\par Graf má v souladu s předpoklady tvar exponenciály, což je vidět z lineárního i logaritmického grafu. Naopak v rozporu s předpoklady roztok se v limitních případech liší od čistých látek. Nicméně je možné, že při vyšším množstvím měření by došlo k napojení křivky. Porovnáme-li hodnoty měřené hodnoty pro koncentrace 100 $\%$ a 0 $\%$, lze si všimnout, že hodnota pro 0 $\%$ $(71.10\pm0.78)$ $\cdot 10^{-3} \:  \mathrm {N \cdot m^{-1}}$ odpovídá tabulkové dle [4] $(72.0\pm0.1)$ $\cdot 10^{-3}\:  \mathrm{N \cdot m^{-1}}$, naopak hodnota pro 100 $\%$, tedy líh, $(26.88\pm0.56)$ $\cdot 10^{-3} \:  \mathrm {N \cdot m^{-1}}$ nesouhlasí s tabulkovou hodnotou dle [5] $(21.97\pm0.04)$ $\cdot 10^{-3}\:  \mathrm {N \cdot m^{-1}}$. Tento fakt rozebíráme v diskusi.
+\par Je také nutné všimnout si hodnot pro koncentraci 12.5 $\%$, které naprosto neodpovídají ostatním hodnotám. Chyba byla způsobena hrubou chybou. Poté, co nám došel líh, jsme použili líh určený k čištěný pyknometru. Tento líh však obsahuje aditivní látky z legislativních důvodů, a proto je jeho povrchové napětí jiné než u lihu, s nímž jsme pracovali předtím. Hodnota je v tabulce škrtnuta a pro další zpracování nevyužita.
+\section*{Diskuse}
+\par Chybu ředění jsme odhadli jako přebytek z špatně vysušené kádinky nebo naopak zmizelý objem a to o hodnotě 3 kapek, což odpovídá 0.5 ml v 50 ml roztoku. Tuto hodnotu považujeme za horní mez, kdy předpokládáme, že u většiny měření nedošlo vlivem naší pečlivé práce ani k přebytku ani úbytku jedné z míšených látek, přesto tuto chybu považujeme za horní mez chyb. Další jevy jako vypařování lihu považujeme za řádově méně významné a tudíž obsažené v rámci této chyby. S ohledem na to, že závislost odpovídá teorii, lze tento odhad považovat za dostatečný.
+\par Mimo testovací měření byla všechna měření provedena pro stejný rámeček i teploty. Po vytvoření roztoku určeného k měření jsme ho chladili ve vodní lázni až do doby, než dosáhl teploty 25 $^\circ$C, což byla po celou dobu měření i teplota okolního vzduchu a dá se tedy předpokládat, že nedocházelo k významné tepelné výměně s okolím. Lze tedy říci, že nesrovnalosti měření nelze považovat za způsobené rozdílnými teplotami roztoků.
+\par Vyšší teplota se projevuje snížení povrchového napětí. S problémem nižšího povrchového napětí se nesetkali, lze tedy předpokládat, že nepřesné měření teploty neovlivnilo měření. Musíme mít však stále na paměti, že vztah pro chybu (9) není přesný a chyby hustoty a koncentrace zanedbává.
+\par Důvodem toho, že hodnoty povrchového napětí $\sigma$ pro destilovanou vodu a líh jsou vyšší než tabulkové, je konstrukce rámečku, kdy drátek je k rámečku připájen a samotná pájka má také nezanedbatelnou plochu, která má styk s hladinou vody, avšak nedokážeme ji kvantifikovat. Jistě víme pouze to, že vlivem většího celkového povrchu je větší i hodnota povrchového napětí. Vidíme tedy, že rámeček, který jsme zvolili pro finální měření má nejnižší poměr $\frac{r}{l}$ a zároveň se nám zdál nejlépe spájený, v souladu s tím se i hodnota povrchového napětí vody nejvíce blíží k tabulkové hodnotě. Dokonce je v ní v rámci chyby s ní v souladu a tedy pro finální měření lze vliv této chyby zanedbat.
+\par Chyba, která se na měření dne nás podílí zřejmě nejvýrazněji, se projevila dvěma způsoby, jednak tím, že hodnota $\sigma$ lihu neodpovídá tabulkové a zároveň tím, že graf je v limitních bodech viditelně nespojitý. Obojí se dá vysvětlit tím, že líh nebyl absolutně čistý a obsahoval menší množství vody. U roztoků tento jev poté není tak markantní, protože již uvažujeme možnost nepřesnosti koncentrace. Nemáme bohužel žádnou možnost ověřit, jak destilovaná voda i líh byly chemicky čisté. Zdá se pravděpodobné, že zdrojem chyby je právě popsaný mechanismus.
+\par Jako poslední zdroj chyb lze uvažovat možnost, že rámeček měl na svém povrchu povrchově aktivní látky popř. jiné látky než destilovanou vodu nebo líh. Zdrojem této kontaminace může být neodborná manipulace (dotyk rukou). Opakovaným máčením rámečku v lihu by zřejmě došlo k vyčištění rámečku a jev by se zredukoval. Z našich dat nelze tvrdit, že by byl rámeček kontaminován cizí látkou, resp. že by tento jev měl markantní význam. Tento efekt by se projevoval tak, že v čase by docházelo k vyšší shodě měření s tabulkovými hodnotami resp. průběhem závislosti, který by tomu to odpovídal, za předpokladu, že ostatní chyby by měli vliv menší. Nic takového jsme však nepozorovali a tedy tento zdroj chyby lze považovat za marginální pro naše měření.
+\par Jako u všech měření, lze konstatovat, že vyšší přesnosti měření by pomohlo i provedení více měření pro každý roztok. Bohužel z časových důvodů jsme toto nestihli a raději měřili více různých koncentrací pro potvrzení průběhu funkce reprezentující její závislost.
+\section*{Závěr}
+\par Pomocí odtrhávací metody se nám podařilo naměřit povrchové napětí vody $\sigma_{\textnormal{voda}} = (71.10\pm0.78)$ $\cdot 10^{-3} \:  \mathrm {N \cdot m^{-1}}$, které odpovídá tabulkové hodnotě dle [4] $(72.0\pm0.1)$ $\cdot 10^{-3} \mathrm{N \cdot m^{-1}}$, naopak změřená hodnota pro líh, $(26.88\pm0.56)$ $\cdot 10^{-3} \:  \mathrm {N \cdot m^{-1}}$ nesouhlasí s tabulkovou hodnotou dle [5] $(21.97\pm0.04)$ $\cdot 10^{-3} \:  \mathrm {N \cdot m^{-1}}$. Rozbor, proč k druhá hodnota zřejmě nevychází a jaké další chyby se během měření mohly vyskytnout, se nachází v diskusi. Pro různé koncentrace aktivní látky v roztoku se nám v souladu s teorií podařilo naměřit exponenciální funkci. Tuto závislost jsme určili přibližně rovnicí $\sigma = exp(Ac+B)$, kde hodnota koeficientů A = (-1.01$\pm$0.02) a B = (4.134$\pm$0.006) $\cdot 10^{-3} \:  \mathrm {N \cdot m^{-1}}$. S ohledem na to, že výsledky měření se v rámci zdůvodnění uvedeného v diskusi shodují s teorií, může konstatovat, že měření i vyhodnocení výsledků proběhlo validním způsobem.
+\renewcommand\refname{Použitá literatura}
+\begin{thebibliography}{}
+\bibitem{praktikum}
+Fyzikální praktikum. Studium proudění viskózní kapaliny trubicemi kruhového
+průřezu [online][cit. 2019-04-20]. Dostupné z:
+\url{https://physics.mff.cuni.cz/vyuka/zfp/_media/zadani/texty/txt_104.pdf}
+\bibitem{broz} 
+BROŽ, J. a KOL. Základy fyzikálních měření I. 1. vydání. Praha: SPN, 1983
+\bibitem{englich}
+ENGLICH, Jiří. Úvod do praktické fyziky I. 1. vydání. Praha: Matfyzpress, 2006, ISBN 80-86732-93-2
+\bibitem{tension water}
+Engineering Toolbox. Water surface tension [online][cit. 2019-04-21]. Dostupné z:
+\url{https://www.engineeringtoolbox.com/water-surface-tension-d_597.html}
+\bibitem{tension water and ethanol}
+English Wikipedia. Surface tension values [online][cit. 2019-04-21]. Dostupné z:
+\url{https://en.wikipedia.org/wiki/Surface-tension_values}
+\bibitem{ethanol density}
+English Wikipedia. Ethanol (data page) [online][cit. 2019-04-21]. Dostupné z:
+\url{https://en.wikipedia.org/wiki/Ethanol_(data_page)#Density_of_ethanol_at_various_temperatures}
+
+\bibitem{water density}
+Engineering Toolbox. Water density, specific weight [online][cit. 2019-04-21]. Dostupné z:
+\url{https://www.engineeringtoolbox.com/water-density-specific-weight-d_595.html}
+\end{thebibliography}
+\end{document}
