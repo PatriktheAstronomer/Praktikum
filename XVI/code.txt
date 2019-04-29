@@ -1,0 +1,228 @@
+
+\documentclass[a4paper]{article}
+\usepackage{kantlipsum} 
+\usepackage[utf8]{inputenc}
+\usepackage[czech]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath}
+\usepackage{fullpage}
+\usepackage{graphicx}
+\usepackage{txfonts}
+\usepackage{gensymb}
+\usepackage{eurosym}
+\usepackage[symbol*]{footmisc}
+\usepackage{mathtools}
+\usepackage{enumitem}
+\usepackage{tabularx,ragged2e,booktabs,caption}
+\author{"Václav Kubíček"}
+
+\begin{document}
+\section*{Pracovní úkol}
+\begin{enumerate}%[label=(\alph*)]
+\item Experimentálně ověřte platnost vztahu pro časovou závislost středního kvadratického posunutí částice $\overline{s^2}$ při Brownově pohybu.
+\item Určete aktivitu Brownova pohybu $A$ částic latexu ve vodě za pokojové teploty.
+\item Vypočtěte Avogadrovu konstantu $N_A$.
+\end{enumerate}
+
+\section*{1 Teorie}
+Brownovým pohybem rozumíme ustavičný, chaotický pohyb malých částic rozptýlených v kapalině nebo plynu (viz [1]). Pohyb je způsoben molekulami daného prostředí, ve kterém se častice pohybují, a to jejich tepelným pohybem. Díky malým rozměrům částic nejsou nárazy molekul kapaliny na částici v daném okamžiku rovnoměrné ze všech směrů. Proto pozorujeme částici konat chaotický pohyb. Označíme-li $s$ vzdálenost dvou po sobě jdoucích poloh pozorované částice v rovině a určíme-li aritmetický průmer kvadrátu tohoto posunutí, platí pro něj podle [1] Einsteinův vztah
+\begin{align}
+    \overline{s^2} = 2A \cdot t,
+\end{align}
+kde $A$ je koeficient úměrnosti a nazývá se Aktivita Brownova pohybu. Výpočet $\Bar{s^2}$ dělá program Brown použitý při měření. Posunutí částic budeme měřit mikroskopem napojeným na počítač s speciálním programem Motic Images, který po kalibraci určí danou vzdálenost. Tenhle koeficient $A$ se dá vyjádřit vztahem (odvození v [2])
+\begin{align}
+    A = \frac{RT}{3 \pi \eta r N_A},
+\end{align}
+kde $R$ je molární plynová konstanta, $r$ je poloměr dané částice, $T$ je teplota okolí, $\eta$ je dynamická viskozita dané suspenze a $N_A$ Avogadrova konstanta. Avogadrovu konstantu můžeme ze vzorce vyjádřit a získáme tak vztah
+\begin{align}
+    N_A = \frac{RT}{3 \pi \eta r A}.
+\end{align}
+Označíme-li vzdálenost dvou naměřených bodů za čas $t$, tedy bodů $i$ a $i+1$ jako $s_{t}$, vdálenost $i$ a $i+2$ bodu jako $s_{2t}$ a analogicky zavedeme i veličiny $s_{3t}$ a $s_{4t}$, pak z [1] platí následující poměr 
+\begin{align}
+    \overline{s_{t}} : \overline{s_{2t}} : \overline{s_{3t}} : \overline{s_{4t}} = t : 2t : 3t : 4t.
+\end{align}
+Je-li shoda dostatečná, můžeme data použít k výpočtu aktivity Brownova pohybu a k určení Avogadrovy konstanty.
+Dynamická viskozita použité suspenze (tekutiny s rozptýlenými částicemi) je závislá na koncentraci částic. Můžeme ji určit podle vzorce z [1] pomocí viskozity destilované vody za dané teploty okolí $\eta_v$
+\begin{align}
+    \eta = (1 + 2.5 \cdot \varphi) \cdot \eta_v, 
+\end{align}
+kde $\varphi$ je objemový podíl částic.
+Námi použitá suspenze obsahovala objemový podíl částic latexu 1:10000 v destilované vodě.
+\\[1cm]
+\textbf{Aparatura}
+\par Použili jsme akustické zařízení měřící časovou prodlevu  pro záznam poloh $t$. Dále stopky, které měří s chybou $\Delta t = 0.01$s. Na chyba určení časové prodlevy měl vliv i lidský faktor, reakční doba, tuto chybu můžeme odhadnout na $0.3$s. 
+\par Teploměr, kterým jsme určovali okolní teplotu určuje s chybou $\Delta t = 0.1$\degree C.
+\par Použité pravítko měří s chybou poloviny nejmenšího dílku, tedy $0.5$mm.
+
+\section*{2 Výsledky měření}
+\textbf{Podmínky měření}
+\par Měření proběhlo při teplotě $(26,8 \pm 0.1)$ \degree C, relativní vlhkosti vzduchu $28,5$\% a při tlaku prostředí $(985.2  \pm 0.2)$hPa.
+\par Molární plynová konstanta má podle [3] hodnotu $R = 8.314$ J \cdot K^{-1} \cdot mol^{-1}.
+\\[1cm]
+\textbf{Akustická značka}
+\par Pravidelná akustická značka, která signalizovala zaznamenání pohohy sledované částice byla změřena třikrát pomocí stopek a to po deseti periodách akustické značky. Chybu přístroje můžeme vzhledem k lidskému faktoru zanedbat a uvažovat chybu měření jako reakční chybu běžného člověka, tedy $0.3$s. Výsledky jsou zaznamenány v následující tabulce.
+\begin{center}
+    \captionof{table}{Měření deseti period akustické značky.} \label{tab:title} 
+    \begin{tabular}{ | l | l |}
+    \hline
+     č. & $10t$[s] \\ \hline
+     \hline
+    1 & 48.0   \\ \hline
+    2 & 47.9   \\ \hline
+    3 & 47.8   \\ \hline
+    \hline
+    $\overline{10t}$ & 47.9 \\ \hline
+    \end{tabular}
+\end{center}
+Navzdory tomu, že jsme naměřili 10 period dané akustické značky, budeme považovat chybu jedné periody jako reakční dobu člověka $0.3$s, neboť ta se projeví také při zaznamenávání polohy při zaznění akustické značky, vzhledem k této chybě je chyba přístroje a statistická odchylka měření deseti period zanedbatelná. Proto jsme hodnotu ujedné periody akustické značky určili jako
+\begin{align}
+    t = (4.8 \pm 0.3)s
+\end{align}
+\\[1cm]
+\textbf{Měření velikosti částic latexu ve vodě}
+\par Z fotografie vytvořené elektronovým mikroskopem (viz příloha) jsme změřili průměr deseti částic. Použili jsme k tomu měřítko (pravítko) s chybou $0.5$mm. V následující tabulce jsou uvedeny naměřené hodnoty průměrů částic.
+\begin{center}
+    \captionof{table}{Průměry částic.} \label{tab:title} 
+    \begin{tabular}{ | l | l |}
+    \hline
+     č. & $d$[mm]  \\ \hline
+     \hline
+    1 & 19.5 \\ \hline
+    2 & 20.5  \\ \hline
+    3 & 20.5  \\ \hline
+    4 & 22.5  \\ \hline
+    5 & 20.5  \\ \hline
+    6 & 20.5  \\\hline
+    7 & 21.0  \\\hline
+    8 & 21.5   \\ \hline
+    9 & 20.0   \\ \hline
+    10 &22.5  \\ \hline
+    \hline
+    $\overline{d}$ & 20.9 \\ \hline
+    \end{tabular}
+\end{center}
+Statistická chyba dané sady měření se spočte dle vzorce statistickou chybu (viz [4]) samozřejmě přenásobena studentovým koeficientem.
+\begin{align}
+    \Delta_{dstat} = \sqrt{\frac{1}{N-1}\sum(x_i - \overline{x})^2} = 1 mm
+\end{align}
+Pro určení celkové chyby naměřených průměrů podle [4] sečteme kvadráty systematické a statistické chyby a odmocníme
+\begin{align}
+    \Delta_d = \sqrt{\Delta^2_{dsys}+\Delta^2_{dstat}} = 1.1 mm.
+\end{align}
+Dostaneme pro průměr částice na fotografii hodnotu
+\begin{align}
+    d = (21 \pm 1)mm
+\end{align}
+Délka měřítka, které je pod fotografií je $m = (59.0 \pm 0.5)$mm a má reprezentoovat $1 \mu m$. Reálný poloměr čáastice pak určíme ze vzorce $r = d/2m$. A jeho chybu určíme z Gaussova vzorce pro chybu odvozené veličiny
+\begin{align}
+    \Delta_r = \sqrt{\frac{\Delta^2_d}{4m^2} + \frac{d^2 \Delta^2_m}{4m^4}}
+\end{align}
+Dostáváme tedy nakonec hodnotu pro poloměr měřených částic
+\begin{align}
+    r = (0.178 \pm 0.009)\mu m
+\end{align}
+\\[1cm]
+\textbf{Dynamická viskozita}
+\par Dynamická viskozita vody při dané teplotě okolí je dle [5] $\eta_v = 0.851 \cdot 10^{-3}$ Pa $\cdot$ s. Avšak použité množství vody je velmi teplotně náchylné byť jen na příme záření mikroskopu, proto nejistotu teploty vody záměrně zvýšíme na $(27 \pm 2)$\degree C. Odsud potom chybu hodnoty viskozity určíme jako
+\begin{align}
+    \Delta_{\eta_v} = \frac{\eta_v(25 \degree C) - \eta_v(29 \degree C)}{2}
+\end{align}
+Odsud hodnota dynamické vikozity i s nejistotou
+\begin{align}
+    \eta_v = (0.85 \pm 0.04)\cdot 10^{-3} \cdot Pa \cdot s
+\end{align}
+Dynamickou viskozitu suspenze určíme podle vztahu (5), kde ale $\varphi = 1/10000$. Výraz s objemovým podílem je zanedbatelný vzhledem k chybě viskozity vody určené výše. Proto dynamická viskozita bude rovna dynamické viskozitě vody.
+\begin{align}
+    \eta = \eta_v.
+\end{align}
+\\[1cm]
+\textbf{Aktivita Brownova pohybu}
+\par Na počítači jsme zaznamenávali polohu jednotlivých částic pomocí mikroskopu a programu Motic Image. Program vyhodnocoval výsledky až po úspěšném zaznamenání 25 poloh částice. Podažilo se nám zaznamenat 5 částic. 
+Pouze dvě z nich ale splňovaly podmínku pro poměr průměrných kvadratických posunutí (vztah (4)), a to při 3. a 5. měření. V tabulce 3 jsou uvedeny střední kvadráty aritmetických průměrů pro posunutí za čas t, 2t, 3t a 4t tří částic se středními kvadratickými odchylkami. První z nich je uváděna pro ilustraci neúspěšného měření. Další dvě budou použity pro další vyhodnocování.
+\begin{center}
+    \captionof{table}{Střední kvadratické hodnoty posunutí.} \label{tab:title} 
+    \begin{tabular}{ | l | l |l|l|l|}
+    \hline
+     částice & \overline{s_{t}} [\mu m^2] & \overline{s_{2t}}[\mu m^2] & \overline{s_{3t}}[\mu m^2] & \overline{s_{4t}}[\mu m^2] \\\hline
+     \hline
+    1 & 16 \pm 4& 38 \pm 8& 66 \pm 14& 95 \pm 21\\ \hline
+    3& 21 \pm 3 & 41 \pm 5 & 60 \pm 7  & 84 \pm 9 \\ \hline
+    5 & 23 \pm 5 & 46 \pm 9 & 73 \pm 10  & 91 \pm 12 \\ \hline
+    \end{tabular}
+\end{center}
+V tabulce 4 jsou uvedeny poměry jednotlivých středních kvadrátů posunutí pro tyto tři částice a v závorce josu uvedeny jejich standartní odchylky.
+\begin{center}
+    \captionof{table}{Poměry středních kvadratických hodnot posunutí.} \label{tab:title} 
+    \begin{tabular}{ | l | l |}
+    \hline
+     částice & \overline{s_{t}} : \overline{s_{2t}} : \overline{s_{3t}} : \overline{s_{4t}} \\\hline
+     \hline
+    1 & 1 : 2.36 (0.78) : 4.03 (1.37) : 5.81 (2.03)\\ \hline
+    3& 1 : 1.96 (0.39) : 2.86 (0.53) : 4.02 (0.73)\\ \hline
+    5 & 1 : 1.99 (0.56) : 3.20 (0.79) : 3.97 (0.99)  \\ \hline
+    \end{tabular}
+\end{center}
+Provedli jsme lineární regresi pro částice 3 a 5 podle vzorce (1). Pro lineární regresi jsme použili program Excel. Hodnoty aktivity Brownova pohybu jsou uvedeny v tabulce 5.
+\begin{center}
+    \captionof{table}{Aktivita Brownova pohybu.} \label{tab:title} 
+    \begin{tabular}{ | l | l |}
+    \hline
+     částice & A [10^{-12} \cdot m^2 \cdot s^{-1}]\\\hline
+     \hline
+    3 & 2.40 \pm 0.05\\ \hline
+    5 & 2.15 \pm 0.05 \\ \hline
+    \end{tabular}
+\end{center}
+Směrodatné odchylky provedl program Excel funkcí LINREGRESE. 
+Vynesme ještě do grafu naměřené hodnoty a jejich lineární regrese (Obrázek 1 a 2).
+\\[1cm]
+\textbf{Avogadrova konstanta}
+\par Pro Avogadrovu konstantu spočteme ještě průměrnou hodnotu Aktivity brownova pochybu a její směrodatnou ochylku podle analogického vzorce jako (8) tedy
+\begin{align}
+    \Delta_{\overline{A}} = \sqrt{\frac{\Delta^2_{A_3}}{4} + \frac{\Delta^2_{A_5}}{4}}
+\end{align}
+Dostáváme tedy 
+\begin{align}
+    \overline{A} = (2.28 \pm 0.04)\cdot 10^{-12} \cdot m^2 \cdot s^{-1} 
+\end{align}
+Hodnotu Avogadrovy konstanty spočteme ze vzorce (3) a jeho chybu určíme z Gaussova zákona o přenosu chyb
+\begin{align}
+    \Delta_{N_A} = N_A\sqrt{\frac{\Delta^2_T}{T^2} + \frac{\Delta^2_{eta}}{\eta^2} + \frac{\Delta^2_r}{r^2} +\frac{\Delta^2_{\overline{A}}}{\overline{A^2}}}
+\end{align}
+Odsud tedy dostáváme pro hodnotu Avogadrovy konstanty
+\begin{align}
+    N_A = (7.8 \pm 0.6)\cdot 10^{23} \cdot mol^{-1} 
+\end{align}
+
+\section*{3 Diskuze}
+\par Přestože akustická značka byla změřena s poměrně dobrou přesností, museli jsme uvažovat chybu jedné periody jako reakční dobu člověka, neboť u každého zaznamenání polohy se tato chyba projevila. Mohli jsme ale zanedbat vlivy statistické i vliv nepřesnosti měřidla.
+\par Jak je vidět z přiložené fotografie z elektronového mikroskopu, všechny koule latexu nebyli stejně velké, což je dáno i trojrozměrností fotografovaného vzorku. Právě kvůli této skutečnosti jsme získali velkou statistickou chybu průměru částic z fotografie (viz (7)). 
+\par U dynamické viskozity jsme museli uvažovat poměrně široký interval teplot vzorku, neboť jsme jeho teplotu během měření průběžně nekontrolovali a bylo by to náročné. Ovšem tahle viskozita se s časem příliš nemění, a proto vliv chyby viskozity na celkovou chybu měření nebyl příliš velký. Změna viskozity při přimíchání latexu se prakticky neprojevila.
+\par Pro časovou náročnost zaznamenávání poloh částic se nám podařilo získat kvalitní hodnoty pouze pro dvě částice. Ovšem z nich získané aktivity Brownova pohybu nebyly zatížené příliš velkou statistickou chybou. Proto po zprůměrování jsme tuto hodnotu mohli dosatit do vzorce pro Avogadrovu konstantu.
+\par Avogadrova konstanta námi naměřená se se od tabulové hodnoty $6.23 \cdot 10{23} mol^{-1} $  (viz [5]) lišila zásadně. Tenhle efekt přikládáme nedostatku změřených částic. 
+
+\section*{4 Závěr}
+\par Ověřili jsme platnost vztahů (1) a (4) pro Brownův pohyb. Změřili jsme aktivitu Brownova pohybu za pokojové teplaty jako $A = (2.28 \pm 0.04)\cdot 10^{-12} \cdot m^2 \cdot s^{-1}$. Nepodařilo se nám ale získat hodnoty Avogadorvy konstanty blízké tabulkové hodnotě vlivem nedostatku kvalitních dat z časové náročnosti. Její hodnota byla určena na $ N_A = (7.8 \pm 0.6)\cdot 10^{23} \cdot mol^{-1}$.
+
+\renewcommand\refname{Použitá literatura}
+\begin{thebibliography}{}
+\bibitem{einstein} 
+Studium Brownova pohybu [online]. [cit. 2019-24-04]. Dostupné z: 
+\\\texttt{https://physics.mff.cuni.cz/vyuka/zfp/zadani/116}
+
+\bibitem{hm}
+
+Brož, J. a kol.: Základy fyzikálních měření I. SPN, Praha 1967
+
+\bibitem{aj}
+Plynová konstanta [online]. [cit. 2019-24-04]. Dostupné z:
+\newline \texttt{https://www.aldebaran.cz/glossary/print.php?id=406}
+
+\bibitem{knuthwebsite} 
+Základy zpracování dat fyzikálních měření [online]. [cit. 2019-24-04].
+\newline Dostupné z:\\\texttt{http://fyzikalniolympiada.cz/studijni-texty}
+
+
+\bibitem{as}
+Tabulky [online]. [cit. 2019-24-04]. Dostupné z:
+\newline \texttt{http://uchi.vscht.cz/uploads/pedagogika/labchi/tabulky.pdf}
