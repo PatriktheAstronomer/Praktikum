@@ -1,0 +1,172 @@
+\documentclass[a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[czech]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{txfonts}
+\usepackage{wasysym}
+\usepackage{eurosym}
+\usepackage[symbol*]{footmisc}
+\usepackage{mathtools}
+\usepackage{enumitem}
+\usepackage{tabularx,ragged2e,booktabs,caption}
+\usepackage{url}
+\usepackage{soul}
+\author{"Patrik Novotný"}
+
+\begin{document}
+\section*{Pracovní úkol}
+\begin{enumerate}
+\item Změřte teplotní závislost povrchového napětí destilované vody $\sigma$ v rozsahu teplot od 23 $^\circ$C do 70 $^\circ$C metodou bublin.
+\item Měřenou závislost znázorněte graficky, do grafu vyneste chybové úsečky a tabulkové hodnoty. Závislost aproximujte kvadratickou funkcí.
+\end{enumerate}
+\section*{Teorie}
+V celé sekci teorie vycházíme z [1], z tohoto zdroje pochází i nákres aparatury přiložený níže. Chceme-li měřit závislost povrchového napětí kapaliny $\sigma$ na teplotě $t$, použijeme metodu bublin. Myšlenka metody je následující. Vytlačujeme-li vzduch z konce kapiláry, která je ponořena v hloubce $h$ pod hladinou kapaliny, působí proti vytlačování jednak hydrostatický tlak, a také povrchové napětí na rozhraní kapalina - vzduch. Povrchové napětí totiž vytváří v bublině o poloměru $r$ kapilární (pře)tlak $p$. Změnu tlaku vzniklou tímto mechanismem popisuje následující vztah
+\begin{align}
+\Delta p_{\sigma} = \frac{2 \cdot \sigma}{r} \: \mathrm{[Pa]}
+\end{align}
+\par Nejvyšší hodnoty dosahuje tento tlak v okamžiku, kdy je poloměr bubliny nejmenší, tedy v době, kdy je shodný s poloměrem kapiláry.
+\begin{align}
+\Delta p_{\sigma_{max}} = \frac{2 \cdot \sigma}{r_{0}} \: \mathrm{[Pa]}
+\end{align}
+\par Se dalším zvětšováním poloměru bublin kapilární tlak klesá. Následně se bublina odtrhne od kapiláry a vypluje na hladinu. Bubliny se tvoří a unikají z kapiláry, převyšuje-li tlak vzduchu v kapiláře tlak vzduchu u hladiny kapaliny o hodnotu
+\begin{align}
+\Delta p_{\sigma} = \frac{2 \cdot \sigma}{r_{0}} + h \cdot \rho \cdot g \: \mathrm{[Pa]}
+\end{align}
+kde $\rho$ je hustota kapaliny a $g$ místní tíhové zrychlení. Nicméně, pokud si uvědomíme, že hodnota $h$ je velmi malá, tak si s ohledem na další zdroje chyb můžeme zanedbat.
+\par Měřící aparaturu zobrazuje přiložené schéma, kde mikromanometr je značen M, aspirátor A, PS jsou přítlačné svorky, K kapilára, RT rtuťový teploměr a N nádobka s měřenou kapalinou. MM2 je magnetická míchačka.
+\begin{figure}[H]
+\centering
+\includegraphics[width=300pt]{aparatura.png}
+\caption{Schéma zobrazující měřicí aparaturu}
+\end{figure}
+\par Princip měření na aparatuře je následující. Pomocí přítlačných spojek regulujeme odtok z aspirátoru, který tedy dle Pascalova zákona nasává stejný tlak jak z mikromanometru, tak z měřicí nádoby. Výtok z aspirátoru volíme tak, aby v měřicí nádobě docházelo k tvorbě bublin, ne však bez ustání. V mikromanometru se nachází destilovaná voda, která stoupá a klesá dle rozdílu tlaku způsobeném výtokem vody z aspirátoru. Jelikož je rameno skloněné platí pro změnu tlaku vztah
+\begin{align}
+\Delta p = l \cdot \rho \cdot g \cdot sin(\alpha) \: \mathrm{[Pa]}
+\end{align}
+\par Nastavený sklon mikromanometru byl zvolen 30$^\circ$, pak tedy dle vztahu (4) platí
+\begin{align}
+\Delta p = 0.5 \cdot l \cdot \rho \cdot g \: \mathrm{[Pa]}
+\end{align}
+\par Dosazením do vztahu (2) získáme finální vztah, který propojuje hodnoty, které měříme a které chceme zjistit, tedy délku $l$, kterou odečítáme ze stupnice mikromanometru a z níž určujeme povrchové napětí $\sigma$. Určujeme závislost $\sigma$ na teplotě $t$, kterou odečítáme ze stupnice rtuťového teploměru. Kapalina v nádobce je ohřívána skrze stěny nádobky vodou, která je ohřívána a promíchávána magnetickou míchačkou.
+\begin{align}
+\sigma = \frac{l \cdot \rho \cdot g \cdot r_{0}}{4} \: \mathrm{[N \cdot m^{-1}]}
+\end{align}
+\par Nyní rozebereme chyby měření. Vycházíme z metody přenosu chyb popsané v [2] a [3].
+Ze vztahu (5) a metody přenosu chyb odvodíme vzorec pro celkovou chybu $\sigma$. První vztah uvádíme pro jednoznačné zavedení notace.
+\begin{align}
+\delta_{l} = \frac{\Delta l}{l}
+\delta_{\sigma} = \sqrt{\delta_{r_{0}}^{2} + \delta_{l}^{2} + \delta_{\rho}^{2} }
+\end{align}
+k odvozenému vzorci je nutno říci, že hodnotu lokálního tíhového zrychlení $g$ = 9.80665 $\mathrm{m \cdot s^{-2}}$ považujeme za přesné dle [2]. Hodnotu i chybu $\rho$ určíme interpolací tabulkových hodnot dle [3]. Chyba $\sigma$ i chyba určení $t$ se spolu se statistickou chybou promítnou do vyhodnocení chyby regrese, tu za nás počítá program ROOT, v němž tvoříme tvoříme grafy a fitujeme.
+\section*{Výsledky měření}
+\par Dle [2] a [3] považujeme za chyby analogových přístrojů polovinu nejmenších dílků stupnice a u digitálních přístrojů poslední digit. U rtuťového teploměru bylo nejmenším dílkem 0.5 $^\circ$C, u manometru 0.1 cm. Průměr kapiláry byl uveden již s chybou ve tvaru (0.52$\pm$0.02) mm.
+\par Měření probíhalo za teploty (25.4$\pm$0.4) $^\circ$C a tlaku (980$\pm$2) hPa. Tuto teplotu považujeme též za teplotu destilované vody v mikromanometru, jelikož jsme nezaznamenali, že by se teplota v praktiku výrazněji měnila. Dané teplotě přísluší dle [4] hustota destilované vody $\rho_{H_{2}O} = (996.8\pm0.1)\: \mathrm{kg \cdot m^{-3}}$, tlak nemá za předpokladu, že se výrazněji nemění během měření, k čemuž nedošlo, markantnější význam. Chyba určení hustoty je výrazně menší než ostatní dva zdroje chyb, přesto ji pro úplnou představu vyhodnocujeme také.
+\par Výsledně určené hodnoty $\sigma$ jsou uvedeny v tabulce spolu se vstupními daty, první záznam je uveden dvakrát, přičemž při úplně prvním měření nebyla použita magnetická míchačka. Toto měření nám slouží v diskusi pro určení jedno z možných zdrojů chyb - mechanických otřesů.
+\begin{center}
+    \captionof{table}{Naměřené hodnoty $l$ a z nich vypočítané hodnoty povrchového napětí $\sigma$ v závislosti na teplotě $t$. Měřeno při ohřívání kapaliny.}
+    \label{tab:title}
+    \begin{tabular}{ | c | l |   p{3cm} |} \hline
+    $l$ [cm] & $t$ [$^\circ$C] & $\sigma$ $\mathrm{[ 10^{-3} \cdot N \cdot m^{-1}]}$  \\ \hline
+    $11.0\pm0.1$ & $22.5\pm0.3$ & $69.9\pm2.8$ \\ \hline
+    $10.9\pm0.1$ & $22.5\pm0.3$ & $69.3\pm2.7$ \\ \hline
+    $10.8\pm0.1$ & $24.5\pm0.3$ & $68.6\pm2.7$ \\ \hline
+    $10.7\pm0.1$ & $26.5\pm0.3$ & $68.0\pm2.7$ \\ \hline
+    $10.6\pm0.1$ & $28.5\pm0.3$ & $67.4\pm2.7$ \\ \hline
+    $10.5\pm0.1$ & $30.5\pm0.3$ & $66.7\pm2.6$ \\ \hline
+    $10.4\pm0.1$ & $32.5\pm0.3$ & $66.1\pm2.6$ \\ \hline
+    $10.2\pm0.1$ & $34.5\pm0.3$ & $64.8\pm2.6$ \\ \hline
+    $10.1\pm0.1$ & $36.5\pm0.3$ & $64.2\pm2.5$ \\ \hline
+    $10.0\pm0.1$ & $38.5\pm0.3$ & $63.6\pm2.5$ \\ \hline
+    $9.9\pm0.1$  & $40.5\pm0.3$ & $62.9\pm2.5$ \\ \hline
+    $9.8\pm0.1$  & $43.0\pm0.3$ & $62.3\pm2.5$ \\ \hline
+    $9.7\pm0.1$  & $45.0\pm0.3$ & $61.7\pm2.5$ \\ \hline
+    $9.7\pm0.1$  & $47.0\pm0.3$ & $61.7\pm2.5$ \\ \hline
+    $9.6\pm0.1$  & $49.0\pm0.3$ & $61.0\pm2.4$ \\ \hline
+    $9.6\pm0.1$  & $51.0\pm0.3$ & $61.0\pm2.4$ \\ \hline
+    $9.6\pm0.1$  & $53.0\pm0.3$ & $61.0\pm2.4$ \\ \hline
+    $9.5\pm0.1$  & $56.0\pm0.3$ & $60.4\pm2.4$ \\ \hline
+    $9.5\pm0.1$  & $58.0\pm0.3$ & $60.4\pm2.4$ \\ \hline
+    $9.4\pm0.1$  & $60.0\pm0.3$ & $59.7\pm2.4$ \\ \hline
+    $9.4\pm0.1$  & $62.0\pm0.3$ & $59.7\pm2.4$ \\ \hline
+    $9.4\pm0.1$  & $64.0\pm0.3$ & $59.7\pm2.4$ \\ \hline
+    $9.3\pm0.1$  & $66.0\pm0.3$ & $59.1\pm2.4$ \\ \hline
+    $9.3\pm0.1$  & $68.0\pm0.3$ & $59.1\pm2.4$ \\ \hline
+    $9.3\pm0.1$  & $70.0\pm0.3$ & $59.1\pm2.4$ \\ \hline
+    \end{tabular}
+\end{center}
+\par Pro porovnání uvádíme i tabulkové hodnoty dle [5], ty jsou zobrazeny spolu s měřenými v grafech na obrázku č. 2 a 3.
+\begin{center}
+    \captionof{table}{Tabulkové hodnoty povrchového napětí $\sigma$ pro různé teploty}
+    \label{tab:title}
+    \begin{tabular}{ | l |  p{3cm} |} \hline
+    $t$ [$^\circ$C] & $\sigma$ $\mathrm{[ 10^{-3} \cdot N \cdot m^{-1}]}$  \\ \hline
+    20 & 72.75 \\ \hline
+    30 & 71.20 \\ \hline
+    40 & 69.60 \\ \hline
+    50 & 67.94  \\ \hline
+    60 & 66.24 \\ \hline
+    70 & 64.47 \\ \hline
+    \end{tabular}
+\end{center}
+\par Nejprve graficky porovnáváme hodnoty naměřené při ohřívání a tabulkové hodnoty a to v grafu na obrázku č. 2. 
+\begin{figure}[H]
+\centering
+\includegraphics[width=400pt]{warming.png}
+\caption{Hodnoty povrchového napětí $\sigma$ v závislosti na teplotě. Spodní závislost je měřená, horní tabulková}
+\end{figure}
+\par Lze si povšimnout, že chybový interval žádné z naměřených hodnot se neprotíná s lineární funkcí tvořenou tabulkovými hodnotami. Možná vysvětlení uvádíme v diskusi.
+Z grafu jsme fitováním kvadratické funkce ve tvaru $y = A \cdot x^{2} + B \cdot x + C$ určili parametry A = $(4.6\pm2.8) \cdot 10^{-6} \mathrm{N \cdot m^{-1} \cdot K^{-2}}$, B = $(-5.3\pm0.3) \cdot 10^{-4} \mathrm{N \cdot m^{-1} \cdot K^{-1}}$ a C = $(81.6\pm5.8) \cdot 10^{-3} \mathrm{N \cdot m^{-1}}$. Jedno z vysvětlení, které nás napadlo na praktiku, bylo, že je měření je ovlivněno samotným ohřevem. Využili jsme tedy setupu experimentu a změřili, byť pro méně hodnot, srovnávací hodnoty při chladnutí měřené kapaliny a samozřejmě s vypnutou magnetickou míchačkou.
+\newpage
+\begin{center}
+    \captionof{table}{Naměřené hodnoty $l$ a z nich vypočítané hodnoty povrchového napětí $\sigma$ v závislosti na teplotě $t$. Měřeno při chladnutí kapaliny.}
+    \label{tab:title}
+    \begin{tabular}{ | c | l |   p{3cm} |} \hline
+    $l$ [cm] & $t$ [$^\circ$C] & $\sigma$ $\mathrm{[ 10^{-3} \cdot N \cdot m^{-1}]}$  \\ \hline
+    $9.3\pm0.1$  & $68.0\pm0.3$   & $59.1\pm2.4$ \\ \hline
+    $9.4\pm0.1$  & $66.0\pm0.3$   & $59.7\pm2.4$ \\ \hline
+    $9.4\pm0.1$  & $64.0\pm0.3$   & $59.7\pm2.4$ \\ \hline
+    $9.5\pm0.1$  & $62.0\pm0.3$   & $60.4\pm2.4$ \\ \hline
+    $9.6\pm0.1$  & $56.0\pm0.3$   & $61.0\pm2.4$ \\ \hline 
+    $9.6\pm0.1$  & $52.0\pm0.3$   & $61.0\pm2.4$ \\ \hline
+    $9.7\pm0.1$  & $48.0\pm0.3$   & $61.7\pm2.5$ \\ \hline
+    $9.8\pm0.1$  & $45.0\pm0.3$   & $62.3\pm2.5$ \\ \hline
+    $9.9\pm0.1$  & $41.5\pm0.3$   & $62.9\pm2.5$ \\ \hline
+    $10.0\pm0.1$ & $38.0\pm0.3$   & $63.6\pm2.5$ \\ \hline
+    $10.1\pm0.1$ & $36.0\pm0.3$   & $64.2\pm2.5$ \\ \hline
+    $10.2\pm0.1$ & $34.0\pm0.3$   & $64.8\pm2.6$ \\ \hline
+    \end{tabular}
+\end{center}
+\par Do grafu na obrázku č. 2 jsme tedy přidali data z tabulky č. 3 a pro tato data proložili vlastní kvadratickou funkcí.
+\begin{figure}[H]
+\centering
+\includegraphics[width=400pt]{allData.png}
+\caption{Hodnoty povrchového napětí $\sigma$ v závislosti na teplotě. Spodní dvě závislost jsou měřené - černé markery znázorňují hodnoty měřené při ohřívání, světlé při chladnutí, lineární závislost je tabulková}
+\end{figure}
+\par Lze si povšimnout, že ke každé hodnotě získané při chladnutí existuje skoro totožná hodnota měřená při ohřevu nalézající se nalevo od ní. Nemáme dostatečný počet hodnot, abychom proložili kvadratickou křivku průměrem obou měření, přesto však lze říci, že v měrné nádobce existuje tepelný gradient závislý na ohřívání. Chlazení vypadalo tak, že do teploty okolo 50 $^\circ$C se nádobka chladila pouze o vzduch, poté jsme ji začali chladit vodou. Vidíme, že pokud jsme nádobku chladili o vzduch, tedy velmi pomalu, pak byl průběh závislosti skoro lineární. I chlazení o chladnější vodu bylo však pomalejší než ohřev. Na základě porovnání těchto měření lze tedy konstatovat, že čím pomalejší je změna teploty vzorku, tím více se průběh závislosti $\sigma(t)$ blíží přímce. Ještě více rozebereme v sekci diskuse spolu i s možnými zdroji posunu v ose y.
+\section*{Diskuse}
+\par Z prvních dvou měření v tabulce č. 1 a z naší experimentální zkušeností vidíme, že mechanické otřesy způsobují dřívější uvolnění bublinek z kapiláry a tedy změření nižšího příslušného maximálního tlaku. Celkově se tento jev projevuje tedy dle vztahu (6) tak, jako by bylo povrchové napětí nižší, než reálně je. Mohlo by se tedy jednat o vysvětlení lokálních maxim a minim naměřené funkce v případě jednorázového silného úderu v okolí aparatury popř. celkového posunutí křivky. Nejedná se však o vysvětlení kvadratického průběhu funkce.
+\par Z grafu č. 3  lze usoudit, že nelinearita závislosti $\sigma(t)$ souvisí s rychlostí ohřevu. Když bychom k tomu přidali výše i níže zmíněné ovlivnění posunu v rámci osy y, mohli bychom se přiblížit tabelovaných hodnotám. Otázkou je, jaký fyzikální jev přesně za toto může. Je nutné si uvědomit, že jednak teploměr musel mít mnohem větší chybu než odhadujeme, jelikož v nádobce, kde probíhá měření nedochází k proudění kapaliny, ani nemá šanci se ustálit. Tudíž o teplotě, kterou měříme, lze říci pouze to, že je to teplota v jednom určitém bodě nádobky. Tento efekt by vedl k posunutí celé závislosti v ose x. Umístění teploměru určuje směr. Jelikož však byl skoro uprostřed nádobky na rozdíl od kapiláry, která byla navrchu, pak lze předpokládat, že ukazoval nižší teplotu než byla průměrná teplota kapaliny v nádobce. Připomeňme, že celá nádobka byla ohřívána skrze skoro celý svůj povrch. Vysvětlením tedy může být, že teplotní gradient v rámci nádobky roste kvadraticky spolu s rychlostí ohřívání. Druhý jevem, který souvisí s rychlostí ohřívání a dosahováním rovnovážným stavů je vznik par nad kapalinou, při vypařování. Vznikne-li nad hladinou kapaliny (destilované vody) vzduch nasycený vodní párou jistě to ovlivní povrchové napětí na rozhraní. Z toho, že nasycená pára bude podobnější vodě lze odhadnout, že měřené povrchové napětí bude menší než by mělo být. Což opět může být vysvětlením toho, proč v ose y se měřená závislost a tabulkové hodnoty liší. Nevidíme však důvod, proč by tento druhý efekt měl mít kvadratický průběh.
+\par Jiným možným vysvětlením rozdílu mezi tabulkovými a měřenými hodnotami může být, že měřená kapalina, jíž má být destilovaná voda, byla znečištěna povrchově aktivní látkou. Tento fakt by vedl pouze k tomu, že by celkově hodnota povrchového napětí byla nižší, avšak nevysvětloval by výrazně nelineární průběh. Ten by šel vysvětlit rozdílným chováním druhé látky s rostoucí teplotou. Ať už rychleji klesajícím povrchovým napětí či rozdílným výparem. Toto vysvětlení však považujeme za velmi nepravděpodobné a znamenalo by hrubou chybu při přípravě experimentu.
+\par Samozřejmě zanedbáváme i zanoření kapiláry a s ním související hydrostatický zdroj tlaku, toto zanedbání dle vztahů (3) a (6) vede k vyšší měřeným hodnotám povrchového napětí. Tudíž jistě není odpovědné za nesrovnalosti mezi měřenými a tabulkovými hodnotami. Navíc při našem experimentu se kapilára skoro dotýkala hladiny a prostým řádovým odhadem můžeme tuto chybu považovat za marginální.
+\par Pro budoucí měření uveďme, že v rámci metody přenosu chyb nejvýraznější chybu do měření přináší údaj o průměru kapiláry. Dosahuje skoro 4 $\%$ a tedy zdaleka nejvýznamněji se podílí na celkové chybě určení $\sigma$. V podstatě jedinou cestou, jak zpřesnit výslednou hodnotu je provést vlastní přesnější měření průměru kapiláry. Z jiných měření však víme, že se jedná o časově náročný proces.
+\section*{Závěr}
+\par Naměřili jsme hodnoty povrchového napětí $\sigma$ s relativní chybou kolem 4 $\%$ pro různé teploty $t$ v rozsahu od 22.5 $^\circ$C do 70 $^\circ$C. Dané hodnoty jsme graficky znázornili a proložili kvadratickou funkcí tvaru $y = A \cdot x^{2} + B \cdot x + C$  s parametry A = $(4.6\pm2.8) \cdot 10^{-6} \: \mathrm{N \cdot m^{-1} \cdot K^{-2}}$, B = $(-5.3\pm0.3) \cdot 10^{-4}\:  \mathrm{N \cdot m^{-1} \cdot K^{-1}}$ a C = $(81.6\pm5.8) \cdot 10^{-3}\:  \mathrm{N \cdot m^{-1}}$. Získané hodnoty byly v rozsahu $(69.3-59.1)\cdot 10^{-3}\:  \mathrm{N \cdot m^{-1}}$, jejich chybové intervaly se ani jednou neprotnuly s lineární funkcí spojující tabulkové hodnoty. Na druhou stranu obě závislosti jsou klesající a ani v extrémech se měřené hodnoty s tabulkovými neliší o více než 12 $\%$ Důvody, které mohli způsobit odlišnosti vysvětlujeme v sekci diskuse.
+\renewcommand\refname{Použitá literatura}
+\begin{thebibliography}{}
+\bibitem{praktikum}
+Fyzikální praktikum. Studium teplotní závislosti povrchového napětí [online][cit. 2019-04-27]. Dostupné z:
+\url{https://physics.mff.cuni.cz/vyuka/zfp/_media/zadani/texty/txt_114.pdf}
+\bibitem{broz} 
+BROŽ, J. a KOL. Základy fyzikálních měření I. 1. vydání. Praha: SPN, 1983
+\bibitem{englich}
+ENGLICH, Jiří. Úvod do praktické fyziky I. 1. vydání. Praha: Matfyzpress, 2006, ISBN 80-86732-93-2
+\bibitem{hustota}
+ČMELÍK, M., MACHONSKÝ, L., ŠÍMA, Z. Fyzikální tabulky. Liberec: TU Liberec, 2001, ISBN  80-7083-553-2
+\bibitem{tabulkove}
+MIKULČÁK, Jiří. Matematické, fyzikální a chemické tabulky a vzorce
+pro střední školy. Praha: Prometheus, 2003. ISBN 9788071962649
+\end{thebibliography}
+\end{document}
