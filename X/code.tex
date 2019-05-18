@@ -1,0 +1,365 @@
+documentclass[a4paper]{article}
+\usepackage{kantlipsum} 
+\usepackage[utf8]{inputenc}
+\usepackage[czech]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath}
+\usepackage{fullpage}
+\usepackage{graphicx}
+\usepackage{txfonts}
+\usepackage{gensymb}
+\usepackage{eurosym}
+\usepackage[symbol*]{footmisc}
+\usepackage{mathtools}
+\usepackage{enumitem}
+\usepackage{tabularx,ragged2e,booktabs,caption}
+\author{"Václav Kubíček"}
+
+\begin{document}
+\section{Pracovní úkol}
+\begin{enumerate}%[label=(\alph*)]
+\item Určete rychlost šíření podélných  zvukových vln v mosazné tyči metodou Kundtovy trubice. Z naměřené rychlosti zvuku stanovte modul pružnosti v tahu E materiálu tyče.
+\item Změřte rychlost zvuku ve vzduchu a v oxidu uhličitém pomocí uzavřeného rezonátoru. Výsledky měření zpracujte metodou lineární regrese a graficky znázorněte.
+\item Vypočítejte Poissonovu konstantu κ oxidu uhličitého z naměřené rychlosti zvuku.
+\end{enumerate}
+
+\section{ Teorie}
+\item Rychlost šíření zvuku určujeme podle vztahu
+\begin{align}
+    c = \lambda \nu,
+\end{align}
+kde $\lambda$ je vlnová délka a $\nu$ frakvence (kmitočet).
+
+\subsection{Kundtova trubice}
+\par Slouží ke zviditelnéní stojatých vln v plynech. Plyn je napušěn ve skleněné trubici. Zároven je v trubici rovnoměrně rozložen prášek. Na konci tyče, která je zasunuta do trubice a slouží jako zdroj zvuku je upevněn léhký korkový píst. Rozkmitáním tyče rozkmitáme též plyn uvnitř trubice a v prášku se vytvoři obrazec podle Obr. 1.
+\begin{figure}[h]
+\centering
+\includegraphics[width=200pt]{obr1.png}
+\caption{Obrazec vytvořený v prášku.}
+\end{figure}
+Jak je vidět z obrázku 1, na koncích tyče jsou uzly rychlostí. Označíme-li vzdálenost mezi dvěmi kmitnami (resp. uzly) $l$, pak vlnová délka je dána vztahem
+\begin{align}
+    \lambda = 2l.
+\end{align}
+\par  Pokud označíme rychlost a vlnovou délku v prostředí tyče dolním indexem 1 a v plynu dolním indexem 2 platí podle [1] vztah
+\begin{align}
+    \frac{c_1}{\lambda_1}= \frac{c_2}{\lambda_2}.
+\end{align}
+Tyč je upevněná v polovině, proto délka tyče je rovna polovině základního tónu tyče. Vlnovou délku v plynu určíme podle obrazců v trubici. Určujeme-li rychlost zvuku v tyči je proto nutné, ze vztahu (3), znát rychlost šíření zvuku v plynu.
+\par Pro určení rychlosti šíření zvuku v plynech můžeme použít Laplaceův vtah (uveden např. v [1])
+\begin{align}
+    c = \sqrt{\kappa \frac{p}{\rho}},
+\end{align}
+kde $\kappa$ je Poissonova konstanta, $p$ tlak plynu a $\rho$ je hustota plynu. Při nepříliš vysokém tlaku a dosazením ze stavové rocnice pro ideální plyn dostaneme vztah pro rychlost zvuku v plynu v závislosti na teplotě
+\begin{align}
+    c = \sqrt{\kappa \frac{p_0}{\rho_0}}\big(1 + \frac{1}{2}\gamma \cdot t\big),
+\end{align}
+kde $p_0$ je tlak plynu při teplotě 0 \degree C, $\rho_0$ je příslušná hodnota tlaku plynu a $\gamma$ je součinitel teplotní rozpínavosti plynu.
+\par Podle [1] určujeme rychlost zvuku v suchém plynu v závislosti na teplotě podle vztahu
+\begin{align}
+    c = (331,82 + 0.61 \cdot t) m \cdot s^{-1}.
+\end{align}
+A při 50 \% vlhkosti vzduchu v okolí 20 \degree C je rychlost zvuku určena vztahem
+\begin{align}
+    c = (344.36 + 0.63(t - 20)) m \cdot s^{-1}.
+\end{align}
+\par Modul pružnosti tyče určíme podle vzoce (podle [1])
+\begin{align}
+    E  = c^2 \rho,
+\end{align}
+kde $c$ je rychlost zvuku v tyč a $\rho$ hustota materiálu tyče.
+
+\subsection{Uzavřený rezonátor}
+\par Aparaturu tvoří na obou koncích uzavřená trubice, kde na jednou konci je tónový generátor s modulovatelnou frekvencí. Druhý konec je uzavřen mikrofonem, který snímá zvuk s výstupem na mikroampérmetru (viz Obr. 2).
+\begin{figure}[h]
+\centering
+\includegraphics[width=200pt]{obr2.png}
+\caption{Schéma uzavřeného rezonátoru.}
+\end{figure}
+Rychlost zvuku můžeme určovat dvěma způsoby. Při prvním způsobu zvětšujeme délku tyče a déklu vlny udává vzdálenost mezi dvěmi rezonancemi $(l_1 - l_2)$ je rovna polovině vlnové délky. Pak rychlost zvuku určuje vztah
+\begin{align}
+    c = 2(l_1 - l_2)\nu.
+\end{align}
+Při druhém způsobu ponecháváme délku trubice konstantní a měníme frekvenci generovaného signálu. Rezonance nastává při frekvencích, kdy délka vlny $\lambda_k$ odpovídá podmínce (podle [1])
+\begin{align}
+    \lambda_k = \frac{2l}{k},
+\end{align}
+kde $k$ je přirozené číslo a $l$ je délka trubice. Odpovídající frekvenci označme $\nu_k$ Při dosazení do (1) dostáváme pro rychlost zvuku
+\begin{align}
+    c = \frac{2l \nu_k}{k}.
+\end{align}
+\par Poissonovu konstantu oxidu uhličitého ur4číme ze vztahu (odvozeno např. v [1])
+\begin{align}
+    \kappa  = \frac{c^2\mu}{RT},
+\end{align}
+kde $c$ je rychlost vzduchu v $\mathrm{CO_2}$, $\mu$ molekulová hmotnost $\mathrm{CO_2}$, $R$ molární plynová konstanta a $T$ teplota v Kelvinech.
+
+\subsection{Pomůcky}
+\par Použili jsme dělnický metr, který určuje vzdálenost se systematickou chubou $s_{l_{m1}} = 0.5$mm. Pro obtížnost měření u trubice však ve zbytku textu budeme uvažovat $s_l = 2$mm.
+Měřítko určující délku trubice rezonátoru určuje s chybou $s_{l_{m2}} = 0.5$mm. Na generátoru odečítáme frekvenci při rezonanci s nejistotou $s_{\nu} = 2 \mathrm{Hz}$. 
+\section{Výsledky měření}
+\subsection{Podmínky měření a konstanty}
+\par Měření proběhlo při teplotě $(25.8 \pm 0.4)$ \degree C, relativní vlhkosti vzduchu $(36.0 \pm 2.5)$\% a při tlaku prostředí $(985 \pm 2)$hPa.
+\par Molární plynová konstanta má podle [2] hodnotu  $R = 8.314 \mathrm{J \cdot K^{-1} \cdot mol^{-1}}$. Hustota mosazi podle [3] je $\rho = (8 400-8 750) \mathrm{kg \cdot m^{-3}}$. Hmotnostní konstanta je podle [4] rovma $m_u = 1.661 \cdot 10^{-27}\mathrm{kg}$ a relativní molekulová hmotnost $\mathrm{CO_2}$  je podle periodické tabulky $m_{rCO_2} = 44.01$.
+\subsection{Rychlost zvuku v mosazi}
+\par Délku tyče jsme určili pomocí dělnického metru na $d = (150.90 \pm 0.05) \mathrm{cm}$. Potom vlnová délka základního tónu na tyči byla
+\begin{align*}
+    \lambda_1 = (301,8 \pm 0.1) \mathrm{cm}.
+\end{align*}
+\par Měřili jsme rezonanční odezvu v Kundtově trubici pro různé zasunutí tyče v trubici a zjistili jsme největší rezonanční odezvu při účinné délce trubice $l$ (tj. délka od uzavřeného konce po korkový píst) 
+\begin{align*}
+  l = (61.8 \pm 0.2) \mathrm{cm}.
+\end{align*}
+Toto určení největší odezvy však bylo pouze vizuální, proto nejistotu tohoto odhadu $s_o$ budeme uvažovat $s_o = 0.3 \mathrm{cm}$. Potom celkovou chybu naměřené délky $l$ zjistíme ze vzorce pro součet chyb (z [5])
+\begin{align}
+    s_c = \sqrt{s^2_l + s^2_o}.
+\end{align}
+Odtud účinná délka trubice při největší rezonanční odezvě nakonec
+\begin{align*}
+    l = (61.8 \pm 0.4) \mathrm{cm}.
+\end{align*}
+V trubici se rozložili přesně dvě vlny. Potom vlnová délka $\lambda_2$ ve vzduchu bude 
+\begin{align*}
+    \lambda_2 = l/2 = (30.9 \pm 0.2)\mathrm{cm}.
+\end{align*}
+
+Pro určení rychlosti zvuku ve vzduchu máme vzorce (6) a (7). Avšak ani jeden neodpovídá vzorci pro rychlost zvuku při vlhkosti, ve které jsme měření prováděli. Prvním vzorcem získáme hodnotu $(347.6 \pm 0.3) \mathrm{m \cdot s^{-1}}$. Druhým vzorcem získáme hodnotu $(348.0 \pm 0.3) \mathrm{m \cdot s^{-1}}$. Chybu jsme určili pomocí Gaussova vzorce pro hromadění chyb (viz [5])
+\begin{align}
+    s_u = \sqrt{\sum \bigg( \frac{\partial u }{\partial x_1} \bigg) s^2_{x_1}}.
+\end{align}
+Reálná hodnota bude někde mezi těmito dvěma vypočtenými hodnotami. Vezmeme tedy aritmetický průměr těchto hodnot a chybu stanovíme tak, aby obě spočtené hodnoty i s chybami byli v rámci této chyby. Pak rychlost šíření zvukových vln ve vzduchu za daných podmínek bude
+\begin{align*}
+    c_2 = (347.8 \pm 0.5)\mathrm{m \cdot s^{-1}}.
+\end{align*}
+Ze vzorce (3) můžeme konečně určit rychlost šíření podélných vln v mosazi a chybu této veličiny určit ze vztahu (14). Tedy
+\begin{align*}
+    c_1 = \frac{\lambda_1}{\lambda_2}c_2 = (3 397 \pm 23)\mathrm{m \cdot s^{-1}},
+\end{align*}
+kde tabulková hodnota podle [6] je $c_{1t} = 3 400 \mathrm{m \cdot s^{-1}}$.
+\subsection{Modul pružnosti tyče v tahu}
+\par Modul pružnosti určíme ze vztahu (8), kde hustotu budeme brát jako aritmetickou hodnotu rosahu, který je uveden v sekci 3.1 a její chybu jako polovinu rozdílu těchto krajních hodnot, tedy $\rho = (8 580 \pm 180)\mathrm{kg \cdot m^{-3}}$. Odtud již snadno spočteme modul pružnosti mosazné tyče v tahu a jeho chybu určíme podle vztahu plynoucího z Gaussova vztahu (14)
+\begin{align}
+    s_E = \sqrt{4c^2 \rho^2 s^2_c + c^4 s^2_{\rho}}
+\end{align}
+Potom hodnota modulu pružnosti $E$ bude
+\begin{align*}
+    E = (99 \pm 3)\mathrm{GPa},
+\end{align*}
+kde tabulková hodnota, podle [7], je $E_t = 99 \mathrm{ GPa}$.
+\subsection{Rychlost zvuku ve vzduchu - 1. metoda}
+\par Uveďme nejprve v tabulce naměřené hodnoty frekvencí, při kterých nastala rezonance.
+\begin{center}
+    \captionof{table}{Naměřené hodnoty frekvencí při rezonanci v uzavřeném rezonátoru pro vzduch} \label{tab:title} 
+    \begin{tabular}{| l | l |}
+    \hline
+     č. & $\nu [\mathrm{kHz}]$   \\ \hline
+     \hline
+    1  & 0.204  \\ \hline
+    2  & 0.429 \\ \hline
+    3 & 0.658 \\ \hline
+    4&0.856 \\ \hline
+    5 &1.066\\ \hline
+    6&1.279\\ \hline
+    7&1.495\\ \hline
+    8&1.708\\ \hline
+    9&1.917\\ \hline
+    10&2.133\\ \hline
+    11&2.350\\ \hline
+    12&2.563\\ \hline
+    13 &2.772\\ \hline
+    14&2.986\\ \hline
+    15&3.204\\ \hline
+    16&3.413\\ \hline
+    17&3.625\\ \hline
+    18&3.840\\ \hline
+    19&4.057\\ \hline
+    \end{tabular}
+\end{center}
+Uvědomíme si, že vztah (10) lze přepsat na vztah
+\begin{align}
+    \nu_k = ak,
+\end{align}
+kde
+\begin{align}
+ a = \frac{c}{2l}    
+\end{align}
+je konstanta a lze ji určit pro každé měření. Následně pomocí metody nejmenších čtverců určíme nejpravděpodobnější hodnotu konstanty $a$ a její směrodatnou odchylku podle vztahu z [5]
+\begin{align}
+    s_{\overline{a}} = \sqrt{\frac{\sum \Delta^2_{a_i}}{n (n-1)}}.
+\end{align}
+Odsud dostáváme hodnotu konstanty $a$ pro vzduch
+\begin{align*}
+        a_{v} = (213 \pm 1) \mathrm{s^{-1}}
+\end{align*}
+a podle vzorce (17), kde délka rezonátoru byla určena na $l = (80.00 \pm 0.05)\mathrm{cm}$, určíme rychlost zvuku ve vzduchu na
+\begin{align*}
+    c_{vz} = (341 \pm 2)\mathrm{m\cdot s^{-1}},
+\end{align*}
+kde chybu jsme určili dle Gaussova vztahu pro hromadění chyb (14). 
+\par Nyní znázorněme dané body do grafu a proložme je lineární křivkou pomocí lineární regrese, i tímto způsobem můžeme získat požadované $a$.
+\begin{figure}[h]
+\centering
+\includegraphics[width=400pt]{graf1.png}
+\caption{Naměřené hodnoty frekvencí při rezonanci proložené křivkou lineární regrese pro vzduch.}
+\end{figure}
+\par V grafu (Obrázek 3) vidíme, že naměřené hodnoty korespondují s lineární závislosti, která odpovídá teorii. Chybové úsečky jsme do grafu neuváděli, neboť statistická odchylka byla v rámci jednotek a chyba přístroje, ze kterého jsme odečítali byla $s_{\nu} = 2 \mathrm{Hz}$, proto by chybové úsečky nebyly ani patrné.
+
+\subsection{Rychlost zvuku ve vzduchu - 2. metoda}
+\par Na frekvenčním generátoru jsme nastavili frakvenci $\nu = (2440 \pm 2)\mathrm{Hz}$, co6 představovalo rezonanci při délce rezonátoru $(70.00 \pm 0.05)\mathrm{cm}$. Další polohy (délky rezonátoru), ve kterých jsme našli rezonanci jsou uvedeny v následující tabulce, chyby jednotlivých hodnot jsou vždy $s_l = 0.05 \mathrm{cm}$.
+\begin{center}
+    \captionof{table}{Délky rezonátoru při rezonanci pro počáteční frekvenci $2 440 \mathrm{Hz}$} \label{tab:title} 
+    \begin{tabular}{| l | l |}
+    \hline
+     č. & $l [\mathrm{cm}]$   \\ \hline
+     \hline
+    1  & 70.00  \\ \hline
+    2  & 77.10 \\ \hline
+    3 & 84.20\\ \hline
+    \end{tabular}
+\end{center}
+Mezi každou rezonancí jsme naměřili tozdíl délek $\Delta l=l_2 - l_1 = (7.10 \pm 0.07)\mathrm{cm}$, kde chybu jsme určili podle vzorce pro celkovou chybu při odčítání (viz [5])
+\begin{align}
+    s_c = \sqrt{s^2_1 + s^2_2}
+\end{align}
+Podle vzorce (9) určíme následně hodnotu rychlosti zvuku ve vzduchu a jeho chybu určíme z Gaussova vztahu (14)
+\begin{align*}
+    c_{vz} = (347 \pm 3)\mathrm{m \cdot s^{-1}}.
+\end{align*}
+
+\subsection{Rychlost zvuku v oxidu uhličitém}
+\par Uveďme nejprve v tabulce naměřené hodnoty frekvencí, při kterých nastala rezonance.
+\begin{center}
+    \captionof{table}{Naměřené hodnoty frekvencí při rezonanci v uzavřeném rezonátoru pro oxid uhličitý} \label{tab:title} 
+    \begin{tabular}{| l | l |}
+    \hline
+     č. & $\nu [\mathrm{kHz}]$   \\ \hline
+     \hline
+    1  & 0.161  \\ \hline
+    2  & 0.338 \\ \hline
+    3 & 0.489\\ \hline
+    4&0.674 \\ \hline
+    5 &0.838\\ \hline
+    6&1.008\\ \hline
+    7&1.178\\ \hline
+    8&1.346\\ \hline
+    9&1.510\\ \hline
+    10&1.681\\ \hline
+    11&1.850\\ \hline
+    12&2.015\\ \hline
+    13 &2.182\\ \hline
+    14&2.352\\ \hline
+    15&2.523\\ \hline
+    16&2.689\\ \hline
+    17&2.853\\ \hline
+    18&3.025\\ \hline
+    19&3.196\\ \hline
+    20&3.361\\ \hline
+    \end{tabular}
+\end{center}
+\par Podobným postupem jako v předchozí sekci dostáváme hodnotu konstanty $a$ pro oxid uhličitý
+\begin{align*}
+        a_{CO_2} = (167.5 \pm 0.4) \mathrm{s^{-1}}
+\end{align*}
+a podle vzorce (17), kde délka rezonátoru byla určena na $l = (80.00 \pm 0.05)\mathrm{cm}$, určíme rychlost zvuku v oxidu uhličitém na
+\begin{align*}
+    c_{CO_2} = (268 \pm 1)\mathrm{m\cdot s^{-1}},
+\end{align*}
+kde chybu jsme určili dle Gaussova vztahu pro hromadění chyb (14).    
+Vynesme ještě dané naměřené hodnoty pro $\mathrm{CO_2}$ do grafu podobně jako v sekci 3.4 a proložme body křivkou lineární regrese. 
+\begin{figure}[h]
+\centering
+\includegraphics[width=400pt]{graf2.png}
+\caption{Naměřené hodnoty frekvencí při rezonanci proložené křivkou lineární regrese pro oxid uhličitý.}
+\end{figure}
+\par Na druhém grafu (Obrázek 4) vídíme znovu, že body naměřených hodnot korespondují s lineární závislostí odvozené v teorii.
+\subsection{Poissonova konstanto pro $\mathrm{CO_2}$}
+\par Poissonovu konstantu určíme ze vzorce (12), kde rychlost zvuku jsme získali v předchozí sekci.
+Chybu určíme z odvozeného vztahu podle (14)
+\begin{align}
+    s_{\kappa} = \sqrt{\frac{4c^2 \mu^2 }{R^2 T^2}s^2_c + \frac{c^4 \mu^2}{R^2 T^4}s^2_T}.
+\end{align}
+Nakonec tedy
+\begin{align*}
+    \kappa_{CO_2} = 1.27 \pm 0.01,
+\end{align*}
+kde tabulková hodnota udává Poissonovu konstantu (viz [8]) jako $\kappa_{tab} = 1.29$.
+\section{Diskuse}
+\par Měřili jsme pomocí metody Kundtovy trubice rychlost podélných vln v mosazi, neměřená hodnota $c_1 = (3397 \pm 23)\mathrm{m \cdot s^{-1}}$ se prakticky nelišila od tabulkové hodnoty $c_{1t} = 3400\mathrm{m \cdot s^{-1}}$. Ve výpočtu této rychlosti jsme použili vlnové délky v mosazi a ve vzduchu, kde větší chybu představovalo měření vlnové délky ve vzduchu, neboť interval účinné délky byl široký a hodnotu účinné délky, při které byla rezonance nejvýraznější určil lidský element pouze vizuálně. 
+\par Modul pružnosti jsme změřili s relativní chybou $\delta_E = 3 \%$. Ve vzorci byla použita rychlost šíření podélných vln v mosazi, která sice vystupovala ve druhé mocnině, avšak v předchozím výpočtu byla určena s vysokou přesností. Větší vliv na velikost nejistoty modulu pružnosti v tahu této tyče měla nejistota hustoty mosazi, neboť námi použité tabulky udávají pouze rozmezí, ve kterém se tato hustota může pohybovat. Jelikož jsme neměli k dispozici žádné další vodítko, podle kterého bychom určili hustotu mosazi přesněji, použili jsme prostřední hodnotu tohoto udaného intervalu a chybu považovali takovou, aby všechny možné hodnoty byly v rámci chyby. 
+\par Naměřené hodnoty rezonancí v uzavřeném rezonátoru odpovídaly předpokládané lineární závislosti, která byla uvedena v teorii.
+Zavedli jsme parametr $a$, který se dal spočíst pro každou naměřenou hodnotu a následně jsme pomocí metody nejmenších čtverců našli jeho průměrnou hodnotu a odchylku. 
+Tento parametr je identický směrnici lineární křivky při použití lineární regrese. Pro vzduch jsme takto spočetli rychlost šíření zvuku $c_{vz} = (341 \pm 2) \mathrm{m \cdot s^{-1}}$. Tato hodnota však reálné hodnotě určené v sekci 3.2 $c_2 = (347.8 \pm 0.5) \mathrm{m \cdot s^{-1}}$ neodpovídala ani v rámci chyby. Tenhle nesoulad mezi výsledky může být způsobený tím, že v rezonátoru mohl zůstat zbytek $CO_2$ po minulém experimentu a nebyl dokonale vyfoukán pomocí balónku.
+Všechny hodnoty se však lišili velmi málo od regresní křivky jak můžeme vidět v Obrázku 3. Hlavní zdroj nejistoty představovala statistická odchylka u koeficientu $a$.
+Podobně jsme tuto metodu statické délky rezonátoru použili pro měření rychlosti šíření zvuku v $CO_2$. Největší přispění do celkové chyby představovala znovu statistická odchylka koeficientu $a$. Získali jsme hodnotu $c_{CO_2} = (268 \pm 1)\mathrm{m \cdot s^{-1}}$. Tabulková hodnota (viz [6]) je $c_{tCO_2} = 260 \mathrm{m \cdot s^{-1}}$. Na odlišnost naší a tabulkové hodnoty mohla mít vliv znovu přítomnost stopového množství jiného plynu v rezonátoru, v tomto případě vzduchu, který nemusel být všechen nahrazen oxidem uhličitým při jejich výměně.
+\par Pro měření rychlosti zvuku ve vzduchu jsme použili ještě druhou metodu, která spočívala v měnění délky rezonátoru. Zde jsme naměřili pouze dvě hodnoty vlnové délky, které se však shodovali. Největší chybu nám zde však zajistilo odčítání, které bylo použito. Přesto získaná rychlost zvuku byla $c_{vz} = (347 \pm 3)\mathrm{m \cdot s^{-1}}$, kdy reálná hodnota zjištěná ze vzorců (6) a (7) byla v rámci chyby. 
+\par Poissonova konstanta pro $CO_2$ byla určena na $\kappa_{CO_2} = 1.27 \pm 0.01$. S tabulkovou hodnotou $1.29$ se lišila o dvě setiny, což je důsledek neshody u naměřené hodnoty rychlosti zvuku v $CO_2$. 
+
+
+
+\section{Závěr}
+\par Podařilo se nám určit rychlost šíření podélných vln v mosazi $c_1 = (3397 \pm 23)\mathrm{m \cdot s^{-1}}$ s dobrou shodou s tabulkovou hodnotou. Dále jsme získali modul pružnosti v tahu mosazi $E = (99 \pm 3)\mathrm{GPa}$, která se taktéž dobře shodovala s tabulkovou hodnotou.
+Rychlost zvuku ve vzduchu jsme první metodou určili na $c_{vz}  = (341 \pm 2)\mathrm{m \cdot s^{-1}}$ a druhou metodou na  $c_{vz}  = (347 \pm 3)\mathrm{m \cdot s^{-1}}$. V oxidu uhličitém jsme určili rychlost šíření zvuku na $c_{CO_2}  = (268 \pm 1)\mathrm{m \cdot s^{-1}}$. Poissonova konstanta pro oxid uhličitý byla určena na $k_{CO_2} = 1.27 \pm 0.01$.
+
+
+
+
+
+
+
+
+
+
+
+
+
+\renewcommand\refname{Použitá literatura}
+\begin{thebibliography}{}
+\bibitem{einstein} 
+Studium Brownova pohybu [online]. [cit. 2019-12-05]. Dostupné z: 
+\\\texttt{https://physics.mff.cuni.cz/vyuka/zfp/zadani/110}
+
+
+\bibitem{aj}
+Plynová konstanta [online]. [cit. 2019-12-05]. Dostupné z:
+\newline \texttt{https://www.aldebaran.cz/glossary/print.php?id=406}
+
+\bibitem{hm}
+
+Hustota mosazi [online]. [cit. 2019-12-05]. Dostupné z:
+\newline \texttt{http://kabinet.fyzika.net/studium/tabulky/hustota-latek.php}
+
+\bibitem{askls}
+
+Hmotnostni konstanta [online]. [cit. 2019-12-05]. Dostupné z:
+\newline \texttt{http://www.nabla.cz/obsah/chemie/atomova-hmotnostni-konstanta.php}
+
+
+\bibitem{knuthwebsite} 
+Základy zpracování dat fyzikálních měření [online]. [cit. 2019-12-05].
+\newline Dostupné z:\\\texttt{http://fyzikalniolympiada.cz/studijni-texty}
+
+
+\bibitem{as}
+Rychlost šíření zvuku v mosazi v oxidu uhličitém [online]. [cit. 2019-12-05]. Dostupné z:
+\newline \texttt{https://media0.mypage.cz/files/media0:55ca371478eb9.pdf}
+
+
+\bibitem{asp}
+Modul pružnosti v tahu mosazi [online]. [cit. 2019-12-05]. Dostupné z:
+\newline \texttt{https://e-konstrukter.cz/prakticka-informace/mechanicke-vlastnosti-pevnych-latek}
+
+
+\bibitem{aspi}
+Poissonova konstanta pro oxid uhličitý  [online]. [cit. 2019-12-05]. Dostupné z:
+\newline \texttt{https://cs.wikipedia.org/wiki/Poissonova\_konstanta}
+
+
+
+
+
+
+
+\end{thebibliography}
+
+
+\end{document}
