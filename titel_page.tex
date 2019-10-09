@@ -1,0 +1,115 @@
+%author: Jindřich Dušek, Charles University, 2019
+\documentclass[10pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[czech]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}\usepackage{lmodern}
+\usepackage[top = 2cm, bottom = 2cm, left = 2cm, right = 2cm]{geometry}
+
+%For title page
+\usepackage{titlesec}
+\usepackage{setspace} %Rámeček nahoře
+\usepackage{framed} %Rámeček nahoře
+\usepackage{array} %Tabulka dole
+
+
+\begin{document}
+
+
+\thispagestyle{empty}
+\newgeometry{top = 2.5cm, bottom = 0cm, left = 2.5cm, right = 3cm}
+
+%Tloušťka rámečku
+\setlength{\fboxrule}{1.5pt}
+
+\noindent
+\framebox{
+\begin{minipage}{\textwidth}
+\setlength{\parindent}{17.62482 pt}
+\phantom{d}
+
+\begin{minipage}{0.6\textwidth}
+{
+\Large Kabinet výuky obecné fyziky, UK MFF\\
+}
+\vspace*{0.2cm}
+
+{
+\bfseries
+\huge Fyzikální praktikum %ČÍSLO
+}
+\end{minipage}
+\begin{minipage}{0.4\textwidth}
+\begin{center}
+\includegraphics[scale=0.9]{ZFP.png}
+\end{center}
+\end{minipage}\\\\
+
+%\vspace*{0.5cm}
+
+{
+\setstretch{1.5}
+\Large
+\noindent
+Úloha č. %Číslo
+
+\noindent
+Název úlohy: %Název
+
+\noindent
+Jméno: %Jméno
+\hspace*{\fill}
+Obor: %Obor
+
+\noindent
+Datum měření: %Datum
+\hspace*{\fill}
+Datum odevzdání: %Datum
+
+\phantom{d}
+}
+\end{minipage}
+}
+%Konec horního rámečku
+
+{
+\phantom{d}
+
+\Large
+Připomínky opravujícího:\\
+\vspace*{6.75cm}
+}
+
+\newcommand{\linka}{\noalign{\hrule height 1pt}}
+\newcommand{\linkadva}{\noalign{\hrule height 1.5pt}}
+\setlength\extrarowheight{9.5pt}
+\Large
+\noindent
+\begin{tabular}{!{\vrule width 1.5pt} l !{\vrule width 1pt} c !{\vrule width 1pt} c !{\vrule width 1.5pt}}
+\linkadva
+   & Možný počet bodů & Udělený počet bodů \\\linkadva
+  Práce při měření & 0-3 &  \\\linka
+  Teoretická část & 0-2 &  \\\linka
+  Výsledky a zpracování měření & 0-9 &  \\\linka
+  Diskuse výsledků & 0-4 &  \\\linka
+  Závěr & 0-1 &  \\\linka
+  Použitá literatura & 0-1 &  \\\linkadva
+  \hspace*{\fill} \textbf{Celkem} \hspace*{\fill}& max. 20 &  \\
+\linkadva
+\end{tabular}
+\phantom{d}
+
+Posuzoval: \hspace*{\fill}dne:~~~~~~~~~~~~~~~~~
+
+\newpage
+\newgeometry{top = 2cm, bottom = 2cm, left = 2cm, right = 2cm}
+\setcounter{page}{1}
+
+
+%-------------------- ZAČÁTEK PROTOKOLU ------------------------
+
+
+
+
+
+\end{document}
