@@ -1,0 +1,334 @@
+\documentclass{article}
+\usepackage{kantlipsum} 
+\usepackage[utf8]{inputenc}
+\usepackage[czech]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath}
+\usepackage{fullpage}
+\usepackage{graphicx}
+\usepackage{txfonts}
+\usepackage{subcaption}
+\usepackage{gensymb}
+\usepackage{eurosym}
+\usepackage[symbol*]{footmisc}
+\renewcommand{\thefootnote}{\arabic{footnote}}
+\usepackage{mathtools}
+\usepackage{enumitem}
+\usepackage{tabularx,ragged2e,booktabs,caption}
+\author{"Václav Kubíček"}
+
+\begin{document}
+\section{Pracovní úkol}
+\begin{enumerate}%[label=(\alph*)]
+\item U feritových kroužků I, II a III
+\begin{enumerate}[label=(\alph*)]
+\item změřte závislost indukce $B_m$ a koercitivní síly $H_C$ na intenzitě magnetického pole $H_m$ (viz obr. 1 [1]).
+\item sledujte základní typy hysterezních smyček v závislosti na intenzitě pole $H_m$ a zjistěte přibližně, při které intenzitě pole $H_m$ (nebo v kterém intervalu intenzit polí) jednotlivé typy hysterezních smyček přecházejí jeden v druhý.
+\end{enumerate}
+\item Okalibrujte aparaturu pomocí střídavého napětí známé velikosti.
+\item Výsledky dle bodu 1a) zpracujte tabelárně a graficky.
+\end{enumerate}
+
+
+
+
+
+\section{Teorie}
+\par Ferity jsou magnetické oxidy s chemickým vzorcem $\mathrm{M^{2+}Fe^{3+}_2O_4}$, kde $\mathrm{M^{2+}}$ je kov s oxidačním číslem 2+ (např. Mn, Ni, Cu, Zn, Cd ...) [1]. Díky řádově vyšší rezistivitě než má železo a jiné kovy běžně užívaných vodičů mají ferity zanedbatelné ztráty vířivými proudy. 
+\par \textit{Hysterézní křivka} je závislost indukce $B$ na magnetickém poli $H$, zaznamenává se při cyklickém přemagnetovávání. Na obrázku 1 jsou čtyři zákldní typy hysterézních křivek. První typ má podobu úsečky, jež se objevuje zpravidla u slabých změn magnetického pole. Uplatňují se pouze malé změny v doménách magnetika. Druhý (Reyleighův) typ křivek sestává ze dvou větví aproximovatelných parabolickými oblouky. Magnetické pole se zde nachází v tzv. Reyleighově oblasti, kde se začínají uplatňovat nevratné magnetizační děje. U třetího, tzv. normálního, typu smyček se již projevuje magnetické nasycení vzorku při krajních hodnotách polí. Plně se uplatňují nevratné magnetizační děje. Čtvrtý, tzv. zaškrcený, tvar smyček se vyskytuje v Reyleiově oblasti a při přechodu k normálnímu tvaru smyčky u specifických typů feritů (tzv. perminvarových, viz [1]).
+
+\begin{figure}[h!]
+\centering
+\includegraphics[width=\linewidth]{Obr1.png}
+\caption{Čtyři typy tvarů hysterézních křivek. Převzato z [1].}
+\label{fig:test}
+\end{figure}
+
+\subsection{Princip měření}
+\begin{figure}[h!]
+\centering
+\includegraphics[width=400pt]{Obr2.png}
+\caption{Schéma zapojení obvodu pro zobrazení hysterezních křivek feritového kroužku na osciloskopu.}
+\end{figure}
+\par Podle obrázku 2 zapojíme obvod s feritovým kroužkem. Při průchodu střídavého proudu $i$ primárním vinutím $n_1$ vzniká v kroužku proměnlivé magnetické pole. S vyhovující přesností ho lze určit ze vztahu (viz [1])
+\begin{align}
+    H = \frac{n_1 i}{\pi d},
+\end{align}
+kde $d = (d_1 + d_2)/2$, přičemž $d_1$ a $d_2$ jsou vnitřní a vnější průměry kroužku. Dle zákona magnetické indukce se v sekundárním vinutí cívky $n_2$ indukuje napětí úměrné $dB/dt$. Po integraci sekundárního napětí integrátorem získáme na výstupu napětí úměrné magnetické indukci $B$. Tohle napětí připojíme na vertikální osu osciloskopu. Je nutné po celou dobu měření ponechat stejnou citlivost na vertikální ose. Na horizontální osu je připojen původní průběh napětí (na odporu 2.2$\mathrm{\Omega}$).
+\par Pole $H_m$ určíme dosazením magnetizačního proudu $i = \sqrt{2}I$, kde $I$ je hodnota proudu naměřená ampérmetrem, do vztahu (1). Koercitivní intenzitu magnetického pole $H_c$ získáme z rovnosti
+\begin{align}
+    H_c = H_m \frac{x_c}{x_m},
+\end{align}
+kde $x_c$ a $x_m$ jsou délky úseček změřených na horizontální ose osciloskopu pro jednotlivé intenzity. Délka úsečky je přímo úměrná intenzitě pole.
+
+\begin{figure}[h!]
+\centering
+\includegraphics[width=400pt]{Obr3.png}
+\caption{Schéma zapojení obvodu pro kalibraci vertikální osy osciloskopu.}
+\end{figure}
+\par Pro stejnou citlivost vertikální osy, přivedeme na osciloskop přes integrátor napětí ze zdroje (dělené na děliči) podle obrázku 3. Zobrazí se svislá úsečka, kterou pomocí změny odporu na odporové dekádě nastavíme na vertikální rozměr některé z naměřených hysterezních smyček. Délka úsečky $y$ je (dle [1]) úměrná efektivní hodnotě napětí $U_{ef}$ na normálu a nepřímo úměná kruhové frekvenci zdroje $\omega$ podle vztahu (viz [1])
+\begin{align}
+    y = k\frac{U_{ef} \sqrt{2}}{\omega},
+\end{align}
+kde efektivní napětí $U_{ef}$ určíme pomocí napětí měřeného na voltmetru $U$ pomocí Ohmova zákona ($R$ je odpor na odporové dekádě)
+\begin{align}
+    U_{ef} = \frac{1}{R+1}U.
+\end{align}
+Tok magnetického pole se spočte ze vztahu $\Phi(t) = Sn_2B(t)$, kde $S$ je průřez kroužku počítaný dle [1] vztahem
+\begin{align}
+    S = \frac{1}{2}(d_1 - d_2)v.
+\end{align}
+V sekundární cívce se indukuje napětí $U = -d\Phi/dt$, ale na výstupu integrátoru naměříme napětí úměrné $Sn_2B(t)$. Pro vertikální rozměr smyčky dostáváme dle [1] obdobně
+\begin{align}
+    y = kSn_2B_m.
+\end{align}
+Porovnáním (3) s (5) získáme pro $B_m$
+\begin{align}
+    B_m = \frac{U_{ef}\sqrt{2}}{\omega S n_2},
+\end{align}
+kde ostatní hodnoty magnetické indukce jsou úměrné této hodnotě podle relativní délky x-ové úsečky dané hysterézní křivky
+\begin{align}
+    B = B_m \frac{y}{y_m} = Cy,
+\end{align}{}
+kde $C$ nazveme konstantou úměrnosti pro magnetickou indukci.
+
+
+
+
+
+\section{Výsledky měření}
+\subsection{Podmínky měření}
+\par Po celou dobu měření jsme pracovli se síťovou frekvencí 50Hz. Přesnost použitých přístrojů (voltmetru a ampérmetru) pro dané rozsahy je uvedena v následující tabulce. 
+\begin{center}
+    \captionof{table}{Přesnost použitých přístrojů.}
+    \label{tab:title} 
+    \begin{tabular}[h!]{| l | l |}
+    \hline
+     \multicolumn{2}{|c|}{Voltmert} \\
+     \hline
+    AC 6$\mathrm{V}$  & $\pm(1.0\mathrm{\%} + 3\mathrm{digits})$  \\ \hline
+    \multicolumn{2}{|c|}{Ampérmetr} \\
+    \hline
+    AC 60$\mathrm{mA}$ - 6$\mathrm{A}$ & $\pm(0.5\mathrm{\%} + 3\mathrm{digits})$ \\ \hline
+    \end{tabular}
+\end{center}
+
+Přesnost nastavení odporu na odporové dekádě je vždy 0.1$\mathrm{\%}$. Dále přesnost odečítání hodnoty na osciloskopu odhadujeme na polovinu nejmenšího dílku, tedy 1 mm.
+\par Uveďme ještě do tabulky perametry použitých feritových kroužků. Jejich chyba není uvedena, ale odhadneme ji na 0.05 mm.
+\begin{center}
+    \captionof{table}{Parametry feritových kroužků.}
+    \label{tab:title} 
+    \begin{tabular}[h!]{| l | l | l | l | l | l |}
+    \hline
+     & $d_1 [\mathrm{mm}]$ & $d_2 [\mathrm{mm}]$ & $v [\mathrm{mm}]$ & $n_1$ & $n_2$ \\ \hline \hline
+    I   & 29,20 & 20.75 & 4.40 & 50  & 6  \\ \hline
+    II  & 30.65 & 21.80 & 4.35 & 50  & 6  \\ \hline
+    III & 31.00 & 21.80 & 4.15 & 300 & 6  \\ \hline
+    \end{tabular}
+\end{center}
+\par V průběhu měření jsme nedodrželi návod k úloze a aktivně jsme přenastavovali citlivost vertikální osy. Získanou délku každého měření však lze snadno přepočítat na délku v citlivosti, která byla použita při kalibraci pomocí vztahu
+\begin{align}
+    x = x_d \frac{s_0}{s_d},
+\end{align}
+kde $x$ je délka úsečky v kalibrované citlivosti, $x_d$ délka v měřené citlivosti a poměr $\frac{s_0}{s_d}$ je poměr citlivostí. Postup je tedy validní. Chybu následně přepočítáme vztahem
+\begin{align}
+    \sigma_x = \sigma_{x_d} \frac{s_0}{s_d}.
+\end{align}
+
+\subsection{Kalibrace vertikální osy}
+\par Pro další zpracování je nutné uvést výsledky kalibrace již zde. Po zapojení obvodu podle obrázku 3 a příslušném nastavení odporu tak, aby délka úsečky odpovídala vertikální velikosti některé z měřených smyček ($y_m$ = (5 $\pm$ 0.1) cm, viz níže), jsme naměřili na voltmetru napětí
+\begin{align*}
+    U_0 = (5.67 \pm 0.06) \mathmrm{V}.
+\end{align*}
+Chybu jsme určili dle tabulky 1. Odpor odpovídal hodnotě $R = (1000 \pm 1) \Omega$. Odtud pak efektivní napětí na normálu
+\begin{align*}
+    U_{ef} = (5.67 \pm 0.06) \mathmrm{mV}.
+\end{align*}
+Dle (7) a (8) získáme konstantu úměrnosti pro každý kroužek a chybu této konstanty určíme ze vzorce pro chyby nepřímých měření (viz [2])
+\begin{align}
+    \sigma_C = C\sqrt{\frac{\sigma^2_{B_m}}{B^2_m} + \frac{\sigma^2_{y_m}}{y^2_m} }
+\end{align}
+Dostáváme
+\begin{align*}
+    C_{I} = (4.6 \pm 0.3)\mathrm{Tm^{-1}},
+\end{align*}
+\begin{align*}
+    C_{II} = (4.4 \pm 0.3)\mathrm{Tm^{-1}},
+\end{align*}
+\begin{align*}
+    C_{III} = (5.0 \pm 0.3)\mathrm{Tm^{-1}}.
+\end{align*}
+
+\subsection{Hysterezní smyčky}
+
+\par V následujících tabulkách (3-5) jsou uvedeny naměřené veličiny pro každý kroužek. Magnetické pole $H_m$ jsme vypočetli ze vztahu (1) a jeho chybu určili ze vzorce pro chybu nepřímých měření [2]
+\begin{align}
+    \sigma_{H_m} = H_m \sqrt{\frac{\sigma^2_I}{I^2} + \frac{\sigma^2_d}{d^2}}.
+\end{align}
+Koercitivní intenzitu $H_c$ získáme ze vztahu (2) a její chybu určíme znovu ze vztahu pro chybu nepřímých měření [2]
+\begin{align}
+    \sigma_{H_c} = H_c\sqrt{\frac{\sigma^2_{H_m}}{H^2_m} + \frac{\sigma^2_{x_c}}{x^2_c} + \frac{\sigma^2_{x_m}}{x^2_m}}.
+\end{align}
+Magnetickou indukci $B_m$ určujeme podle (8) s určitou konstantou úměrnosti specifickou pro daný kroužek. Chybu určíme vztahem [2]
+\begin{align}
+    \sigma_{B_m} = H_m \sqrt{\frac{\sigma^2_C}{C^2} + \frac{\sigma^2_y}{y^2}}.
+\end{align}
+Při měření jsme zároveň sledovali typy hysterezních křivek každého kroužku při se intenzitě magnetického pole.
+\par U kroužku I jsme pozorovali pouze úsečku do hodnoty proudu 8.5 mA, dále Reyleighův typ přibližně do hodnoty proudu 74.6 mA a nad tento proud jsme pozorovali již normální tvar hystereze.
+\par U kroužku II jsme sledovali první typ křivky do 60,3 mA proudu, dále přibližně až do 209.9 mA Reyleighův typ a nad tuhle hodnotu již normální typ hystereze.
+\par U kroužku III jsme sledovali první typ hystereze do 0.38 A, dále přes Reyleighův typ smyčka rychle přešla do zaškrceného tvaru a to až do hodnoty proudu 1.02 A a nad tuhle hodnotu jsme již pozorovali normální typ hystereze.
+\par Důležité je upozornit, že přechody mezi typy křivek nejsou diskrétní, udané hodnoty nejsou tedy přesné body změny na jiný typ ale spíše v okolí této hodnoty se křivky měnily jedna ve druhou.
+\newpage
+\begin{center}
+    \captionof{table}{Charakteristika kroužku I.}
+    \label{tab:title} 
+    \begin{tabular}[h!]{| l | l | l | l | l | l | l |}
+    \hline
+    $I [\mathrm{mA}]$ & $y [\mathrm{cm}]$ & $x_m [\mathrm{cm}]$ & $x_c [\mathrm{cm}]$ & $H_m [\mathrm{A.m^{-1}}]$ & $H_c [\mathrm{A.m^{-1}}]$ & $B_m [\mathrm{T}]$ \\ \hline \hline
+    10.5  & 0.74$\pm$ 0.01& 0.62 $\pm$ 0.01& 0.04 $\pm$ 0.01 & 8  $\pm$ 2   & 0.4$\pm$ 0.1 & 0.030$\pm$ 0.002\\\hline
+    19.6  & 1.75$\pm$ 0.03& 1.24 $\pm$ 0.02& 0.28 $\pm$ 0.02 & 13 $\pm$ 2   & 2.8$\pm$ 0.6 & 0.08 $\pm$ 0.01 \\ \hline
+    31.9  & 3.10$\pm$ 0.05& 2.10 $\pm$ 0.05& 0.55 $\pm$ 0.05 & 20 $\pm$ 2   & 5.3$\pm$ 0.6 & 0.14 $\pm$ 0.01 \\ \hline
+    40.2  & 3.70$\pm$ 0.05& 2.60 $\pm$ 0.05& 0.70 $\pm$ 0.05 & 26 $\pm$ 2   & 7.0$\pm$ 0.8 & 0.17 $\pm$ 0.01 \\ \hline
+    50.8  & 4.4 $\pm$ 0.1 & 3.20 $\pm$ 0.05& 0.80 $\pm$ 0.05 & 32 $\pm$ 3   & 8  $\pm$ 1   & 0.20 $\pm$ 0.01 \\ \hline
+    61.4  & 4.8 $\pm$ 0.1 & 3.90 $\pm$ 0.05& 0.85 $\pm$ 0.05 & 39 $\pm$ 3   & 9  $\pm$ 1   & 0.22 $\pm$ 0.01 \\ \hline
+    70.0  & 5.2 $\pm$ 0.1 & 4.45 $\pm$ 0.05& 0.90 $\pm$ 0.05 & 45   $\pm$ 3   & 9  $\pm$ 1   & 0.24 $\pm$ 0.02 \\ \hline
+    80.4  & 5.4 $\pm$ 0.1 & 5.2  $\pm$ 0.1 & 0.95 $\pm$ 0.05 & 51   $\pm$ 3   & 9  $\pm$ 1   & 0.25 $\pm$ 0.02 \\ \hline
+    90.0  & 5.6 $\pm$ 0.1 & 5.6  $\pm$ 0.1 & 1.00 $\pm$ 0.05 & 57   $\pm$ 3   & 10 $\pm$ 1   & 0.26 $\pm$ 0.02 \\ \hline
+    101.7 & 5.8 $\pm$ 0.1 & 6.2  $\pm$ 0.1 & 1.00 $\pm$ 0.05 & 65   $\pm$ 3   & 10 $\pm$ 1   & 0.27 $\pm$ 0.02 \\ \hline
+    110.2 & 5.9 $\pm$ 0.1 & 6.8  $\pm$ 0.1 & 1.00 $\pm$ 0.05 & 70   $\pm$ 3   & 10 $\pm$ 1   & 0.27 $\pm$ 0.02 \\ \hline
+    120.6 & 6.0 $\pm$ 0.1 & 7.4  $\pm$ 0.1 & 1.00 $\pm$ 0.05 & 77   $\pm$ 4   & 10 $\pm$ 1   & 0.28 $\pm$ 0.02 \\ \hline
+    135.3 & 6.1 $\pm$ 0.1 & 8.5  $\pm$ 0.1 & 1.00 $\pm$ 0.05 & 86   $\pm$ 4   & 10 $\pm$ 1   & 0.28 $\pm$ 0.02 \\ \hline
+    150.6 & 6.2 $\pm$ 0.1 & 9.2  $\pm$ 0.1 & 1.00 $\pm$ 0.05 & 96   $\pm$ 4   & 10 $\pm$ 1   & 0.29 $\pm$ 0.02 \\ \hline
+    \end{tabular}
+\end{center}
+\par Data dle zadání máme vynést do grafu. Vyneseme tedy pro každý kroužek závislost $H_c(H_m)$ a $B_m(H_m)$.
+\begin{figure}[h!]
+\centering
+\includegraphics[width=400pt]{1HmHc.png}
+\caption{Závislost $H_c(H_m)$ proložená hladkou čarou pro kroužek I.}
+\end{figure}
+\begin{figure}[h!]
+\centering
+\includegraphics[width=400pt]{1HmBm.png}
+\caption{Závislost $B_m(H_m)$ proložená hladkou čarou pro kroužek I.}
+\end{figure}
+\newpage
+
+\begin{center}
+    \captionof{table}{Charakteristika kroužku II.}
+    \label{tab:title} 
+    \begin{tabular}[h!]{| l | l | l | l | l | l | l |}
+    \hline
+    $I [\mathrm{mA}]$ & $y [\mathrm{cm}]$ & $x_m [\mathrm{cm}]$ & $x_c [\mathrm{cm}]$ & $H_m [\mathrm{A.m^{-1}}]$ & $H_c [\mathrm{A.m^{-1}}]$ & $B_m [\mathrm{T}]$ \\ \hline \hline
+    30.8  & 0.48$\pm$ 0.01& 1.84 $\pm$ 0.02& 0              & 19 $\pm$ 2   & 0            & 0.021$\pm$ 0.001\\ \hline
+    50.0  & 0.83$\pm$ 0.03& 3.00 $\pm$ 0.05& 0              & 30 $\pm$ 2   & 0            & 0.037$\pm$ 0.002\\ \hline
+    70.2  & 1.18$\pm$ 0.03& 4.75 $\pm$ 0.05& 0.20$\pm$ 0.05 & 43 $\pm$ 3   & 2  $\pm$ 2   & 0.052$\pm$ 0.003\\ \hline
+    90.2  & 1.60$\pm$ 0.03& 5.4  $\pm$ 0.1 & 0.40$\pm$ 0.05 & 55   $\pm$ 3   & 4  $\pm$ 2   & 0.070$\pm$ 0.005\\ \hline
+    110.4 & 2.10$\pm$ 0.05& 6.7  $\pm$ 0.1 & 0.70$\pm$ 0.05 & 67   $\pm$ 3   & 7  $\pm$ 3   & 0.09 $\pm$ 0.01 \\ \hline
+    130.3 & 2.60$\pm$ 0.05& 7.9  $\pm$ 0.1 & 1.00$\pm$ 0.05 & 79   $\pm$ 3   & 10 $\pm$ 3   & 0.11 $\pm$ 0.01 \\ \hline
+    150.3 & 3.05$\pm$ 0.05& 9.1  $\pm$ 0.1 & 1.4 $\pm$ 0.1  & 91   $\pm$ 4   & 14 $\pm$ 3   & 0.13 $\pm$ 0.01 \\ \hline
+    170.2 & 3.50$\pm$ 0.05& 10.4 $\pm$ 0.2 & 1.8 $\pm$ 0.1  & 103  $\pm$ 4   & 18 $\pm$ 3   & 0.15 $\pm$ 0.01 \\ \hline
+    190.8 & 4.00$\pm$ 0.05& 11.6 $\pm$ 0.2 & 2.2 $\pm$ 0.1  & 116  $\pm$ 4   & 22 $\pm$ 3   & 0.18 $\pm$ 0.01 \\ \hline
+    210.1 & 4.4 $\pm$ 0.1 & 12.8 $\pm$ 0.2 & 2.5 $\pm$ 0.1  & 128  $\pm$ 4   & 25 $\pm$ 3   & 0.19 $\pm$ 0.01 \\ \hline
+    231.4 & 4.7 $\pm$ 0.1 & 14.0 $\pm$ 0.2 & 2.9 $\pm$ 0.1  & 140  $\pm$ 5   & 29 $\pm$ 3   & 0.21 $\pm$ 0.01 \\ \hline
+    250.0 & 5.0 $\pm$ 0.1 & 15.0 $\pm$ 0.2 & 3.0 $\pm$ 0.1  & 152  $\pm$ 5   & 30 $\pm$ 3   & 0.22 $\pm$ 0.01 \\ \hline
+    \end{tabular}
+\end{center}
+\begin{figure}[h!]
+\centering
+\includegraphics[width=400pt]{2HmHc.png}
+\caption{Závislost $H_c(H_m)$ proložená hladkou čarou pro kroužek II.}
+\end{figure}
+\begin{figure}[h!]
+\centering
+\includegraphics[width=400pt]{2HmBm.png}
+\caption{Závislost $B_m(H_m)$ proložená hladkou čarou pro kroužek II.}
+\end{figure}
+
+
+\newpage
+
+
+\begin{center}
+    \captionof{table}{Charakteristika kroužku III.}
+    \label{tab:title} 
+    \begin{tabular}[h!]{| l | l | l | l | l | l | l |}
+    \hline
+    $I [\mathrm{A}]$ & $y [\mathrm{cm}]$ & $x_m [\mathrm{cm}]$ & $x_c [\mathrm{cm}]$ & $H_m [\mathrm{A.m^{-1}}]$ & $H_c [\mathrm{A.m^{-1}}]$ & $B_m [\mathrm{T}]$ \\ \hline \hline
+    0.30 & 0.60$\pm$ 0.01& 1.80 $\pm$ 0.01& 0               & 1090 $\pm$ 30  & 0               & 0.030$\pm$ 0.002\\ \hline
+    0.35 & 0.70$\pm$ 0.01& 2.10 $\pm$ 0.05& 0               & 1270 $\pm$ 30  & 0               & 0.035$\pm$ 0.002\\ \hline
+    0.41 & 0.90$\pm$ 0.03& 2.45 $\pm$ 0.05& 0.12 $\pm$ 0.02 & 1470 $\pm$ 40  & 0               & 0.045$\pm$ 0.003\\ \hline
+    0.45 & 1.05$\pm$ 0.03& 2.70 $\pm$ 0.05& 0.24 $\pm$ 0.02 & 1630 $\pm$ 50  & 140  $\pm$ 100  & 0.053$\pm$ 0.003\\ \hline
+    0.50 & 1.33$\pm$ 0.03& 3.05 $\pm$ 0.05& 0.50 $\pm$ 0.05 & 1800 $\pm$ 50  & 300  $\pm$ 100  & 0.07 $\pm$ 0.01 \\ \hline
+    0.61 & 3.00$\pm$ 0.05& 3.7  $\pm$ 0.1 & 1.4  $\pm$ 0.1  & 2210 $\pm$ 60  & 840  $\pm$ 100  & 0.15 $\pm$ 0.01 \\ \hline
+    0.70 & 4.6 $\pm$ 0.1 & 4.4  $\pm$ 0.1 & 1.8  $\pm$ 0.1  & 2530 $\pm$ 60  & 1040 $\pm$ 100  & 0.23 $\pm$ 0.01 \\ \hline
+    0.80 & 5.2 $\pm$ 0.1 & 5.1  $\pm$ 0.1 & 1.9  $\pm$ 0.1  & 2890 $\pm$ 60  & 1080 $\pm$ 100  & 0.26 $\pm$ 0.02 \\ \hline
+    0.91 & 5.6 $\pm$ 0.1 & 5.7  $\pm$ 0.1 & 2.0  $\pm$ 0.1  & 3290 $\pm$ 70  & 1150 $\pm$ 100  & 0.28 $\pm$ 0.02 \\ \hline
+    1.00 & 5.8 $\pm$ 0.1 & 6.3  $\pm$ 0.1 & 2.1  $\pm$ 0.1  & 3620 $\pm$ 80  & 1200 $\pm$ 100  & 0.29 $\pm$ 0.02 \\ \hline
+    1.05 & 5.9 $\pm$ 0.1 & 6.6  $\pm$ 0.1 & 2.1  $\pm$ 0.1  & 3800 $\pm$ 90  & 1200 $\pm$ 100  & 0.30 $\pm$ 0.02 \\ \hline
+    1.10 & 6.0 $\pm$ 0.1 & 6.8  $\pm$ 0.1 & 2.1  $\pm$ 0.1  & 3980 $\pm$ 90  & 1200 $\pm$ 100  & 0.30 $\pm$ 0.02 \\ \hline
+    1.16 & 6.1 $\pm$ 0.1 & 7.2  $\pm$ 0.1 & 2.2  $\pm$ 0.1  & 4200 $\pm$ 100 & 1300 $\pm$ 100  & 0.31 $\pm$ 0.02 \\ \hline
+    1.20 & 6.1 $\pm$ 0.1 & 7.4  $\pm$ 0.1 & 2.2  $\pm$ 0.1  & 4300 $\pm$ 100 & 1300 $\pm$ 100  & 0.31 $\pm$ 0.02 \\ \hline
+    \end{tabular}
+\end{center}
+\begin{figure}[h!]
+\centering
+\includegraphics[width=400pt]{3HmHc.png}
+\caption{Závislost $H_c(H_m)$ proložená hladkou čarou pro kroužek III.}
+\end{figure}
+\begin{figure}[h!]
+\centering
+\includegraphics[width=400pt]{3HmBm.png}
+\caption{Závislost $B_m(H_m)$ proložená hladkou čarou pro kroužek III.}
+\end{figure}
+
+
+
+
+
+\newpage
+
+
+
+
+
+\section{Diskuse}
+\par  Proměřili jsme u tří feritových kroužků jejich hysterezní křivky. Při kalibraci vertikální osy jsme výpočtem získali konstanty úměrnosti mezi magnetickou indukcí a délkou úsečky pro každý kroužek. $C_{I} = (4.6 \pm 0.3)\mathrm{Tm^{-1}}$, $C_{II} = (4.4 \pm 0.3)\mathrm{Tm^{-1}}$ a $C_{III} = (5.0 \pm 0.3)\mathrm{Tm^{-1}}$. Pomocí těchto konstant jsme dále mohli určit ostatní hodnoty magnetické indukce v průběhu měření. 
+\par Charakteristika prvního kroužku je uvedena v tabulce 3. Graficky jsou pak vyvedeny závislosti $H_c(H_m)$ a $B_m(H_m)$ viz obrázek 4 a 5. Na obrázku 4 můžeme pozorovat, že koercitivní pole vykazuje při rostoucím magnetickém poli stav nasycení. U druhé závislosti by měla být patrná lineární závslost při vyšších hodnotách magnetického pole, na obrázku 5 to však nelze dobře rozeznat. U tohoto kroužku jsme při zvyšování $H_m$ nejprve sledovali úsečku bez hystereze asi do hodnoty 8.5 mA proudu, dále do hodnoty proudu 74.6 mA se křivka nacházela v Reyleighově oblasti a nakonec přešla do normálního tvaru.
+\par Charakteristika druhého kroužku je tabelárně zpracována v tabulce 4. Graficky jsou pak data vynesena na obrázcích 6 a 7. U průběhů je mnohem méně patrný stav nasycení. Obě závislosti mají téměř lineární průběh. Toto můžeme vysvětlit širokým pásem kdy se křivka nacházela v Rayleiově oblasti, a to až do hodnot proudu 209.8 mA. 
+\par Charakteristika třetího kroužku je tabelárně vynesena v tabulce 6 a graficky pak na obrázcích 8 a 9. Oba průběhy vykazují stav nasycení. Prudké stoupání, které můžeme v grafu sledovat může souviset s přechodem od zaškrceného tvaru křivky a normálního tvaru. To jsme zde mohli pozorovat při hodnotách proudu kolem 1.02 A. 
+\par Pozorovali jsme všechny tyby hysterezních smyček zmíněných v teorii. Přístroje námi použité měli vždy dobrou přesnost a tak výraznější nepřesnosti způsoboval pouze přenost chyby u nepřímých měření. 
+
+
+
+
+
+\section{Závěr}
+\par Byly proměřeny tři feritové kroužky. Získáné hodnoty indukce $B_m$ a koercitivní síly $H_c$ v závislosti na magnetickém poli $H_m$ byly vyneseny do grafů pro každý kroužek. Zároveň jsme pozorovali všechny typy hysterezních smyček. Kalibrovali jsme vertikální osu na osciloskopu a tak získali koeficienty úměrnosti mezi magnetickou indukcí a délkou úsečky na osciloskopu pro všechny kroužky. $C_{I} = (4.6 \pm 0.3)Tm^{-1}$, $C_{II} = (4.4 \pm 0.3)Tm^{-1}$ a $C_{III} = (5.0 \pm 0.3)Tm^{-1}$.  
+
+
+
+
+
+
+\renewcommand\refname{Použitá literatura}
+\begin{thebibliography}{}
+\bibitem{einstein} 
+Studium hysterezních smyček feritů [online]. [cit. 2019-18-11]. Dostupné z: 
+\\\texttt{https://physics.mff.cuni.cz/vyuka/zfp/zadani/221}
+
+
+
+\bibitem{knuthwebsite} 
+Základy zpracování dat fyzikálních měření [online]. [cit. 2019-18-11].
+\newline Dostupné z:\\\texttt{http://fyzikalniolympiada.cz/studijni-texty}
+
+
+
+
+
+
+\end{thebibliography}
+
+
+\end{document}
